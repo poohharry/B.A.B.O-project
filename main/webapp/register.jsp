@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form>
+    <form action="register.proc" method="post">
     <div>
     <h1>회원가입 페이지</h1>
     <div >
