@@ -24,7 +24,7 @@ public class UserDAO {
 		try {
 			con = pool.getConnection();
 			// sql문 들어갈 자리
-			
+//			sql = insert into 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
