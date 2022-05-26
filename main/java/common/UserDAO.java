@@ -25,7 +25,7 @@ public class UserDAO {
 			con = pool.getConnection();
 			// sql문 들어갈 자리
 //			sql = insert into 
-			// feature 브랜치 체크 2
+			// feature 브랜치 체크 3
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
