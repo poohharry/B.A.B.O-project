@@ -1,7 +1,7 @@
 package common;
 
 public class UserVO {
-	private int mNum;
+//	private int mNum;
 	private String id;
 	private String pw;
 	private String name;
@@ -11,14 +11,9 @@ public class UserVO {
 	private int lgnFailCnt;
 	private String changePwDate;
 	private String lastLoginDate;
+	private String isBiz;
 	
 	
-	public int getmNum() {
-		return mNum;
-	}
-	public void setmNum(int mNum) {
-		this.mNum = mNum;
-	}
 	public String getId() {
 		return id;
 	}
@@ -73,6 +68,13 @@ public class UserVO {
 	public void setLastLoginDate(String lastLoginDate) {
 		this.lastLoginDate = lastLoginDate;
 	}
+	public String getIsBiz() {
+		return isBiz;
+	}
+	public void setIsBiz(String isBiz) {
+		this.isBiz = isBiz;
+	}
+
 	
 	
 }
