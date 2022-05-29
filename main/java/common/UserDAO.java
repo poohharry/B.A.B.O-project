@@ -49,5 +49,22 @@ public class UserDAO {
 	
 	
 	// 회원계정 삭제
+	public boolean deleteUser(UserVO vo) {
+		boolean flag = false;
+		
+		
+		return flag;
+	}
 	
+	// 회원정보 수정
+	// 수정할 데이터가 담긴 클래스를 같이 던져준다? 함수 호출전에 수정될 부분을 다 정리해서 변수로만 던져준다?
+	public boolean updateUser(UserVO vo) {
+		boolean flag = false;
+		
+		
+		
+		return flag;
+	}
+	
+	// 
 }
