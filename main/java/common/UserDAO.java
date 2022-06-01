@@ -17,6 +17,7 @@ public class UserDAO {
 	
 	// 회원가입
 	// 가입 성공했으면 true반환 실패했으면 false반환 / default는 false
+	// 비밀번호 암호화?
 	public boolean insertUser(UserVO vo) {
 		boolean flag = false;
 		Connection con = null;
