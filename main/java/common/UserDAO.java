@@ -17,6 +17,7 @@ public class UserDAO {
 	
 	// 회원가입
 	// 가입 성공했으면 true반환 실패했으면 false반환 / default는 false
+	// 멤버번호를 max를 사용해서 추가한다?
 	public boolean insertUser(UserVO vo) {
 		boolean flag = false;
 		Connection con = null;
@@ -49,8 +50,23 @@ public class UserDAO {
 	
 	
 	// 회원계정 삭제
+	// 삭제 유예 테이블로 옮기기? 옮겨진 후 30일 지나면 DB에서 완전 삭제
 	public boolean deleteUser(UserVO vo) {
 		boolean flag = false;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		
+		try {
+			
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			
+		}
+		
 		
 		
 		return flag;
@@ -67,4 +83,5 @@ public class UserDAO {
 	}
 	
 	// 
+	
 }
