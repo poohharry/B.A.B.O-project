@@ -26,7 +26,7 @@ public class UserDAO {
 		String sql = null;
 		try {
 			con = pool.getConnection();
-			sql = "insert into users(id, pw, name, email, pNum, isBiz)values(?, ?, ?, ?, ?, ?)";
+			sql = "insert into users(mNum, id, pw, name, email, pNum, isBiz)values((SELECT IFNULL(MAX(mNum), 0)+1 FROM users U), ?, ?, ?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, vo.getId());
 			pstmt.setString(2, vo.getPw());
@@ -54,12 +54,23 @@ public class UserDAO {
 	// 삭제 유예 테이블로 옮기기? 옮겨진 후 30일 지나면 DB에서 완전 삭제
 	public boolean deleteUser(UserVO vo) {
 		boolean flag = false;
-		Connection conn = null;
+		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
 		
 		try {
+			con = pool.getConnection();
+			// users 테이블에서 모든 정보를 복사하여 delete테이블로 옮긴다.
+			// 옮겨지고 30일이 지나면 자동으로 테이블에서 삭제
+			sql = "delete from users where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, vo.getId());
 			
+			// 관련된 레코드의 숫자가 반환되는데, delete로 1줄이 영향을 받는건 알겠지만, 트리거도 카운트가 되는지는 모르겠음
+			// 만약 트리거가 영향을 준다면 2일때 flag를 true로 바꿔줘야 함
+			if (pstmt.executeUpdate() == 1) {
+				flag = true;
+			}
 			
 			
 		} catch (Exception e) {
@@ -75,6 +86,8 @@ public class UserDAO {
 	
 	// 회원정보 수정
 	// 수정할 데이터가 담긴 클래스를 같이 던져준다? 함수 호출전에 수정될 부분을 다 정리해서 변수로만 던져준다?
+	// 보통은 수정할 만한 정보를 입력하는 폼을 작성해서 던져주면 그 데이터로 정보를 업데이트하는 방식
+	// 폼에는 비밀번호를 제외한 정보들이 기존에 저장된 데이터로 채워져있으며, 유저가 수정하기를 원하는 정보만 고치면 됨
 	public boolean updateUser(UserVO vo) {
 		boolean flag = false;
 		
