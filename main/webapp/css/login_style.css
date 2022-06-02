@@ -1,0 +1,22 @@
+body{
+    text-align: center;
+}
+img{
+    width: 200px;
+    height: 200px;
+    padding: 0;
+}
+.title_txt{
+    display:inline;
+    vertical-align: 80px;
+    font-size:60px;
+}
+
+.bottom_tag a{
+    text-decoration: none;
+    color: black;
+}
+.bottom_tag a:visited{
+    text-decoration: none;
+    color:black;
+}
