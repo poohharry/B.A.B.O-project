@@ -2,11 +2,11 @@ package common;
 
 public class UserVO {
 //	private int mNum;
-	private String id;
-	private String pw;
-	private String name;
-	private String email;
-	private String pNum;
+	private String id; // 아이디
+	private String pw; // 패스워드
+	private String name; // 회원이름
+	private String email; // 이메일
+	private String pNum; // 
 	private String signUpDate;
 	private int lgnFailCnt;
 	private String changePwDate;
