@@ -53,7 +53,8 @@ public class UserDAO {
 	
 	// 회원계정 삭제
 	// 삭제 유예 테이블로 옮기기? 옮겨진 후 30일 지나면 DB에서 완전 삭제
-	public boolean deleteUser(UserVO vo) {
+	// 테스트 환경에서는 1분 지나면 삭제하도록 지정함
+	public boolean deleteUser(String id) {
 		boolean flag = false;
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -65,7 +66,7 @@ public class UserDAO {
 			// 옮겨지고 30일이 지나면 자동으로 테이블에서 삭제
 			sql = "delete from users where id = ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, vo.getId());
+			pstmt.setString(1, id);
 			
 			// 관련된 레코드의 숫자가 반환되는데, delete로 1줄이 영향을 받는건 알겠지만, 트리거도 카운트가 되는지는 모르겠음
 			// 만약 트리거가 영향을 준다면 2일때 flag를 true로 바꿔줘야 함
@@ -79,8 +80,6 @@ public class UserDAO {
 		} finally {
 			
 		}
-		
-		
 		
 		return flag;
 	}
@@ -99,6 +98,7 @@ public class UserDAO {
 	
 	
 	// 로그인
+	// 다른 방법으로는 비밀번호를 입력하고 로그인에 시도할 때 입력받은 비밀번호를 암호화시키고 암호화된 비밀번호와 DB에 있는 암호화된 비밀번호를 대조하는 방식
 	public int login(String id, String pw) {
 		
 		Connection con = null;				// 데이터베이스와의 연결
@@ -142,5 +142,25 @@ public class UserDAO {
 		return flag;
 	}
 	
+	// 로그인 실패시 로그인을 시도했던 아이디의 로그인실패 카운트를 증가시키는 함수
+	public void addFailCnt(String id) {
+		
+		
+		
+		
+		
+		
+	}
+	
+	// 카운트가 5까지 쌓이면 로그인에 성공해도 추가적인 인증이 필요하도록 만듬
+	public boolean  addAuth() {
+		boolean flag = false;
+		
+		
+		
+		
+		
+		return flag;
+	}
 	
 }
