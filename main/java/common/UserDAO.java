@@ -6,11 +6,11 @@ import java.sql.ResultSet;
 
 public class UserDAO {
 	
-	private DBConnectionMgr pool;
+	private DBConMgr pool;
 
 	public UserDAO() {
 		try {
-			pool = DBConnectionMgr.getInstance();
+			pool = DBConMgr.getInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
