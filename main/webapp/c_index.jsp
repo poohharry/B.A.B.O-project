@@ -15,8 +15,8 @@
     <div class="main ">
         <div class="title">
             <div class="title_btn title_btn-outline">
-                <button type="button" onclick="location.href='/login.html'" width=100px >로그인</button>&nbsp;
-                <button type="button" onclick="location.href='/register.html'">회원가입</button>
+                <button type="button" onclick="location.href='Login.jsp'" width=100px >로그인</button>&nbsp;
+                <button type="button" onclick="location.href='register_test.jsp'">회원가입</button>
             </div> <!--title_btn-->
             <a href="c_index.jsp"><img src="images/부산광역시-removebg-preview.png"></a>
                 <h1 class="title_txt">Busan Cummunity</h1>
