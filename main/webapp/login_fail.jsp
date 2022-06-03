@@ -4,12 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>login test</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<form action="">
-		<p>ID : <input type="text"></p>
-		<p>PW : <input type="text"></p>	
-	</form>
+	
+	<h2>아이디와 비밀번호를 확인하세요</h2>
+	
+	<a href="login.jsp">다시 로그인하기</a>
+
 </body>
 </html>
+
