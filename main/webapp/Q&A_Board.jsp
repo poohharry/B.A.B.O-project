@@ -15,8 +15,8 @@
     <div class="main ">
         <div class="title">
             <div class="title_btn title_btn-outline">
-                <button type="button" onclick="location.href='/login.jsp'" width=100px >로그인</button>&nbsp;
-                <button type="button" onclick="location.href='/register.jsp'">회원가입</button>
+                <button type="button" onclick="location.href='login.jsp'" width=100px >로그인</button>&nbsp;
+                <button type="button" onclick="location.href='register.jsp'">회원가입</button>
             </div> <!--title_btn-->
             <a href="c_index.jsp"><img src="images/부산광역시-removebg-preview.png"></a>
                 <h1 class="title_txt">Busan Cummunity</h1>
@@ -29,8 +29,8 @@
                 <li><a href="#">커뮤니티</a>
                   <ul>
                   
-                    <li><a href="./Free_board.jsp">자유 게시판</a></li>
-                    <li><a href="./Q&A_Board.jsp">질문/답변 게시판</a></li>
+                    <li><a href="Free_board.jsp">자유 게시판</a></li>
+                    <li><a href="Q&A_Board.jsp">질문/답변 게시판</a></li>
                     
                     
                   </ul>
@@ -46,9 +46,8 @@
                 <li><a href="#">맛집</a>
                   <ul>
                     <li><a href="#">여긴 어때요?</a></li>
-                    <!-- <li><a href="#">미정</a></li>
-                    <li><a href="#">미정</a></li>
-                    <li><a href="#">미정</a></li> -->
+                    
+                 
                   </ul>
                 </li>
                 <li><a href="#">공지사항</a>
@@ -73,7 +72,7 @@
           <h1>질문/답변 게시판</h1>
         </div> 
          <div class="First-SecondBoard">
-          <h1> lsit</h1>
+          <h1> list</h1>
         </div>
 
      </section>

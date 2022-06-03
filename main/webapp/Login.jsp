@@ -11,12 +11,13 @@
     <title>로그인 페이지</title>
 </head>
 <body>
-    <form action="login_ok.jsp" method="post">
+   
 <div class="main">
     <div class="header">
         <a href="c_index.jsp"><img src="images/부산광역시-removebg-preview.png"></a>
                 <h1 class="title_txt">Busan Cummunity</h1>
     </div> <!--header-->
+     <form action="login_ok.jsp" method="post">
     <div class="body-center">
         <fieldset>
             <legend class="Login_txt">Login</legend>
@@ -25,7 +26,7 @@
                     <button type="submit">로 그 인</button>
         </fieldset>
         <div class="bottom_tag">
-            <a href="#" target="_blank">비밀번호 찾기</a> &nbsp;| <a href="#" target="_blank">아이디 찾기</a> |&nbsp; <a href="register.jsp" target="_blank">회원가입</a>
+            <a href="#" target="_blank">비밀번호 찾기</a> &nbsp;| <a href="#" target="_blank">아이디 찾기</a> |&nbsp; <a href="register_test.jsp" target="_blank">회원가입</a>
             </div>
     </div> <!-- body-center-->
 </div>    <!--main-->
