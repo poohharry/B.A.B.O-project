@@ -1,17 +1,17 @@
 package common;
 
 public class UserVO {
-//	private int mNum;
-	private String id; // 아이디
-	private String pw; // 패스워드
-	private String name; // 회원이름
-	private String email; // 이메일
-	private String pNum; // 
-	private String signUpDate;
-	private int lgnFailCnt;
-	private String changePwDate;
-	private String lastLoginDate;
-	private String isBiz;
+	private int mNum;	 			 // 회원 고유 번호
+	private String id;				 // 아이디
+	private String pw;				 // 패스워드
+	private String name;			 // 회원이름
+	private String email;			 // 이메일
+	private String pNum;			 // 휴대폰 번호
+	private String signUpDate;		 // 회원가입 날짜
+	private int lgnFailCnt;			 // 로그인실패 횟수
+	private String changePwDate;	 // 마지막 비밀번호 변경 날짜
+	private String lastLoginDate;	 // 마지막 로그인 날짜
+	private String isBiz;			 // 사업자 여부
 	
 	
 	public String getId() {
