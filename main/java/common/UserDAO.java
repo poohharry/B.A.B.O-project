@@ -3,6 +3,8 @@ package common;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAO {
 	
@@ -161,6 +163,35 @@ public class UserDAO {
 		
 		
 		return flag;
+	}
+	
+	
+	
+	// 테스트용 회원 리스트(id) 출력
+	// ArrayList<String> 형태로 반환
+	public List<String> getUsers() {
+		List<String> list = new ArrayList<String>();
+		Connection con = null;
+		PreparedStatement pstmt = null;	
+		String sql = null;
+		ResultSet rs = null;
+		
+		try {
+			con = pool.getConnection();
+			sql = "select id from users";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(!rs.next()) {
+				list.add(rs.getString(0));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		
+		return list;
 	}
 	
 }
