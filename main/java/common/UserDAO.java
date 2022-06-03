@@ -181,8 +181,8 @@ public class UserDAO {
 			sql = "select id from users";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			while(!rs.next()) {
-				list.add(rs.getString(0));
+			while(rs.next()) {
+				list.add(rs.getString(1));
 			}
 			
 		} catch (Exception e) {
