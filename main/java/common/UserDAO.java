@@ -60,7 +60,7 @@ public class UserDAO {
 		
 		try {
 			con = pool.getConnection();
-			// users 테이블에서 모든 정보를 복사하여 delete테이블로 옮긴다.
+			// users 테이블에서 모든 정보를 복사하여 delete테이블로 옮긴다.(트리거 사전에 등록함)
 			// 옮겨지고 30일이 지나면 자동으로 테이블에서 삭제
 			sql = "delete from users where id = ?";
 			pstmt = con.prepareStatement(sql);
