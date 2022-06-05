@@ -14,6 +14,13 @@ public class UserVO {
 	private String isBiz;			 // 사업자 여부
 	
 	
+	
+	public int getmNum() {
+		return mNum;
+	}
+	public void setmNum(int mNum) {
+		this.mNum = mNum;
+	}
 	public String getId() {
 		return id;
 	}

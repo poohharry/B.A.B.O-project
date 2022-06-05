@@ -64,7 +64,7 @@ public class UserDAO {
 		try {
 			con = pool.getConnection();
 			// users 테이블에서 모든 정보를 복사하여 delete테이블로 옮긴다.
-			// 옮겨지고 30일이 지나면 자동으로 테이블에서 삭제
+			// 옮겨지고 30일이 지나면 자동으로 테이블에서 삭제 (트리거와 프로시져, 이벤트 활용)
 			sql = "delete from users where id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
@@ -77,11 +77,44 @@ public class UserDAO {
 		} catch (Exception e) {
 			// TODO: handle exception
 		} finally {
-			
+			pool.freeConnection(con, pstmt);
 		}
 		
 		return flag;
 	}
+	
+	// 회원정보 수정전 비밀번호 확인
+	// 세션에 저장된 ID와 입력받은 비밀번호를 매개변수로 DB데이터와 대조
+	public boolean ChkPW(String lgnId, String pw) {
+		boolean flag = false;
+		Connection con = null;
+		PreparedStatement pstmt = null;	
+		String sql = null;
+		ResultSet rs = null;
+		
+		try {
+			con = pool.getConnection();
+			sql = "select pw from users where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, lgnId);
+			rs = pstmt.executeQuery();
+			
+			// 나온 결과가 있는가?
+			if(rs.next()) {
+				// 결과가 입력받은 비밀번호와 같은가?
+				if(rs.getString("pw").equals(pw)) {
+					flag = true;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		
+		return flag;
+	}
+	
 	
 	// 회원정보 수정
 	// 수정할 데이터가 담긴 클래스를 같이 던져준다? 함수 호출전에 수정될 부분을 다 정리해서 변수로만 던져준다?
@@ -147,6 +180,7 @@ public class UserDAO {
 		
 		return flag;
 	}
+	
 	
 	// 로그인 실패시 로그인을 시도했던 아이디의 로그인실패 카운트를 증가시키는 함수
 	public void addFailCnt(String id) {

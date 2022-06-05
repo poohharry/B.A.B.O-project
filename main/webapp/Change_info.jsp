@@ -17,36 +17,30 @@
   
   <div class="main">	
     <p class="sign" align="center">회원정보수정</p>
-    <form class="form1">
+    <form action="Change_info_proc.jsp" method="post" class="form1">
         <div>
-            <h3>현재 비밀번호</h3>
-            <span class="signup-input">
-                <input id="signup-pw" type="password"></input>
-                <span class="pw-lock"></span>
-            </span>
-
         <h3>신규 비밀번호</h3>
         <span class="signup-input">
-            <input id="signup-pw" type="password"></input>
+            <input id="signup-pw" type="password" name="newPw"></input>
             <span class="pw-lock"></span>
         </span>
 
         <h3>비밀번호 재확인</h3>
         <span class="signup-input">
-            <input id="signup-pww" type="password"></input>
+            <input id="signup-pww" type="password" name="newPwChk"></input>
             <span class="pww-lock"></span>
         </span>
         </div>    <div style="margin-top: 35px;">
             <!--이름,생년월일,성별,이메일-->
             <h3>이름</h3>
             <span class="signup-input">
-                <input id="signup-name" type="text"></input>
+                <input id="signup-name" type="text" name="name"></input>
             </span>
 
             <h3>생년월일</h3>
             <span style="display: flex;">
                 <span class="signup-input-birth">
-                    <input id="signup-birth-yy" type="text" placeholder="년(4자)"  maxlength='4'></input>
+                    <input id="signup-birth-yy" type="text" placeholder="년(4자)"  maxlength='4' name="year"></input>
                 </span>
                 <span class="signup-input-birth" style="margin-left: 10px;">
                     <select id="signup-birth-mm" class="selectbox" name="month" onchange="">
@@ -66,18 +60,8 @@
                     </select>
                 </span>
                 <span class="signup-input-birth" style="margin-left: 10px;">
-                    <input id="signup-birth-dd" type="text" placeholder="일" maxlength="2"></input>
+                    <input id="signup-birth-dd" type="text" placeholder="일" maxlength="2" name="day"></input>
                 </span>
-            </span>
-
-            <h3>성별</h3>
-            <span class="signup-input">
-                <select id="signup-gender" class="selectbox" name="gender" onchange="">
-                    <option value="gender">성별</option>
-                    <option value="man">남자</option>
-                    <option value="woman">여자</option>
-                    <option value="no">선택 안함</option>
-                </select>
             </span>
 
             <span class="choice">
@@ -85,7 +69,7 @@
                
             </span>
             <span class="signup-input">
-                <input id="signup-email" type="text" placeholder="선택입력"></input>
+                <input id="signup-email" type="text" placeholder="선택입력" name="email"></input>
             </span>
             
         </div>
@@ -101,7 +85,7 @@
             <br>
             <div style="display: flex;">
                 <span class="signup-input">
-                    <input id="signup-phone" type="text" placeholder="전화번호 입력"></input>
+                    <input id="signup-phone" type="text" placeholder="전화번호 입력" name="pNum"></input>
                 </span>
             
             </div>
