@@ -13,7 +13,8 @@
 <body>
 
 	<%=id %>(<%=name %>)님 안녕하세요
-
+	
+	<a href="c_index.jsp">메인 페이지로 이동</a><br>
 	<a href="logout.jsp">로그아웃</a><br/>
 	<a href="getInfo.jsp">정보수정</a><br/>
 	<a href="delete_ok.jsp">회원탈퇴</a><br/>
