@@ -61,7 +61,6 @@ public class UserDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
-		
 		try {
 			con = pool.getConnection();
 			// users 테이블에서 모든 정보를 복사하여 delete테이블로 옮긴다.
@@ -75,8 +74,6 @@ public class UserDAO {
 			if (pstmt.executeUpdate() == 1) {
 				flag = true;
 			}
-			
-			
 		} catch (Exception e) {
 			// TODO: handle exception
 		} finally {
@@ -91,9 +88,17 @@ public class UserDAO {
 	// 보통은 수정할 만한 정보를 입력하는 폼을 작성해서 던져주면 그 데이터로 정보를 업데이트하는 방식
 	// 폼에는 비밀번호를 제외한 정보들이 기존에 저장된 데이터로 채워져있으며, 유저가 수정하기를 원하는 정보만 고치면 됨
 	public boolean updateUser(UserVO vo) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
 		boolean flag = false;
-		
-		
+		try {
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			
+		}
 		
 		return flag;
 	}
@@ -102,7 +107,6 @@ public class UserDAO {
 	// 로그인
 	// 다른 방법으로는 비밀번호를 입력하고 로그인에 시도할 때 입력받은 비밀번호를 암호화시키고 암호화된 비밀번호와 DB에 있는 암호화된 비밀번호를 대조하는 방식
 	public int login(String id, String pw) {
-		
 		Connection con = null;				// 데이터베이스와의 연결
 		PreparedStatement pstmt = null;		// 사전에 컴파일 된 SQL문을 실행
 		String sql = null;
