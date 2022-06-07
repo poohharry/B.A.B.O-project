@@ -204,6 +204,39 @@ public class UserDAO {
 		return flag;
 	}
 	
+	// 매개변수로 받은 ID의 모든 정보를 반환(VO)
+	public UserVO getUser(String id) {
+		UserVO vo = new UserVO();
+		Connection con = null;
+		PreparedStatement pstmt = null;	
+		String sql = null;
+		ResultSet rs = null;
+		try {
+			con = pool.getConnection();
+			sql = "select * from users where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				vo.setmNum(rs.getInt("mNum"));
+				vo.setId(rs.getString("id"));
+				vo.setName(rs.getString("name"));
+				vo.setEmail(rs.getString("email"));
+				vo.setpNum(rs.getString("pNum"));
+				vo.setBirth(rs.getString("birth"));
+				vo.setSignUpDate(rs.getString("signUpDate"));
+				vo.setLgnFailCnt(rs.getInt("lgnFailCnt"));
+				vo.setChangePwDate(rs.getString("changePwDate"));
+				vo.setLastLoginDate(rs.getString("lastLoginDate"));
+				vo.setIsBiz(rs.getString("isBiz"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		return vo;
+	}
 	
 	
 	// 테스트용 회원 리스트(id) 출력

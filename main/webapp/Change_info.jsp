@@ -1,5 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<jsp:useBean id="vo" class="common.UserVO"></jsp:useBean>
+<jsp:useBean id="dao" class="common.UserDAO"></jsp:useBean>
+<%
+	String id = (String)session.getAttribute("lgnId");
+	vo = dao.getUser(id);
+	String year, month, day, birth;
+	birth = vo.getBirth();
+	String[] birthArr = birth.split("-");	
+	
+	
+	year = birthArr[0];
+	month = birthArr[1];
+	day = birthArr[2];
+	
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +27,9 @@
     <link rel="stylesheet" href="css/Chan_info.css">
      <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <title>회원정보수정</title>
+    <script>
+    	document.getElementById("testSelect")[2].setAttribute("selected", "true");
+  	</script>
 </head>
 <body>
 
@@ -34,33 +54,33 @@
             <!--이름,생년월일,성별,이메일-->
             <h3>이름</h3>
             <span class="signup-input">
-                <input id="signup-name" type="text" name="name"></input>
+                <input id="signup-name" type="text" name="name" value="<%=vo.getName() %>"></input>
             </span>
 
             <h3>생년월일</h3>
             <span style="display: flex;">
                 <span class="signup-input-birth">
-                    <input id="signup-birth-yy" type="text" placeholder="년(4자)"  maxlength='4' name="year"></input>
+                    <input id="signup-birth-yy" type="text" placeholder="년(4자)"  maxlength='4' name="year" value="<%=year%>"></input>
                 </span>
                 <span class="signup-input-birth" style="margin-left: 10px;">
                     <select id="signup-birth-mm" class="selectbox" name="month" onchange="">
-                        <option value="month">월</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
+                        <option value="month" selected=""><%=month %></option>
+                        <option value="1" selected="">1</option>
+                        <option value="2" selected="">2</option>
+                        <option value="3" selected="">3</option>
+                        <option value="4" selected="">4</option>
+                        <option value="5"selected="">5</option>
+                        <option value="6"selected="">6</option>
+                        <option value="7"selected="">7</option>
+                        if (8 == month)	<option value="8" selected="selected">8</option> else <option value="8">8</option>
+                        <option value="9"selected="">9</option>
+                        <option value="10"selected="">10</option>
+                        <option value="11"selected="">11</option>
+                        <option value="12"selected="">12</option>
                     </select>
                 </span>
                 <span class="signup-input-birth" style="margin-left: 10px;">
-                    <input id="signup-birth-dd" type="text" placeholder="일" maxlength="2" name="day"></input>
+                    <input id="signup-birth-dd" type="text" placeholder="일" maxlength="2" name="day" value="<%=day%>"></input>
                 </span>
             </span>
 
@@ -69,7 +89,7 @@
                
             </span>
             <span class="signup-input">
-                <input id="signup-email" type="text" placeholder="선택입력" name="email"></input>
+                <input id="signup-email" type="text" placeholder="선택입력" name="email" value="<%=vo.getEmail()%>"></input>
             </span>
             
         </div>
@@ -85,7 +105,7 @@
             <br>
             <div style="display: flex;">
                 <span class="signup-input">
-                    <input id="signup-phone" type="text" placeholder="전화번호 입력" name="pNum"></input>
+                    <input id="signup-phone" type="text" placeholder="전화번호 입력" name="pNum" value="<%=vo.getpNum()%>"></input>
                 </span>
             
             </div>

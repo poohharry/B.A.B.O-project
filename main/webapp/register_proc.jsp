@@ -7,7 +7,7 @@
 <%
 //		String email = request.getParameter("email") + "@" + request.getParameter("site");
 		String email = request.getParameter("email");
-		String birth = request.getParameter("year") + "." +request.getParameter("month") + "." +request.getParameter("day");
+		String birth = request.getParameter("year") + "-" +request.getParameter("month") + "-" +request.getParameter("day");
 		vo.setEmail(email);
 		vo.setId(request.getParameter("id"));
 		vo.setPw(request.getParameter("pw"));
