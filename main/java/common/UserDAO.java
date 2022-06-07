@@ -118,20 +118,40 @@ public class UserDAO {
 	
 	
 	// 회원정보 수정
-	// 수정할 데이터가 담긴 클래스를 같이 던져준다? 함수 호출전에 수정될 부분을 다 정리해서 변수로만 던져준다?
-	// 보통은 수정할 만한 정보를 입력하는 폼을 작성해서 던져주면 그 데이터로 정보를 업데이트하는 방식
-	// 폼에는 비밀번호를 제외한 정보들이 기존에 저장된 데이터로 채워져있으며, 유저가 수정하기를 원하는 정보만 고치면 됨
+	// 유저가 수정페이지의 폼에 입력한 값을 vo에 담아서 같이 함수를 호출 및 DB 업데이트
+	// pw의 여부에 따라 sql문 다르게 돌림
 	public boolean updateUser(UserVO vo) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
 		boolean flag = false;
 		try {
+			con = pool.getConnection();
+			// 유저가 수정페이지에서 비밀번호를 입력하면 그걸로 교체, 입력하지 않으면 유지
+			if(vo.getPw() == null) {
+				sql = "update users set name = ?, email = ?, pNum = ?, birth = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, vo.getName());
+				pstmt.setString(2, vo.getEmail());
+				pstmt.setString(3, vo.getpNum());
+				pstmt.setString(4, vo.getBirth());
+			} else {
+				sql = "update users set pw = ?, name = ?, email = ?, pNum = ?, birth = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, vo.getPw());
+				pstmt.setString(2, vo.getName());
+				pstmt.setString(3, vo.getEmail());
+				pstmt.setString(4, vo.getpNum());
+				pstmt.setString(5, vo.getBirth());
+			}
+			if (pstmt.executeUpdate() == 1) {
+				flag = true;				
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			
+			pool.freeConnection(con, pstmt);
 		}
 		
 		return flag;
