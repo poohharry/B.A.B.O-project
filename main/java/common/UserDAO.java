@@ -29,7 +29,7 @@ public class UserDAO {
 		String sql = null;
 		try {
 			con = pool.getConnection();
-			sql = "insert into users(mNum, id, pw, name, email, pNum, isBiz)values((SELECT IFNULL(MAX(mNum), 0)+1 FROM users U), ?, ?, ?, ?, ?, ?)";
+			sql = "insert into users(mNum, id, pw, name, email, pNum, isBiz, birth)values((SELECT IFNULL(MAX(mNum), 0)+1 FROM users U), ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, vo.getId());
 			pstmt.setString(2, vo.getPw());
@@ -37,6 +37,7 @@ public class UserDAO {
 			pstmt.setString(4, vo.getEmail());
 			pstmt.setString(5, vo.getpNum());
 			pstmt.setString(6, vo.getIsBiz());
+			pstmt.setString(7, vo.getBirth());
 	
 			// executeUpdate 의 반환값은 insert,update,delete인 경우, 관련된 레코드의 수를 반환
 			// create, drop, alter인 경우에는 0을 반환

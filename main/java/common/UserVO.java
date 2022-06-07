@@ -7,6 +7,7 @@ public class UserVO {
 	private String name;			 // 회원이름
 	private String email;			 // 이메일
 	private String pNum;			 // 휴대폰 번호
+	private String birth;			 // 생년월일(????.??.??)
 	private String signUpDate;		 // 회원가입 날짜
 	private int lgnFailCnt;			 // 로그인실패 횟수
 	private String changePwDate;	 // 마지막 비밀번호 변경 날짜
@@ -50,6 +51,12 @@ public class UserVO {
 	}
 	public void setpNum(String pNum) {
 		this.pNum = pNum;
+	}
+	public String getBirth() {
+		return birth;
+	}
+	public void setBirth(String birth) {
+		this.birth = birth;
 	}
 	public String getSignUpDate() {
 		return signUpDate;
