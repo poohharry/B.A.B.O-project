@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
 <%
   request.setCharacterEncoding("UTF-8");
   String id = (String)session.getAttribute("lgnId");
 %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,26 +16,42 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
+ 
+     
     <div class="main ">
         <div class="title">
             <div class="title_btn title_btn-outline">
-                <button type="button" onclick="location.href='Login.jsp'" width=100px >로그인</button>&nbsp;
-                <button type="button" onclick="location.href='register.jsp'">회원가입</button>
+            <%if(id != null){
+                out.print(id +"님 환영합니다.");
+                %>
+                &nbsp;
+                 <button type="button" onclick="location.href='info_confirm.jsp'">마이 페이지</button>
+                 <button type="button">로그아웃</button>
+                 
+                <%
+            }else{ %>
+                <button type="button" onclick="location.href='./login.jsp'" width=100px >로그인</button>&nbsp;
+                <button type="button" onclick="location.href='./register.jsp'">회원가입</button>
+            <% }%>
+           
+            
+               
             </div> <!--title_btn-->
             <a href="c_index.jsp"><img src="images/부산광역시-removebg-preview.png"></a>
                 <h1 class="title_txt">Busan Cummunity</h1>
     </div><!-- title -->
 
+    
      <div >
         <section>
             <div class="dropmenu">
               <ul id="dm_ul">
                 <li><a href="#">커뮤니티</a>
                   <ul>
-                    <li><a href="Free_board.jsp">자유 게시판</a></li>
-                    <li><a href="Q&A_Board.jsp">질문/답변 게시판</a></li>
+                    <li><a href="./Free_board.jsp">자유 게시판</a></li>
+                    <li><a href="./Q&A_Board.jsp">질문/답변 게시판</a></li>
 
-                    <!-- <li><a href="#">미정</a></li> -->
+          
                   </ul>
                 </li>
                 <li><a href="#">장터</a>
@@ -51,14 +65,11 @@
                 <li><a href="#">맛집</a>
                   <ul>
                     <li><a href="#">여긴 어때요?</a></li>
-                    <!-- <li><a href="#">미정</a></li>
-                    <li><a href="#">미정</a></li>
-                    <li><a href="#">미정</a></li> -->
+
                   </ul>
                 </li>
                 <li><a href="#">공지사항</a>
                   <ul>
-                    <li><a href="#">QNA</a></li>
                     <li><a href="#">고객센터</a></li>
                     <li><a href="#">건의 게시판</a></li>
                     <li><a href="#">찾아오시는 곳</a></li>
@@ -79,8 +90,8 @@
    
         </div>
         <div class="First-SecondBoard">
-          <h1><a> Menu list</a></h1>
-          <h1><a> Menu list</a></h1>
+          <h1><a> Menu lsit</a></h1>
+
         </div>
      </section>
      

@@ -42,7 +42,7 @@
        -->
        <p><%=id %></p>
       <a class="submit" onclick="ChkPw()">확인 </a>
-      <a class="reset" onclick="location.href='c_index.jsp';">취소</a>
+      <a class="reset" onclick="location.href='c_index_login_after.jsp';">취소</a>
       
       
     </div>

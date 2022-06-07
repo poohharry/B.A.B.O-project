@@ -7,7 +7,7 @@
 	String id = request.getParameter("login_ID");
 	String pw = request.getParameter("login_PW");
 	
-	String url = "Login.jsp";
+	String url = "login.jsp";
 	String msg = "";
 	int num = dao.login(id, pw);
 	
