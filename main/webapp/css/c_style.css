@@ -131,3 +131,16 @@ header p{position: absolute; top: 50%; left: 50%;
     line-height: 70px;
     
 }
+@media all and(max-width: 960px){
+	.box{
+		width: 700px;
+		background-color: blue;
+    }
+}
+
+@media all and(max-width: 480px){
+	.box{
+		width: 300px;
+		height: 400px;
+    }
+}

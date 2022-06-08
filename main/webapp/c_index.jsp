@@ -50,7 +50,7 @@
                   <ul>
                     <li><a href="./Free_board.jsp">자유 게시판</a></li>
                     <li><a href="./Q&A_Board.jsp">질문/답변 게시판</a></li>
-
+					<li><a href="./write.jsp">글 쓰기</a></li>
           
                   </ul>
                 </li>
