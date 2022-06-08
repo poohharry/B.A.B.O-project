@@ -140,19 +140,78 @@ public class PostDAO {
 	// 게시글 수정
 	public boolean updatePost(PostVO vo) {
 		boolean flag = false;
-		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "update posts set title = ?, contents = ?, postPw = ?, tag = ? where pNum = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, vo.getTitle());
+			pstmt.setString(2, vo.getContents());
+			pstmt.setString(3, vo.getPostPw());
+			pstmt.setString(4, vo.getTag());
+			pstmt.setInt(5, vo.getPNum());
+			
+			if (pstmt.executeUpdate() == 1) {
+				flag = true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
+		}
 		
 		return flag;
 	}
 	
 	
-	
 	// 게시글 삭제
 	public boolean deletePost(int pNum) {
 		boolean flag = false;
-		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "delete from posts where pNum = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, pNum);
+			if (pstmt.executeUpdate() == 1) {
+				flag = true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
+		}
 		
 		return flag; 
+	}
+	
+	
+	// 댓글 작성
+	public boolean writeComment(CommentVO vo) {
+		boolean flag = false;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		
+		try {
+			con = pool.getConnection();
+			sql = "insert into comments postNum = ?, writter = ?, contents = ?";
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
+		}
+		
+		
+		
+		return flag;
 	}
 	
 }

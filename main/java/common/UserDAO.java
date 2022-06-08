@@ -265,30 +265,41 @@ public class UserDAO {
 	}
 	
 	
-	// 테스트용 회원 리스트(id) 출력
+	// 모든 회원의 모든 정보를 담은 list반환
 	// ArrayList<String> 형태로 반환
-	public List<String> getUsers() {
-		List<String> list = new ArrayList<String>();
+	public List<UserVO> getUsers() {
+		List<UserVO> list = new ArrayList<UserVO>();
 		Connection con = null;
 		PreparedStatement pstmt = null;	
 		String sql = null;
 		ResultSet rs = null;
-		
 		try {
 			con = pool.getConnection();
-			sql = "select id from users";
+			sql = "select * from users";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				list.add(rs.getString(1));
+				UserVO vo = new UserVO();
+				vo.setmNum(rs.getInt("mNum"));
+				vo.setId(rs.getString("id"));
+				vo.setPw(rs.getString("pw"));
+				vo.setName(rs.getString("name"));
+				vo.setEmail(rs.getString("email"));
+				vo.setpNum(rs.getString("pNum"));
+				vo.setBirth(rs.getString("birth"));
+				vo.setSignUpDate(rs.getString("signUpDate"));
+				vo.setLgnFailCnt(rs.getInt("lgnFailCnt"));
+				vo.setChangePwDate(rs.getString("changePwDate"));
+				vo.setLastLoginDate(rs.getString("lastLoginDate"));
+				vo.setIsBiz(rs.getString("isBiz"));
+				vo.setNickname(rs.getString("nickname"));
+				list.add(vo);
 			}
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			pool.freeConnection(con, pstmt, rs);
 		}
-		
 		return list;
 	}
 	
