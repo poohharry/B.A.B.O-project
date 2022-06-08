@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +13,6 @@
     <title>회원가입</title>
 </head>
 <body>
-    <!-- <div class="header">
-        <a href="c_index.jsp"><img src="images/부산광역시-removebg-preview.png"></a>
-                <h1 class="title_txt">Busan Cummunity</h1>
-    </div> header -->
 
   
   <div class="main">	
@@ -24,15 +21,21 @@
     <!-- 폼 작성할 때 action, method 및 각 input필드마다 name을 꼭!! 적어주자 
     	그래야 백엔드가 그걸 토대로 DAO를 작성하던, proc페이지를 작성하던 한다. -->
     <form class="form1" action="register_proc.jsp" method="post">
-        <div>
+        <div >
             <!--아이디,비밀번호,비밀번호재확인-->
-
+            
             <h3>아이디</h3>
+            
             <span class="signup-input">
                 <input id="signup-id" type="text" name="id"></input>
+                 
                 <span class="signup-at">@B.A.B.O.com</span>
-            </span>
+               
 
+            </span>
+           <button onclick="location.href=''">중복체크</button>
+           <!-- 이부분은 좀 건들다가 잘안되가지고 화나서 초기값으로 해놓고 내일 하겠습니다..  -->
+        
             <h3>비밀번호</h3>
             <span class="signup-input">
                 <input id="signup-pw" type="password" name="pw"></input>
@@ -48,7 +51,11 @@
         </div>
         
         <div style="margin-top: 35px;">
-            <!--이름,생년월일,성별,이메일-->
+            <!--닉네임,이름,생년월일,성별,이메일-->
+            <h3>닉네임</h3>
+            <span class="signup-input">
+                <input id="signup-name" type="text" name="nick"></input>
+            </span>
             <h3>이름</h3>
             <span class="signup-input">
                 <input id="signup-name" type="text" name="name"></input>
@@ -118,9 +125,7 @@
         <div class="signup-btn-wrap">
             <button id="signup-btn">가입하기</button>
         </div>
-        
 
-      <!-- <a class="submit">가입하기 </a> -->
       </form>      
             
     </div>
