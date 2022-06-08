@@ -190,12 +190,17 @@ public class UserDAO {
 			}
 			// sql문을 돌려 나온 비밀번호가 입력받은 비밀번호와 일치하는지 확인
 			// 일치하지 않으면 2를 반환
-			if(!(rs.getString(2).equals(pw))) {
+			else if(!(rs.getString(2).equals(pw))) {
 				flag = 2;
 				return flag;
+			} else {
+				// 아무것도 걸리지 않으면 3을 반환하면서 로그인 실패 카운트를 0으로 초기화
+				flag = 3;
+				sql = "update users lgnFailCnt = 0 where id = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, id);
+				pstmt.executeUpdate();
 			}
-			// 아무것도 걸리지 않으면 3을 반환
-			flag = 3;
 			
 		
 		} catch (Exception e) {
@@ -209,14 +214,41 @@ public class UserDAO {
 	
 	
 	// 로그인 실패시 로그인을 시도했던 아이디의 로그인실패 카운트를 증가시키는 함수
-	public void addFailCnt(String id) {
+	// 지금까지 쌓인 실패카운트를 반환
+	public int addFailCnt(String id) {
+		Connection con = null;
+		PreparedStatement pstmt = null;	
+		String sql = null;
+		// 반환할 실패 카운트
+		int cnt = 0;
+		try {
+			con = pool.getConnection();
+			sql = "update users set lgnFailCnt = lgnFailCnt + 1 where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			// cnt에 실패카운트 넣어야함
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
+		}
 		
 		
 		
 		
-		
-		
+		return cnt;
 	}
+	
+	// 로그인 실패 카운트가 5이하인지 확인하는 함수
+	public boolean isFive(String id) {
+		boolean flag = false;
+		
+		
+		
+		return flag;
+	}
+	
+	
 	
 	// 카운트가 5까지 쌓이면 로그인에 성공해도 추가적인 인증이 필요하도록 만듬
 	public boolean  addAuth() {
