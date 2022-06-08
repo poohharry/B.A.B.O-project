@@ -14,6 +14,7 @@
 		vo.setpNum(request.getParameter("pNum"));
 		vo.setName(request.getParameter("name"));
 		vo.setBirth(birth);
+		vo.setNickname("nickname");
 		
 		// 체크박스여부는 체크됐을때 on을 체크되지 않았을 경우 null을 반환한다
  		if(request.getParameter("isbiz") == null) {

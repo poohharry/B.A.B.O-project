@@ -13,6 +13,7 @@ public class UserVO {
 	private String changePwDate;	 // 마지막 비밀번호 변경 날짜
 	private String lastLoginDate;	 // 마지막 로그인 날짜
 	private String isBiz;			 // 사업자 여부
+	private String nickname;		 // 유저 닉네임
 	
 	
 	
@@ -88,7 +89,13 @@ public class UserVO {
 	public void setIsBiz(String isBiz) {
 		this.isBiz = isBiz;
 	}
-
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	
 	
 	
 }

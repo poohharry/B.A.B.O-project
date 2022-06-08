@@ -29,7 +29,7 @@ public class UserDAO {
 		String sql = null;
 		try {
 			con = pool.getConnection();
-			sql = "insert into users(mNum, id, pw, name, email, pNum, isBiz, birth)values((SELECT IFNULL(MAX(mNum), 0)+1 FROM users U), ?, ?, ?, ?, ?, ?, ?)";
+			sql = "insert into users(mNum, id, pw, name, email, pNum, isBiz, birth, nickname)values((SELECT IFNULL(MAX(mNum), 0)+1 FROM users U), ?, ?, ?, ?, ?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, vo.getId());
 			pstmt.setString(2, vo.getPw());
@@ -38,6 +38,7 @@ public class UserDAO {
 			pstmt.setString(5, vo.getpNum());
 			pstmt.setString(6, vo.getIsBiz());
 			pstmt.setString(7, vo.getBirth());
+			pstmt.setString(8, vo.getNickname());
 	
 			// executeUpdate 의 반환값은 insert,update,delete인 경우, 관련된 레코드의 수를 반환
 			// create, drop, alter인 경우에는 0을 반환
@@ -129,22 +130,24 @@ public class UserDAO {
 			con = pool.getConnection();
 			// 유저가 수정페이지에서 비밀번호를 입력하면 그걸로 교체, 입력하지 않으면 유지
 			if(vo.getPw() == null) {
-				sql = "update users set name = ?, email = ?, pNum = ?, birth = ? where id = ?";
+				sql = "update users set name = ?, email = ?, pNum = ?, birth = ?, nickname = ? where id = ?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, vo.getName());
 				pstmt.setString(2, vo.getEmail());
 				pstmt.setString(3, vo.getpNum());
 				pstmt.setString(4, vo.getBirth());
-				pstmt.setString(5, vo.getId());
+				pstmt.setString(5, vo.getNickname());
+				pstmt.setString(6, vo.getId());
 			} else {
-				sql = "update users set pw = ?, name = ?, email = ?, pNum = ?, birth = ? where id = ?";
+				sql = "update users set pw = ?, name = ?, email = ?, pNum = ?, birth = ?, nickname = ? where id = ?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, vo.getPw());
 				pstmt.setString(2, vo.getName());
 				pstmt.setString(3, vo.getEmail());
 				pstmt.setString(4, vo.getpNum());
 				pstmt.setString(5, vo.getBirth());
-				pstmt.setString(6, vo.getId());
+				pstmt.setString(6, vo.getNickname());
+				pstmt.setString(7, vo.getId());
 			}
 			if (pstmt.executeUpdate() == 1) {
 				flag = true;				
@@ -251,6 +254,7 @@ public class UserDAO {
 				vo.setChangePwDate(rs.getString("changePwDate"));
 				vo.setLastLoginDate(rs.getString("lastLoginDate"));
 				vo.setIsBiz(rs.getString("isBiz"));
+				vo.setNickname(rs.getString("nickname"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
