@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Busan Cummunity</title>
+    <title>Busan Community</title>
     <link rel="stylesheet" href="css/c_style.css">
     <link rel="shortcut icon" type="image/x-icon" href="부산광역시-removebg-preview.ico">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -26,7 +26,7 @@
                 %>
                 &nbsp;
                  <button type="button" onclick="location.href='info_confirm.jsp'">마이 페이지</button>
-                 <button type="button">로그아웃</button>
+                 <button type="button" onclick="location.href='logout.jsp'">로그아웃</button>
                  
                 <%
             }else{ %>
@@ -38,7 +38,7 @@
                
             </div> <!--title_btn-->
             <a href="c_index.jsp"><img src="images/부산광역시-removebg-preview.png"></a>
-                <h1 class="title_txt">Busan Cummunity</h1>
+                <h1 class="title_txt">Busan Community</h1>
     </div><!-- title -->
 
     

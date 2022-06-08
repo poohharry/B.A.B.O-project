@@ -25,6 +25,6 @@
 	}
 %>
 <script>
-	alert("<%=msg%>");	
+	alert("<%=msg%>\n<%=id%> 님 환영합니다!");	
 	location.href="<%=url%>";
 </script>

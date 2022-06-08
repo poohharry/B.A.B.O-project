@@ -28,7 +28,10 @@
      <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <title>회원정보수정</title>
     <script>
-    	document.getElementById("testSelect")[2].setAttribute("selected", "true");
+    	$(document).ready(function(){
+    		$(('select[name="month"]').find('option:value="<%=month%>")').attr("selected",true);
+    				
+    	});
   	</script>
 </head>
 <body>
@@ -64,19 +67,19 @@
                 </span>
                 <span class="signup-input-birth" style="margin-left: 10px;">
                     <select id="signup-birth-mm" class="selectbox" name="month" onchange="">
-                        <option value="month" selected=""><%=month %></option>
-                        <option value="1" selected="">1</option>
-                        <option value="2" selected="">2</option>
-                        <option value="3" selected="">3</option>
-                        <option value="4" selected="">4</option>
-                        <option value="5"selected="">5</option>
-                        <option value="6"selected="">6</option>
-                        <option value="7"selected="">7</option>
-                        if (8 == month)	<option value="8" selected="selected">8</option> else <option value="8">8</option>
-                        <option value="9"selected="">9</option>
-                        <option value="10"selected="">10</option>
-                        <option value="11"selected="">11</option>
-                        <option value="12"selected="">12</option>
+                        <option value="month" name="month" selected><%=month %></option>
+                        <option value="1" name="month" >1</option>
+                        <option value="2" name="month" >2</option>
+                        <option value="3" name="month" >3</option>
+                        <option value="4" name="month">4</option>
+                        <option value="5" name="month">5</option>
+                        <option value="6" name="month">6</option>
+                        <option value="7" name="month">7</option>
+                       	<option value="8" name="month">8</option>
+                        <option value="9" name="month">9</option>
+                        <option value="10" name="month">10</option>
+                        <option value="11" name="month">11</option>
+                        <option value="12" name="month">12</option>
                     </select>
                 </span>
                 <span class="signup-input-birth" style="margin-left: 10px;">
