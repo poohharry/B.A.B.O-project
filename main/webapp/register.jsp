@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/register_style.css">
      <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <title>회원가입</title>
+    <script src="js/registerChk.js">
+    </script>
 </head>
 <body>
 
@@ -27,7 +29,7 @@
             <h3>아이디</h3>
             <div style="display:flex;">
             <span class="signup-input1">
-                <input id="signup-id" type="text" name="id" readonly></input>
+                <input id="signup-id" type="text" name="id"></input>
             </span>
             <button onclick="overlap()" style="margin-right:90px; width:75px;">중복체크</button>
           </div>
@@ -61,10 +63,10 @@
             <h3>생년월일</h3>
             <span style="display: flex;">
                 <span class="signup-input-birth">
-                    <input id="signup-birth-yy" type="text" placeholder="년(4자)" maxlength="4" name="year"></input>
+                    <input id="signup-birth-yy" name="birth_yy" type="number" placeholder="년(4자)" maxlength="4" oninput="maxLengthCheck(this)" min="1931" max="2022"></input>
                 </span>
                 <span class="signup-input-birth" style="margin-left: 10px;">
-                    <select id="signup-birth-mm" class="selectbox" name="month" onchange="">
+                    <select id="signup-birth-mm" class="selectbox" name="month" >
                         <option value="month">월</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -81,7 +83,7 @@
                     </select>
                 </span>
                 <span class="signup-input-birth" style="margin-left: 10px;">
-                    <input id="signup-birth-dd" type="text" placeholder="일" maxlength="2" name="day"></input>
+                    <input id="signup-birth-dd" type="number" placeholder="일" maxlength="2" oninput="maxLengthCheck(this)" min="1" max="31" ></input>
                 </span>
             </span>
 
@@ -100,15 +102,10 @@
         <div style="margin-top: 35px;">
             <!--휴대전화-->
             <h3>연락처</h3>
-            <span class="signup-input">
-                <select id="signup-country" class="selectbox" name="country" onchange="">
-                    <option value="ko">대한민국 +82</option>
-                </select>
-            </span>
-            <br>
+ 
             <div style="display: flex;">
                 <span class="signup-input">
-                    <input id="signup-phone" type="text" placeholder="전화번호 입력" name="pNum" max-length="11"></input>
+                    <input id="signup-phone" type="text" placeholder="전화번호 입력" name="pNum" maxlength="11"></input>
                 </span>
             
             </div>
@@ -127,7 +124,7 @@
             
     </div>
 
-    <script>
+    <script type="text/javascript">
         function overlap() {
           window.open(
             "overlap.jsp",
@@ -135,6 +132,17 @@
             "width=400, height=300, top=50, left=50"
           );
         }
+        
+	
+    function maxLengthCheck(object){
+      if (object.value.length > object.maxLength){
+        object.value = object.value.slice(0, object.maxLength);
+      }    
+    }
+    
+
+
+        
     </script>
 </body>
 </html>
