@@ -20,7 +20,7 @@
     
     <!-- 폼 작성할 때 action, method 및 각 input필드마다 name을 꼭!! 적어주자 
     	그래야 백엔드가 그걸 토대로 DAO를 작성하던, proc페이지를 작성하던 한다. -->
-    <form class="form1" action="register_proc.jsp" method="post">
+    <form class="form1" action="register_proc.jsp" method="post" name="regiFrm">
         <div >
             <!--아이디,비밀번호,비밀번호재확인-->
             

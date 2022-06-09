@@ -54,6 +54,28 @@ public class UserDAO {
 		return flag;
 	}
 	
+	// 회원가입시 ID 중복체크
+	public boolean isIdExist(String id) {
+		boolean flag = false;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "select pNum from users where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			if(pstmt.executeUpdate() == 1) {
+				flag = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
+		}
+		return flag;
+	}
+	
 	
 	// 회원계정 삭제
 	// 삭제 유예 테이블로 옮기기? 옮겨진 후 30일 지나면 DB에서 완전 삭제
@@ -226,29 +248,37 @@ public class UserDAO {
 			sql = "update users set lgnFailCnt = lgnFailCnt + 1 where id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
-			// cnt에 실패카운트 넣어야함
+			// cnt에 실패카운트 저장
+			cnt = returnFailCnt(id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			pool.freeConnection(con, pstmt);
 		}
-		
-		
-		
-		
 		return cnt;
 	}
 	
-	// 로그인 실패 카운트가 5이하인지 확인하는 함수
-	public boolean isFive(String id) {
-		boolean flag = false;
-		
-		
-		
-		return flag;
+	// 실패카운트 반환
+	public int returnFailCnt(String id) {
+		int cnt = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;	
+		String sql = null;
+		ResultSet rs = null;
+		try {
+			con = pool.getConnection();
+			sql = "select lgnFailCnt from users where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) cnt = rs.getInt(1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		return cnt;
 	}
-	
-	
 	
 	// 카운트가 5까지 쌓이면 로그인에 성공해도 추가적인 인증이 필요하도록 만듬
 	public boolean  addAuth() {
@@ -334,5 +364,7 @@ public class UserDAO {
 		}
 		return list;
 	}
+	
+	
 	
 }
