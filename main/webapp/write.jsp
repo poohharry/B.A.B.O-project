@@ -14,7 +14,7 @@
 <body>
 	<div class="main">	
 	    <p class="sign" align="center">게시글 작성</p>
-	    <form class="form1">
+	    <form class="form1" action="write_proc.jsp" name="board_write" method="post">
         <div style="margin-top: 35px;">
             <span class="sign-input">
             	<select id="board-type-select" class="selectbox" name="board-type" onchange="">
