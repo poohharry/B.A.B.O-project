@@ -19,7 +19,7 @@
                 <button type="button" onclick="location.href='register.jsp'">회원가입</button>
             </div> <!--title_btn-->
             <a href="c_index.jsp"><img src="images/부산광역시-removebg-preview.png"></a>
-                <h1 class="title_txt">Busan Cummunity</h1>
+                <h1 class="title_txt">Busan Community</h1>
     </div><!-- title -->
 
      <div >

@@ -29,7 +29,7 @@
     <title>회원정보수정</title>
     <script>
     	$(document).ready(function(){
-    		$(('select[name="month"]').find('option:value="<%=month%>")').attr("selected",true);
+    		$(('select[name="month"]').find('option:value="<%=month%>"')).attr("selected",true);
     				
     	});
   	</script>
