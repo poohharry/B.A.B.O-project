@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ID 중복 체크</title>
 </head>
 <body>
 <h1>TEST</h1>
