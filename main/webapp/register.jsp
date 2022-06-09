@@ -25,15 +25,12 @@
             <!--아이디,비밀번호,비밀번호재확인-->
             
             <h3>아이디</h3>
-            
-            <span class="signup-input">
+            <div style="display:flex;">
+            <span class="signup-input1">
                 <input id="signup-id" type="text" name="id"></input>
-                 
-                <span class="signup-at">@B.A.B.O.com</span>
-               
-
             </span>
-           <button onclick="location.href=''">중복체크</button>
+            <button onclick="overlap()" style="margin-right:90px; width:75px;">중복체크</button>
+          </div>
            <!-- 이부분은 좀 건들다가 잘안되가지고 화나서 초기값으로 해놓고 내일 하겠습니다..  -->
         
             <h3>비밀번호</h3>
@@ -129,5 +126,15 @@
       </form>      
             
     </div>
+
+    <script>
+        function overlap() {
+          window.open(
+            "overlap.jsp",
+            "중복 확인",
+            "width=400, height=300, top=50, left=50"
+          );
+        }
+    </script>
 </body>
 </html>
