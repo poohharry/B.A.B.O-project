@@ -201,7 +201,22 @@ public class PostDAO {
 		
 		try {
 			con = pool.getConnection();
-			sql = "insert into comments postNum = ?, writter = ?, contents = ?";
+			if(vo.getTag() == null) {
+				sql = "insert into comments postNum = ?, writter = ?, contents = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, vo.getPostNum());
+				pstmt.setString(2, vo.getWritter());
+				pstmt.setString(3, vo.getContents());
+				if(pstmt.executeUpdate() == 1) flag = true;
+			} else {
+				sql = "insert into comments postNum = ?, writter = ?, contents = ?, tag = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, vo.getPostNum());
+				pstmt.setString(2, vo.getWritter());
+				pstmt.setString(3, vo.getContents());
+				pstmt.setString(4, vo.getTag());
+				if(pstmt.executeUpdate() == 1) flag = true;
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -209,9 +224,37 @@ public class PostDAO {
 			pool.freeConnection(con, pstmt);
 		}
 		
-		
-		
 		return flag;
 	}
 	
+	// 댓글 불러오기
+	public List<CommentVO> getComments() {
+		List<CommentVO> list = new ArrayList<CommentVO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "select * from comments group By comNum";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				CommentVO vo = new CommentVO();
+				vo.setPostNum(rs.getInt("postNum"));
+				vo.setWritter(rs.getString("writter"));
+				vo.setContents(rs.getString("contents"));
+				vo.setComNum(rs.getInt("comNum"));
+				vo.setWriteDate(rs.getString("writeDate"));
+				vo.setTag(rs.getString("tag"));
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		
+		return list;
+	}
 }
