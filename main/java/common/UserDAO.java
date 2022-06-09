@@ -213,15 +213,17 @@ public class UserDAO {
 			// sql문을 돌려 나온 비밀번호가 입력받은 비밀번호와 일치하는지 확인
 			// 일치하지 않으면 2를 반환
 			else if(!(rs.getString(2).equals(pw))) {
+				addFailCnt(id);
 				flag = 2;
 				return flag;
 			} else {
 				// 아무것도 걸리지 않으면 3을 반환하면서 로그인 실패 카운트를 0으로 초기화
-				flag = 3;
-				sql = "update users lgnFailCnt = 0 where id = ?";
+				pstmt.close();
+				sql = "update users set lgnFailCnt = 0 where id = ?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, id);
 				pstmt.executeUpdate();
+				flag = 3;
 			}
 			
 		
@@ -233,6 +235,11 @@ public class UserDAO {
 		
 		return flag;
 	}
+	
+	// 로그인 카운트 초기화
+//	public void initFailCnt(String id) {
+//		
+//	}
 	
 	
 	// 로그인 실패시 로그인을 시도했던 아이디의 로그인실패 카운트를 증가시키는 함수
@@ -248,6 +255,7 @@ public class UserDAO {
 			sql = "update users set lgnFailCnt = lgnFailCnt + 1 where id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
+			pstmt.executeUpdate();
 			// cnt에 실패카운트 저장
 			cnt = returnFailCnt(id);
 		} catch (Exception e) {
