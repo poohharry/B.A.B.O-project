@@ -27,7 +27,7 @@
             <h3>아이디</h3>
             <div style="display:flex;">
             <span class="signup-input1">
-                <input id="signup-id" type="text" name="id"></input>
+                <input id="signup-id" type="text" name="id" readonly></input>
             </span>
             <button onclick="overlap()" style="margin-right:90px; width:75px;">중복체크</button>
           </div>
@@ -108,7 +108,7 @@
             <br>
             <div style="display: flex;">
                 <span class="signup-input">
-                    <input id="signup-phone" type="text" placeholder="전화번호 입력" name="pNum"></input>
+                    <input id="signup-phone" type="text" placeholder="전화번호 입력" name="pNum" max-length="11"></input>
                 </span>
             
             </div>
