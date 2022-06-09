@@ -2,76 +2,71 @@
     pageEncoding="UTF-8"%>
 <jsp:useBean id="dao" class="common.UserDAO" />
 <%@ page import = "java.util.*" %>
+<%@ page import = "common.UserVO" %>
 <!DOCTYPE html>
 <html>
 <head>
-<style type="text/css">
-	.MemberTable thead tr td{
-		border: 1px #000 solid;
-		width: 100px;
-		height: 50px;
-	}
-</style>
+<script type="text/javascript">
+
+		function deliver (B) {
+			if(confirm("정말 삭제하시겠습니까?") == true) {
+				clicker(B);
+			} else {
+				return false;
+			}
+		}
+		
+		function clicker(A) {
+			let url = "deleteproc.jsp?name="+A;
+			location.href = url;
+		}
+		</script>
+	<link rel="stylesheet" href="css/MemberList.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<% List<String> arr = dao.getUsers(); %> <!-- arr에 인덱스 5개가 담겨져있음 -->
-	<table class="MemberTable">
+	<% List<UserVO> arr = dao.getUsers(); %>
+	<% boolean del = dao.deleteUser("selector"); %>
 	
-		<thead>
-			<tr>
-				
-				<td>회원 아이디</td>
-				<td>회원 이름</td>
-				<td>회원 이메일</td>
-				<td>회원 전화번호</td>
-				<td>회원 가입날짜</td>
-			</tr>
-			
-<%-- 			
-			<tr>
-				<td><%= arr.get(0) %></td>
-				
-				<td><%= arr.get(1) %></td>
-			
-				<td><%= arr.get(2) %></td>
-			
-				<td><%= arr.get(3) %></td>
-			
-				<td><%= arr.get(4) %></td>
-				
-			</tr>  
- --%>			
-			
-			
-			
-			
-			<% for(int i = 0; i < arr.size(); i+=5) {%>
-			<tr>
-				<td> <%= arr.get(i) %></td>
-				<td> <%= arr.get(i+1) %></td>
-				<td> <%= arr.get(i+2) %></td>
-				<td> <%= arr.get(i+3) %></td>
-				<td> <%= arr.get(i+4) %></td>
-			</tr> 
-			<% } %>  
-		</thead>
+	<div class="headerdiv">
+		<p class="MainP">회원 목록</p>
+	</div>
 		
-		<!-- 
-	</table> <br><br>
-	<p> <%= arr.size() %> </p>
-	<% for(int j = 0; j < arr.size(); ++j) { 
-		// 자료형이 list, arraylist, vector 일때는 배열의 길이를 설정할때 length 대신 size를 쓴다.
-		%> <p> <%= arr.get(j) %> </p>
-		<% }//for %> -->
-			 
-		 <%-- 
-		 <% List<UserVO> arr = dao.getUsers();
-				for (int i = 0; i < arr.size(); ++i) {
-				System.out.println(arr.get(i).getID());}
-				%> --%>
+	<div class="MainDiv">
+		<section class="MainSection">
+		<table class="MemberTable">
+			<thead class="MemberThead">
+				<tr>
+					<td>순서</td>
+					<td>회원 아이디</td>
+					<td>회원 이름</td>
+					<td>회원 이메일</td>
+					<td>회원 전화번호</td>
+					<td>회원 가입날짜</td>
+				</tr>
+				<% for(int i = 0; i < arr.size(); i++) {%>
+				<tr>
+					<td> <%= arr.get(i).getmNum() %></td>
+					<td> <%= arr.get(i).getId() %></td>
+					<td> <%= arr.get(i).getName() %></td>
+					<td> <%= arr.get(i).getEmail() %></td>
+					<td> <%= arr.get(i).getpNum() %></td>
+					<td> <%= arr.get(i).getSignUpDate() %></td>
+					<td>
+					<button class="deleteBtn"
+					onClick="deliver('<%=arr.get(i).getId() %>')">회원 삭제하기</button>
+					</td>
+				</tr> <% } %>
+				 
+			</thead> <!-- MemberThead -->
+		</table> <!-- MemberTable -->
+		</section> <!-- MainSection -->
+	</div> <!-- MainDiv -->
+		<br>
 		
-	
+		
+		
 </body>
 </html>
