@@ -9,6 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%= String newarr = request.getParameter("name"); %>
+	<% String newarr = request.getParameter("name"); %>
 </body>
 </html>
