@@ -1,15 +1,16 @@
 body {
 	background-color: #ddffff;
     font-family: 'Ubuntu', sans-serif;
-
+	overflow-y: hidden;
    	}
  
 .main {
         background-color: #FFFFFF;
         width: 400px;
         height: 400px;
+        /* margin값 줘도 아래쪽의 @media 속성값으로 인해 적용되지 않음 */
         /* margin: 20em auto; */
-        margin: 17em auto;
+        /* margin: 17em auto; */
         border-radius: 1.5em;
         box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
