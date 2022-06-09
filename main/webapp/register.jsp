@@ -10,7 +10,6 @@
     <link rel="shortcut icon" type="image/x-icon" href="부산광역시-removebg-preview.ico">
     <link rel="stylesheet" href="css/register_style.css">
      <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-     <script src="js/registerChk.js"> </script>
     <title>회원가입</title>
 </head>
 <body>
@@ -28,7 +27,7 @@
             <h3>아이디</h3>
             <div style="display:flex;">
             <span class="signup-input1">
-                <input id="signup-id" type="text" name="id" ></input>
+                <input id="signup-id" type="text" name="id" readonly></input>
             </span>
             <button onclick="overlap()" style="margin-right:90px; width:75px;">중복체크</button>
           </div>
