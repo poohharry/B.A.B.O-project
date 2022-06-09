@@ -53,14 +53,33 @@
         <div class="infodiv">
             <table class="infotable">
                 <tr>
-                    <td>유저 번호</td> <td>유저 아이디</td> <td>유저 이름</td>
-                    <td>유저 이메일</td> <td>유저 전화번호</td> <td>유저 생년월일</td>
-                    <td>유저 가입일자</td>
+                    <td>유저 번호</td> <td>mNum</td>
                 </tr>
-                <tr> <!-- 반복문 돌리기 -->
-                    <td>mNum</td> <td>id</td> <td>name</td> <td>email</td>
-                    <td>pNum</td> <td>birth</td> <td>signUpDate</td>
+
+                <tr>
+                    <td>유저 아이디</td> <td>id</td> 
                 </tr>
+
+                <tr>
+                    <td>유저 이름</td> <td>name</td> 
+                </tr>
+
+                <tr>
+                    <td>유저 이메일</td> <td>email</td>
+                </tr>
+
+                <tr>
+                    <td>유저 전화번호</td> <td>pNum</td>
+                </tr>
+
+                <tr>
+                    <td>유저 생년월일</td> <td>birth</td>
+                </tr>
+
+                <tr>
+                    <td>유저 가입일자</td> <td>signUpDate</td>
+                </tr>
+                
             </table>
             <div class="deletebutton">
                 <form action="deleteproc.jsp">
