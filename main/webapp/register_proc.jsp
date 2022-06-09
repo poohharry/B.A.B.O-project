@@ -26,10 +26,10 @@
 		boolean result = dao.insertUser(vo);
 		
 		String msg = "회원가입에 실패했습니다.";
-		String location = "register.jsp";
+		String location = "./register.jsp";
 		if(result){
 			msg = "회원가입에 성공했습니다..";
-			location = "Login.jsp";
+			location = "./login.jsp";
 		}
 %>
 

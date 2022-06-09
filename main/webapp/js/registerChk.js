@@ -36,6 +36,8 @@ function signUpChk() {
 		return;
 	}
 	
+
+
 	// 생년월일 검사하는 부분 만들기
 	
 	
@@ -53,7 +55,12 @@ function signUpChk() {
 		return;
 		// 휴대폰 번호 입력양식 검사하는 부분 만들기
 		
-	}
+	}if(sFrm.phone.value.substr(0,3) != "010"){
+			alert("앞자리 3자리는 010으로 해주시길 바랍니다.");
+			sFrm.phone.focus();
+			return;
+	}	
+	
 	
 	let str=sFrm.email.value;						// poohharry@naver.com
     let atPos = str.indexOf('@');					// 9
