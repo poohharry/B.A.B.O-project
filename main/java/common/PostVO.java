@@ -4,7 +4,7 @@ public class PostVO {
 	private int PNum;			// 게시물 번호
 	private String category;	// 카테고리
 	private String title;		// 제목
-	private String writter;		// 작성자
+	private String writter;		// 작성자 아이디
 	private String contents;	// 글 내용
 	private String tag;			// 태그
 	private String wrDate;		// 작성 일자
@@ -13,7 +13,7 @@ public class PostVO {
 //	private int fileSize		// 파일 사이즈 
 	private String postPw;		// 게시물 비밀번호
 	private int viewCnt;		// 조회수
-	
+	private String nickname;	// 작성자 닉네임 
 	
 	public int getPNum() {
 		return PNum;
@@ -74,6 +74,12 @@ public class PostVO {
 	}
 	public void setViewCnt(int viewCnt) {
 		this.viewCnt = viewCnt;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	
 	
