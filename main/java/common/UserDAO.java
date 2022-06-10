@@ -60,18 +60,21 @@ public class UserDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
+		ResultSet rs = null;
 		try {
 			con = pool.getConnection();
 			sql = "select pNum from users where id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
-			if(pstmt.executeUpdate() == 1) {
+			rs = pstmt.executeQuery();
+			// 결과물이 있다는 것은 입력받은 아이디가 이미 존재한다는 뜻
+			if(rs.next()) {
 				flag = true;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			pool.freeConnection(con, pstmt);
+			pool.freeConnection(con, pstmt, rs);
 		}
 		return flag;
 	}

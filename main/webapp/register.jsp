@@ -29,9 +29,9 @@
             <h3>아이디</h3>
             <div style="display:flex;">
             <span class="signup-input1">
-                <input id="signup-id" type="text" name="id"></input>
+                <input id="signup-id" type="text" name="id" readonly></input>
             </span>
-            <button onclick="overlap()" style="margin-right:90px; width:75px;">중복체크</button>
+            <button type="button" onclick="overlap()" style="margin-right:90px; width:75px;">중복체크</button>
           </div>
            <!-- 이부분은 좀 건들다가 잘안되가지고 화나서 초기값으로 해놓고 내일 하겠습니다..  -->
         
