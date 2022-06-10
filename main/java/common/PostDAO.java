@@ -79,7 +79,7 @@ public class PostDAO {
 				vo.setPostPw(rs.getString("postPw"));
 				vo.setViewCnt(rs.getInt("viewCnt"));
 			}
-			
+			pstmt.close();
 			// 글이 무사히 불러와졌으니 조회수 증가
 			sql = "update posts set viewCnt = viewCnt + 1 where pNum = ?";
 			pstmt = con.prepareStatement(sql);
