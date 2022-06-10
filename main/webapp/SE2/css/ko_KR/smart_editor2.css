@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* NHN Web Standardization Team (http://html.nhndesign.com/) HHJ 090226 */
 /* COMMON */
-body,#smart_editor2,#smart_editor2 p,#smart_editor2 h1,#smart_editor2 h2,#smart_editor2 h3,#smart_editor2 h4,#smart_editor2 h5,#smart_editor2 h6,#smart_editor2 ul,#smart_editor2 ol,#smart_editor2 li,#smart_editor2 dl,#smart_editor2 dt,#smart_editor2 dd,#smart_editor2 table,#smart_editor2 th,#smart_editor2 td,#smart_editor2 form,#smart_editor2 fieldset,#smart_editor2 legend,#smart_editor2 input,#smart_editor2 textarea,#smart_editor2 button,#smart_editor2 select{margin:0;padding:0}
+body,#smart_editor2,#smart_editor2 p,#smart_editor2 h1,#smart_editor2 h2,#smart_editor2 h3,#smart_editor2 h4,#smart_editor2 h5,#smart_editor2 h6,#smart_editor2 ul,#smart_editor2 ol,#smart_editor2 li,#smart_editor2 dl,#smart_editor2 dt,#smart_editor2 dd,#smart_editor2 table,#smart_editor2 th,#smart_editor2 td,#smart_editor2 form,#smart_editor2 fieldset,#smart_editor2 legend,#smart_editor2 input,#smart_editor2 textarea,#smart_editor2 button,#smart_editor2 select{margin-left: auto;margin-right: auto;padding:0}
 #smart_editor2,#smart_editor2 h1,#smart_editor2 h2,#smart_editor2 h3,#smart_editor2 h4,#smart_editor2 h5,#smart_editor2 h6,#smart_editor2 input,#smart_editor2 textarea,#smart_editor2 select,#smart_editor2 table,#smart_editor2 button{font-family:'돋움',Dotum,Helvetica,sans-serif;font-size:12px;color:#666}
 #smart_editor2 span,#smart_editor2 em{font-size:12px}
 #smart_editor2 em,#smart_editor2 address{font-style:normal}
@@ -35,7 +35,7 @@ body,#smart_editor2,#smart_editor2 p,#smart_editor2 h1,#smart_editor2 h2,#smart_
 #smart_editor2 .ly_controller .bt_clse,#smart_editor2 .ly_controller .ic_arr{position:absolute;background:url("../../img/ico_extend.png") no-repeat}
 #smart_editor2 .ly_controller .bt_clse{top:5px;right:4px;width:14px;height:15px;background-position:1px -43px}
 #smart_editor2 .ly_controller .ic_arr{top:25px;left:50%;width:10px;height:6px;margin-left:-5px;background-position:0 -65px}
-#smart_editor2 .se2_converter{float:left;position:absolute;top:-1px;right:3px;z-index:20}
+#smart_editor2 .se2_converter{float:left;position:absolute;top:-1px;right:3px;z-index:20; margin-top: 0;}
 #smart_editor2 .se2_converter li{float:left}
 #smart_editor2 .se2_converter .se2_to_editor{width:59px;height:15px;background:url("../../img/ko_KR/btn_set.png?160622") 0 -85px no-repeat;vertical-align:top}
 #smart_editor2 .se2_converter .se2_to_html{width:59px;height:15px;background:url("../../img/ko_KR/btn_set.png?160622") -59px -70px no-repeat;vertical-align:top}
