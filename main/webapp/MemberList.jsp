@@ -33,6 +33,38 @@
 	<div class="headerdiv">
 		<p class="MainP">회원 목록</p>
 	</div>
+	
+	<div class="boxdiv">
+    <div class="listdiv">
+	    <ul class="listul">
+	        <li><p>회원 관리</p>
+	            <ul>
+	                <li><a href="#">회원 목록</a></li>
+	                <li><a href="#">활동 제한 추가</a></li>
+	                <li><a href="#"></a></li>
+	                <li><a href="#"></a></li>
+	            </ul>
+	        </li>
+	        <br><br>
+	        <li><p>게시판 관리</p>
+	            <ul>
+	                <li><a href="#"></a></li>
+	                <li><a href="#"></a></li>
+	                <li><a href="#"></a></li>
+	                <li><a href="#"></a></li>
+	            </ul>
+	        </li>
+	        <br><br>
+	        <li><p>~~@@</p>
+	            <ul>
+	                <li><a href="#"></a></li>
+	                <li><a href="#"></a></li>
+	                <li><a href="#"></a></li>
+	                <li><a href="#"></a></li>
+	            </ul>
+	        </li>
+	    </ul>
+    </div>
 		
 	<div class="MainDiv">
 		<section class="MainSection">
@@ -49,7 +81,7 @@
 				<% for(int i = 0; i < arr.size(); i++) {%>
 				<tr>
 					<td> <%= arr.get(i).getmNum() %></td>
-					<td> <%= arr.get(i).getId() %></td>
+					<td ><a href="#"> <%= arr.get(i).getId() %></a></td>
 					<td> <%= arr.get(i).getName() %></td>
 					<td> <%= arr.get(i).getEmail() %></td>
 					<td> <%= arr.get(i).getpNum() %></td>
@@ -64,6 +96,8 @@
 		</table> <!-- MemberTable -->
 		</section> <!-- MainSection -->
 	</div> <!-- MainDiv -->
+	
+	</div> <!-- boxdiv -->
 		<br>
 		
 		

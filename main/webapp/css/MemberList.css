@@ -27,23 +27,63 @@ body {
 
 .MainSection {
         background-color: #FFFFFF;
-        width: 90%;
+        width: 900px;
         height: 30%;
-        margin: 5em auto;
+        margin: 1em auto;
         border-radius: 1.5em;
         box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
+
+.listdiv {
+    width: 200px;
+    height: 700px;
+    float: left;
+    font-size: 20px;
+    margin-left: 50px;
+}
+
+.listul {
+    list-style-type: none;
+}
+
+.listul a {
+    text-decoration: none;
+}
+
+.listul a:link, a:visited, a:hover, a:active {
+    color : black;
+}
+
+.listul li {
+    margin: 10px 10px auto;
+}
+
 
 .MemberTable {
 	justify-content: center;
 	text-align: center;
 	margin: 0 auto;
-	
+	border-collapse: collapse;
 }
 
+.MemberTable a{
+	text-decoration: none;
+	color: rgb(225, 181, 93);
+}
+
+.MemberTable > a:link {
+	color: rgb(225, 181, 93);
+}
+
+.MemberTable > a:visited {color: rgb(225, 181, 93);}
+
+.MemberTable > a:hover {color: rgb(225, 181, 93);}
+
+.MemberTable > a:active {color: rgb(225, 181, 93);}
+
 .MemberTable thead tr td{
-	width: 170px;
-	height: 80px;
+	width: 100px;
+	height: 50px;
 	border: 1px #000 solid;
 }
 
