@@ -107,20 +107,24 @@ public class PostDAO {
 			
 			// 태그가 작성되었는지 여부에 따라 sql문을 다르게 돌림
 			if(vo.getTag() == null) {
-				sql = "insert into posts(title, writter, contents, postPw) values(?, ?, ?, ?)";
+				sql = "insert into posts(title, writter, contents, postPw, category, nickname) values(?, ?, ?, ?, ?, ?)";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, vo.getTitle());
 				pstmt.setString(2, vo.getWritter());
 				pstmt.setString(3, vo.getContents());
 				pstmt.setString(4, vo.getPostPw());
+				pstmt.setString(5, vo.getCategory());
+				pstmt.setString(6, vo.getNickname());
 			} else {
-				sql = "insert into posts(title, writter, contents, tag, postPw) values(?, ?, ?, ?, ?)";
+				sql = "insert into posts(title, writter, contents, tag, postPw, category, nickname) values(?, ?, ?, ?, ?, ?, ?)";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, vo.getTitle());
 				pstmt.setString(2, vo.getWritter());
 				pstmt.setString(3, vo.getContents());
 				pstmt.setString(4, vo.getTag());
 				pstmt.setString(5, vo.getPostPw());
+				pstmt.setString(6, vo.getCategory());
+				pstmt.setString(7, vo.getNickname());
 			}
 			
 			// executeUpdate 의 반환값은 insert,update,delete인 경우, 관련된 레코드의 수를 반환

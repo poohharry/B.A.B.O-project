@@ -22,6 +22,7 @@
             <li><a href="./index.jsp" class="bar-anchor"><span>공지사항</span><div class="transition-bar"></div></a></li>
             <li><a href="./introduce.jsp">소개 </a></li>
             <li><a href="./Free_board.jsp">자유게시판</a></li>
+            <li><a href="./write.jsp">글쓰기(임시)</a></li>
           </ul>
               <ul id="menu-2">
             <li><a href="./login.jsp">로그인</a></li>
