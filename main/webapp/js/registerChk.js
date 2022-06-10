@@ -38,8 +38,17 @@ function signUpChk() {
 	
 	// 생년월일 검사하는 부분 만들기
 	
-	
-	
+	if(sFrm.birth-yy.value==""){
+		alert("태어난 년도를 입력해주세요.");
+		sFrm.birth-yy.focus();
+		return
+		
+	}
+	if(sFrm.birth-dd.value==""){
+		alert("태어난 일을  입력해주세요.");
+		sFrm.birth-dd.focus();
+		return;
+	}
 	if(sFrm.email.value == "") {
 		alert("이메일을 입력하십시오");
 		sFrm.email.focus();
