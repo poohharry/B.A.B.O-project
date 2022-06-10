@@ -15,7 +15,7 @@
 	<div class="main">	
     <p class="sign" align="center">아이디 찾기</p>
     <form action="login_ok.jsp" method="post" class="form1">
-      <p class="" align="center">찾으실 ID를 입력해주세요</p><br>
+      <p class="" align="center">가입했을 때의 이메일을 입력해주세요</p><br>
       <input class="un" name="login_ID" type="text" align="center" placeholder="ID">
       
       <a class="submit">아이디 검색</a>
