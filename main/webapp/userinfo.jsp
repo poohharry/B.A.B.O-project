@@ -55,15 +55,38 @@
                 <form action="deleteproc.jsp">
                <input style="width: 150px; height:50px; font-size:20px;" 
                 type="submit" name="deleteuser" value="회원 삭제"/>
-                </form>
+                </form>	
             </div> <!-- deletebutton -->
             
             <div class="userwritelist">
             	<table>
+            	<tbody>
             		<tr>
             			<td>작성한 글 목록</td>
             			<td>작성한 게시판 분류</td>
             		</tr>
+            		
+            		<tr>
+            			<td>DB 작성한 글 목록</td>
+            			<td>DB 작성한 게시판 목록</td>
+            		</tr>
+           		</tbody>
+            	</table>
+            </div>
+            
+            <div class="userwriteboard">
+            	<table>
+            	<tbody>
+            		<tr>
+            			<td>작성한 댓글 목록</td>
+            			<td>작성한 댓글의 게시판 분류</td>
+            		</tr>
+            		
+            		<tr>
+            			<td>DB 작성한 댓글 목록</td>
+            			<td>DB 작성한 댓글의 게시판 목록</td>
+            		</tr>
+           		</tbody>
             	</table>
             </div>
         </div> <!-- infodiv -->
