@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%
+	request.setCharacterEncoding("UTF-8");
 	String id = (String)session.getAttribute("lgnId");
 	String category = request.getParameter("board-type");
 	String title = request.getParameter("board-title");
