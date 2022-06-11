@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+#postListContainer{
+	width:1280px;
+	margin: 50px auto;
+}
+
+table{
+	border-collapse: collapse;
+}
+
+
+.postList{
+	border-bottom: solid 1px; 
+	border-bottom-color: lightgray;
+	text-align: center;
+}
+
+#pNum{
+	width:80px;
+}
+
+#title{
+	width:800px;
+}
+
+#writter{
+	width:120px;
+}
+
+#writeDate{
+	width:180px;
+}
+
+#viewCnt{
+	width:100px;
+}

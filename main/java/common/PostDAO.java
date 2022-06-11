@@ -27,7 +27,7 @@ public class PostDAO {
 		String sql = null;
 		try {
 			con = pool.getConnection();
-			sql = "select pNum, title, writter, wrDate, viewCnt from posts where category = ? group By pNum";
+			sql = "select pNum, title, writter, wrDate, viewCnt from posts where category = ? order By pNum desc";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, cate);
 			rs = pstmt.executeQuery();
