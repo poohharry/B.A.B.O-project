@@ -20,7 +20,7 @@
 		<p><%=title %></p>
 		<p><%=contents %></p>
 	</div> --%>
-	
+	<!-- 세션이 아니라 DB에서 정보를 직접 가져오는 식으로 만들어야함 -->
 	<header>
 		<% vo = dao.readPost(1); %>
 	</header>

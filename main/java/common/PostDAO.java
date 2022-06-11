@@ -51,7 +51,7 @@ public class PostDAO {
 	}
 	
 	// 글 읽기
-	// 게시글 번호를 매개변수로 그 게시글이 갖고있느 모든 정보를 vo에 담아서 반환
+	// 게시글 번호를 매개변수로 그 게시글이 갖고있는 모든 정보를 vo에 담아서 반환
 	public PostVO readPost(int pNum) {
 		PostVO vo = new PostVO();
 		Connection con = null;
