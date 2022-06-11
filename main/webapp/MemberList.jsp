@@ -17,7 +17,7 @@
 		}
 		
 		function clicker(A) {
-			let url = "deleteproc.jsp?name="+A;
+			let url = "deleteproc.jsp?id="+A;
 			location.href = url;
 		}
 		</script>
