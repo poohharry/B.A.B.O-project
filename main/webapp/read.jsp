@@ -20,7 +20,7 @@
 	// 탭에 들어갈 페이지 제목, 글의 제목
 	String title = vo.getTitle();
 	// 현재 게시글에 달린 댓글 불러오기
-	List<CommentVO> list = dao.getComments(pNum);
+	List<CommentVO> commentList = dao.getComments(pNum);
 	
 %>
 
@@ -84,13 +84,42 @@
 		</div>
 		<br>
 		<!-- 댓글 -->
-		<div>
-			댓글 : 
+		<div id="CommentBox">
+		
+			<!-- 로그인 상태일 경우에만 활성화 -->
 			<%
-				for(int i = 0; i < list.size(); i++) {%>
-					댓글 작성자 : <%= list.get(i).getNickname()%>
+				if(id != null) {%>
+				댓글 작성하기<br>
+					<form action="writeComment.jsp" method="get">
+						<!-- 현재 보고있는 게시글 번호 -->
+						<input type="hidden" name="postNum" value="<%=vo.getPNum()%>">
+						<!-- 현재 로그인된 계정의 ID -->
+						<input type="hidden" name="writter" value="<%=id%>">
+						<!-- 현재 로그인된 계정의 닉네임 -->
+						<input type="hidden" name="nickname" value="<%=vo.getNickname()%>">
+						
+						<!-- 댓글 내용 -->
+						<input name="contents" style="width:400px; height:150px;">
+						<input type="submit" value="댓글 작성" style="height:150px; width:80px;">
+					</form>
 					
-					댓글 내용 : 
+				<% }%>
+			
+			<br>
+			댓글 : 
+			<%for(int i = 0; i < commentList.size(); i++) {%>
+					<!-- 유저의 정보(프로필)를 확인-->
+					댓글 작성자 : <a href="#"><%= commentList.get(i).getNickname()%></a>
+					댓글 작성 날짜 : <%= commentList.get(i).getWriteDate() %>
+					
+					<% if(commentList.get(i).getTag() != null) {%>
+					<!-- 유저의 정보(프로필)를 확인  -->
+						태그 : #<a href="#"><%=commentList.get(i).getTag() %></a>
+					<%}%>
+					
+					댓글 내용 :  <%= commentList.get(i).getContents() %>
+					
+					
 					
 				<% }%>
 		</div>
