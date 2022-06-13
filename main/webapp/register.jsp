@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="부산광역시-removebg-preview.ico">
-    <link rel="stylesheet" href="css/register_style.css">
+    <link rel="stylesheet" href="./css/register_style.css">
      <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <title>회원가입</title>
     <script defer src="./js/registerChk.js">
@@ -31,9 +31,9 @@
             <span class="signup-input1">
                 <input id="signup-id" type="text" name="id" readonly></input>
             </span>
-            <button type="button" onclick="overlap()" style="margin-right:90px; width:75px;">중복체크</button>
+            <button type="button" onclick="overlap()" style="margin-right:74px; width:75px;">중복체크</button>
           </div>
-           <!-- 이부분은 좀 건들다가 잘안되가지고 화나서 초기값으로 해놓고 내일 하겠습니다..  -->
+           
         
             <h3>비밀번호</h3>
             <span class="signup-input">

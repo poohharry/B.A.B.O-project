@@ -1,7 +1,7 @@
 body {
 	background-color: #ddffff;
     font-family: 'Ubuntu', sans-serif;
-   text-align: center;
+    text-align: center;
    	}
  
 .main {
@@ -22,6 +22,117 @@ body {
     }
     
 
+   /* 반응형 웹페이지 */
+   @media (min-width: 550px) {
+       /* body{
+           overflow-x: hidden;
+       } */
+       .main {
+           border-radius: 1.5em;
+           box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+           width: 500px;
+       } 
+       /* 생년월일 위치 조정 필요 */
+       /* 가로 스크롤 없애야 함 */
+       
+       .signup-input-birth{
+           display: block;
+           position: relative;
+           width:30%;
+           height: 51px;
+           border: solid 1px #dadada;
+           padding: 10px;
+           background: #fff;
+           box-sizing: border-box; 
+       }
+
+       .signup-btn-wrap{
+           width: 150px;
+       }  
+
+       #signup-btn{
+           text-align: center;
+       }
+   } 
+
+   @media (min-width: 650px) {
+       .main {
+           border-radius: 1.5em;
+           box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+           width: 600px;
+       } 
+       /* 생년월일 위치 조정 필요 */
+       /* 가로 스크롤 없애야 함 */
+       
+       .signup-btn-wrap{
+           width: 180px;
+       }    
+
+       #signup-btn{
+           text-align: center;
+           margin: auto;
+           display: inline-block;
+       }
+   } 
+
+   @media (min-width: 750px) {
+       .main {
+           /* border-radius: 0px; */
+           border-radius: 1.5em;
+           box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+           width: 700px;
+       } 
+       /* 생년월일 위치 조정 필요 */
+       
+       .signup-btn-wrap{
+           width: 210px;
+       }    
+
+       #signup-btn{
+           text-align: center;
+           margin: auto;
+           display: inline-block;
+       }
+   } 
+
+   @media (min-width: 850px) {
+       .main {
+           /* border-radius: 0px; */
+           border-radius: 1.5em;
+           box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+           width: 800px;
+       } 
+       /* 생년월일 위치 조정 필요 */
+       
+       .signup-btn-wrap{
+           width: 240px;
+       }   
+
+       #signup-btn{
+           text-align: center;
+           margin: auto;
+           display: inline-block;
+       }
+   } 
+
+   @media (min-width: 950px) {
+       .main {
+           /* border-radius: 0px; */
+           border-radius: 1.5em;
+           box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+           width: 870px;
+       }
+       
+       .signup-btn-wrap{
+           width: 261px;
+       }   
+
+       #signup-btn{
+           text-align: center;
+           margin: auto;
+           display: inline-block;
+       }
+   } 
     
     form.form1 {
         padding-top: 40px;
