@@ -53,10 +53,17 @@
             
             <br>
             
-            <div>
+            <div class="selectdiv">
+                <div class="selectinnerdiv">
             	<select>
-            		<option>
+            		<option value="1day">1일 활동정지</option>
+            		<option value="3day">3일 활동정지</option>
+            		<option value="7day">7일 활동정지</option>
+            		<option value="15day">15일 활동정지</option>
+            		<option value="30day">30일 활동정지</option>
+            		<option value="forever">영구 활동정지</option>
             	</select>
+                </div>
             </div>
             
             <div class="blacklistdiv">

@@ -1,33 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="dao" class="common.PostDAO" />
-<jsp:useBean id="vo" class="common.PostVO" />
 <jsp:useBean id="udao" class="common.UserDAO" />
 <jsp:useBean id="uvo" class="common.UserVO" />
 <%
-	// 파라미터 값으로 넘어오는 애들 한글깨짐 방지
-	request.setCharacterEncoding("UTF-8");
-	// 로그인된 ID
-	String id = (String)session.getAttribute("lgnId");
-	uvo = udao.getUser(id);
-	// 문자열로 받은 쿼리속 변수를 Integer로 변환후 저장
-	Integer pNum = Integer.parseInt(request.getParameter("pNum"));
-	// 파라미터로 전달받은 postNumber값에 따라 read.jsp내용물 vo로 받아오기
-	vo = dao.readPost(pNum);
-	// 탭에 들어갈 페이지 제목, 글의 제목
-	String title = vo.getTitle();
+  request.setCharacterEncoding("UTF-8");
+  String id = (String)session.getAttribute("lgnId");
+  uvo = udao.getUser(id);
 %>
-
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title><%=title %></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/c_style.css">
+    <title>공지사항</title>
+    
 </head>
 <body>
-	<header>
+    <header>
         <section class="hbody">
           <article class="nav">
           <div class="title"><a href="./index.jsp">B.A.B.O</a></div>
@@ -65,10 +56,9 @@
           </article>
         </section>
       </header>
-      
-      
-      
-      
+      <div class="container ">
+        
+      </div>
       <footer>
         <div class="footer bg-navy">
             <p>Copyright ⓒ 2022.06.22 B.A.B.O All rights reserved.</p>
