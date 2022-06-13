@@ -30,7 +30,7 @@
           <article class="nav">
           <div class="title"><a href="./c_index.jsp">B.A.B.O</a></div>
           <ul id="menu">
-            <li><a href="./index.jsp" class="bar-anchor"><span>공지사항</span><div class="transition-bar"></div></a></li>
+            <li><a href="./Notice_board.jsp" class="bar-anchor"><span>공지사항</span><div class="transition-bar"></div></a></li>
             <li><a href="./introduce.jsp">소개 </a></li>
             <li><a href="./Free_board.jsp">자유게시판</a></li>
          <%if(id != null) {%>
