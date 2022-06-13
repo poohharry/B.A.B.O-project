@@ -3,10 +3,10 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 <jsp:useBean id="dao" class="common.UserDAO"/>
 <%
-	String id = request.getParameter("login_id");
-	String email = request.getParameter("login_email");
+	String id = request.getParameter("login_ID");
+	String pw = request.getParameter("login_PW");
 	
-	int num = dao.login(id, email);
+	int num = dao.login(id, pw);
 	String url = "login.jsp";
 	String msg = "";
 	

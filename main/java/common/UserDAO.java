@@ -251,7 +251,7 @@ public class UserDAO {
 	
 	// 로그인 실패시 로그인을 시도했던 아이디의 로그인실패 카운트를 증가시키는 함수
 	// 지금까지 쌓인 실패카운트를 반환
-	public int addFailCnt(String id) {
+	private int addFailCnt(String id) {
 		Connection con = null;
 		PreparedStatement pstmt = null;	
 		String sql = null;
