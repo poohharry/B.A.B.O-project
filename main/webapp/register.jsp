@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/register_style.css">
      <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <title>회원가입</title>
-    <script src="js/registerChk.js">
+    <script defer src="./js/registerChk.js">
     </script>
 </head>
 <body>
@@ -63,7 +63,7 @@
             <h3>생년월일</h3>
             <span style="display: flex;">
                 <span class="signup-input-birth">
-                    <input id="signup-birth-yy" name="birth-yy" type="number" placeholder="년(4자)" maxlength="4" oninput="maxLengthCheck(this)" min="1931" max="2022"></input>
+                    <input id="signup-birth-yy" name="birthyy" type="number" placeholder="년(4자)" maxlength="4" oninput="maxLengthCheck(this)" min="1931" max="2022"></input>
                 </span>
                 <span class="signup-input-birth" style="margin-left: 10px;">
                     <select id="signup-birth-mm" class="selectbox" name="month" >
@@ -83,7 +83,7 @@
                     </select>
                 </span>
                 <span class="signup-input-birth" style="margin-left: 10px;">
-                    <input id="signup-birth-dd" name="birth-dd"type="number" placeholder="일" maxlength="2" oninput="maxLengthCheck(this)" min="1" max="31" ></input>
+                    <input id="signup-birth-dd" name="birthdd"type="number" placeholder="일" maxlength="2" oninput="maxLengthCheck(this)" min="1" max="31" ></input>
                 </span>
             </span>
 
@@ -117,7 +117,7 @@
                 
             
         <div class="signup-btn-wrap">
-            <button id="signup-btn">가입하기</button>
+            <button type="button" id="signup-btn" onclick="signUpChk()">가입하기</button>
         </div>
 
       </form>      
