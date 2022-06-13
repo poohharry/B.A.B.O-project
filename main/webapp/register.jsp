@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/register_style.css">
      <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <title>회원가입</title>
-    <script src="js/registerChk.js">
+    <script defer src="./js/registerChk.js">
     </script>
 </head>
 <body>
@@ -117,7 +117,7 @@
                 
             
         <div class="signup-btn-wrap">
-            <button id="signup-btn">가입하기</button>
+            <button type="button" id="signup-btn" onclick="signUpChk()">가입하기</button>
         </div>
 
       </form>      

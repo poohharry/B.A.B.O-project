@@ -17,10 +17,10 @@ function signUpChk() {
 		return;
 	}
 	
-	if(sFrm.ChkPw.value == "" || sFrm.pw.value != sFrm.repw.value) {
+	if(sFrm.ChkPw.value == "" || sFrm.pw.value != sFrm.ChkPw.value) {
 		alert("비밀번호를 확인하십시오");
-		sFrm.repw.value="";
-		sFrm.repw.focus();
+		sFrm.ChkPw.value="";
+		sFrm.ChkPw.focus();
 		return;
 	}
 	
