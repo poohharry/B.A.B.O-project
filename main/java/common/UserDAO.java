@@ -352,7 +352,7 @@ public class UserDAO {
 		ResultSet rs = null;
 		try {
 			con = pool.getConnection();
-			sql = "select * from users";
+			sql = "select * from users order by mNum";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
