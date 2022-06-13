@@ -14,14 +14,13 @@
 <body>
 	<div class="main">	
     <p class="sign" align="center">비밀번호 찾기</p>
-    <form action="resetpw.jsp" method="post" class="form1">
+    <form action="findpwproc.jsp" method="post" class="form1">
       <p class="" align="center">비밀번호를 찾을 계정의 ID와<br> 이메일을 입력해주세요</p><br>
-      <input class="pass" name="login_id" type="text" align="center" placeholder="ID" />
-      <input class="pass" name="login_email" type="text" align="center" placeholder="E-mail" />
+      <input class="pass" name="login_id" type="text" placeholder="ID" />
+      <input class="pass" name="login_email" type="text"  placeholder="E-mail" />
       
       
       <input type="submit" class="submit" value="비밀번호 찾기" />
-      <!-- <p class="forgot" align="center"><a href="#">아이디 또는 패스워드를 잊었나요?</a></p> -->
       <p class="register" align="center"><a href="findid.jsp">아이디를 잊었나요?</a></p>
       </form>        
     </div>
