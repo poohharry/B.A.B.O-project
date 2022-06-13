@@ -14,9 +14,11 @@
 <body>
 	<div class="main">	
     <p class="sign" align="center">비밀번호 찾기</p>
-    <form action="login_ok.jsp" method="post" class="form1">
-      <p class="" align="center">찾고자 하는 계정 ID를 입력해주세요</p><br>
-      <input class="pass" name="login_PW" type="text" align="center" placeholder="ID">
+    <form action="resetpw.jsp" method="post" class="form1">
+      <p class="" align="center">비밀번호를 찾을 계정의 ID와 이메일을 입력해주세요</p><br>
+      <input class="pass" name="login_id" type="text" align="center" placeholder="ID" />
+      <input class="pass2" name="login_email" type="text" align="center" placeholder="E-mail" />
+      <input type="submit" value="비밀번호 찾기" />
       
       <a class="submit">비밀번호 검색</a>
       <!-- <p class="forgot" align="center"><a href="#">아이디 또는 패스워드를 잊었나요?</a></p> -->

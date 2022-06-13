@@ -3,10 +3,10 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 <jsp:useBean id="dao" class="common.UserDAO"/>
 <%
-	String id = request.getParameter("login_ID");
-	String pw = request.getParameter("login_PW");
+	String id = request.getParameter("login_id");
+	String email = request.getParameter("login_email");
 	
-	int num = dao.login(id, pw);
+	int num = dao.login(id, email);
 	String url = "login.jsp";
 	String msg = "";
 	
@@ -22,7 +22,7 @@
 		break;
 		}
 	case 4: {
-		msg = "로그인에 성공했지만 추가인증이 필요로 합니다. \\n" + "등록된 이메일을 입력해 주세요";
+		msg = "로그인에 성공했지만 추가인증이 필요합니다. \\n" + "등록된 이메일을 입력해 주세요";
 		url = "";
 		}
 		break;
