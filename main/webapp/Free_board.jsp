@@ -1,12 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<jsp:useBean id="dao" class="common.PostDAO" />
+<jsp:useBean id="vo" class="common.PostVO" />
+<jsp:useBean id="udao" class="common.UserDAO" />
+<jsp:useBean id="uvo" class="common.UserVO" />
+<%@ page import = "java.util.*" %>
+<%@ page import = "common.PostVO" %>
+<%
+	request.setCharacterEncoding("UTF-8");
+	String id = (String)session.getAttribute("lgnId");
+	
+	String cate = "freeBoard";
+	List<PostVO> list = dao.getPostList(cate);
+%>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/c_style.css">
+    <link rel="stylesheet" href="./css/board.css">
     
     <title>B.A.B.O</title>
 </head>
@@ -29,9 +43,33 @@
           </article>
         </section>
       </header>
+      
       <div class="container ">
-        
+      <%if(id != null) {%>
+      	<a href="write.jsp">글쓰기</a>
+	    <%}%>
+	    <div id="postListContainer">
+		    <table>
+		    	<tr class="postList">
+		    		<td id="pNum">번호</td>
+		    		<td id="title">제목</td>
+		    		<td id="writter">작성자</td>
+		    		<td id="writeDate">작성일</td>
+		    		<td id="viewCnt">조회수</td>
+		    	</tr>
+		    	<%for(int i = 0; i < list.size(); i++) { %>
+		    		<tr class="postList">
+		    			<td id="pNum"><%=list.get(i).getPNum() %></td>
+		    			<td id="title"><a href="#"><%=list.get(i).getTitle() %></a></td>
+		    			<td id="writter"><%=list.get(i).getWritter() %></td>
+		    			<td id="writeDate"><%=list.get(i).getWrDate() %></td>
+		    			<td id="viewCnt"><%=list.get(i).getViewCnt() %></td>
+		    		</tr>
+		    	<% }%>
+		    </table>
+	    </div>
       </div>
+      
       <footer>
         <div class="footer bg-navy">
             <p>Copyright ⓒ 2022.06.22 B.A.B.O All rights reserved.</p>

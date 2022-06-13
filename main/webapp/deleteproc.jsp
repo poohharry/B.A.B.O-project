@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <jsp:useBean id="dao" class="common.UserDAO" />
 
-	<% String newarr = request.getParameter("name"); %>
+	<% String newarr = request.getParameter("id"); %>
 	
 	<% dao.deleteUser(newarr); %>
 	

@@ -27,7 +27,7 @@ public class PostDAO {
 		String sql = null;
 		try {
 			con = pool.getConnection();
-			sql = "select pNum, title, writter, wrDate, viewCnt from posts where category = ? group By pNum";
+			sql = "select pNum, title, writter, wrDate, viewCnt from posts where category = ? order By pNum desc";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, cate);
 			rs = pstmt.executeQuery();
@@ -51,7 +51,7 @@ public class PostDAO {
 	}
 	
 	// 글 읽기
-	// 게시글 번호를 매개변수로 그 게시글이 갖고있느 모든 정보를 vo에 담아서 반환
+	// 게시글 번호를 매개변수로 그 게시글이 갖고있는 모든 정보를 vo에 담아서 반환
 	public PostVO readPost(int pNum) {
 		PostVO vo = new PostVO();
 		Connection con = null;
@@ -79,7 +79,7 @@ public class PostDAO {
 				vo.setPostPw(rs.getString("postPw"));
 				vo.setViewCnt(rs.getInt("viewCnt"));
 			}
-			
+			pstmt.close();
 			// 글이 무사히 불러와졌으니 조회수 증가
 			sql = "update posts set viewCnt = viewCnt + 1 where pNum = ?";
 			pstmt = con.prepareStatement(sql);
@@ -107,20 +107,24 @@ public class PostDAO {
 			
 			// 태그가 작성되었는지 여부에 따라 sql문을 다르게 돌림
 			if(vo.getTag() == null) {
-				sql = "insert into posts(title, writter, contents, postPw) values(?, ?, ?, ?)";
+				sql = "insert into posts(title, writter, contents, postPw, category, nickname) values(?, ?, ?, ?, ?, ?)";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, vo.getTitle());
 				pstmt.setString(2, vo.getWritter());
 				pstmt.setString(3, vo.getContents());
 				pstmt.setString(4, vo.getPostPw());
+				pstmt.setString(5, vo.getCategory());
+				pstmt.setString(6, vo.getNickname());
 			} else {
-				sql = "insert into posts(title, writter, contents, tag, postPw) values(?, ?, ?, ?, ?)";
+				sql = "insert into posts(title, writter, contents, tag, postPw, category, nickname) values(?, ?, ?, ?, ?, ?, ?)";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, vo.getTitle());
 				pstmt.setString(2, vo.getWritter());
 				pstmt.setString(3, vo.getContents());
 				pstmt.setString(4, vo.getTag());
 				pstmt.setString(5, vo.getPostPw());
+				pstmt.setString(6, vo.getCategory());
+				pstmt.setString(7, vo.getNickname());
 			}
 			
 			// executeUpdate 의 반환값은 insert,update,delete인 경우, 관련된 레코드의 수를 반환

@@ -6,13 +6,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/userinfo.css">
+    <link rel="stylesheet" href="css/myinfo.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <title>회원 상세정보 페이지</title>
+    <title>나의 상세정보 페이지</title>
 </head>
 <body>
     <div class="headerdiv">
-        <p>회원 상세정보 페이지</p>
+        <p>나의 상세정보 페이지</p>
         <div class="buttondiv">
             <button type="button" onclick="location.href='c_index.jsp'">메인 페이지</button>
         </div> <!-- buttondiv -->
@@ -54,7 +54,7 @@
             <div class="deletebutton">
                 <form action="deleteproc.jsp">
                <input style="width: 150px; height:50px; font-size:20px;" 
-                type="submit" name="deleteuser" value="회원 삭제"/>
+                type="submit" name="deleteuser" value="회원 탈퇴"/>
                 </form>	
             </div> <!-- deletebutton -->
             
