@@ -27,10 +27,9 @@
 			getu 앞에 UserVO 를 써야하는것이다.
 		 -->
 		
-		
-	
-		
-		<% if (vo.getEmail().equals(email)) { %>
+		<% 
+		if(vo.getId() != null){ 
+			if (vo.getEmail().equals(email)) { %>
 			<script> 
 				alert("비밀번호 재설정 페이지로 이동합니다.");
 			 	location.href="resetpw.jsp?id="+"<%=id%>"; 
@@ -39,10 +38,17 @@
 		<% } else { %>
 			
 		 	<script> 
-				alert("해당 ID/Email 이 존재하지 않습니다."); 
+				alert("해당 Email 이 존재하지 않습니다."); 
 				location.href="findpw.jsp";
 			</script>
-		<% } %>
+		<% } 
+		} else { %>
+			<script>
+				alert("해당 ID가 존재하지 않습니다.")
+				location.href="findpw.jsp";
+			</script>
+		<% }%>
+		
 			
 		
 		<!-- vo.setmNum(rs.getInt("mNum"));
