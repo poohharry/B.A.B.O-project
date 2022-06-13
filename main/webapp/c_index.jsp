@@ -65,11 +65,11 @@
             <legend>최신 글</legend>
         </fieldset>
         
-    </div>
+    	</div> <!-- display:flex -->
          <fieldset class=" Free_board">
              <legend>실시간 인기글</legend>
          </fieldset>
-      </div>
+     </div><!-- container -->
       <footer>
         <div class="footer bg-navy">
             <p>Copyright ⓒ 2022.06.22 B.A.B.O All rights reserved.</p>

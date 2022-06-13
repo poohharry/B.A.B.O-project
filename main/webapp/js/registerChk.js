@@ -23,6 +23,11 @@ function signUpChk() {
 		sFrm.ChkPw.focus();
 		return;
 	}
+	if (sFrm.pw.value != sFrm.ChkPw.value){
+		alert("비밀번호가 일치하지 않습니다.");
+		sFrm.Chkpw.focus();
+		return;
+	}
 	
 	if(sFrm.nick.value == "") {
 		alert("닉네임을 입력하십시오");
