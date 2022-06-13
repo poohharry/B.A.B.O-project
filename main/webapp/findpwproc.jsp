@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:useBean id="dao" class="common.UserDAO" />
+<jsp:useBean id="vo" class="common.UserVO" />
 <%@ page import = "common.UserVO" %>
 <%@ page import = "java.util.*" %>
 <!DOCTYPE html>
@@ -16,7 +17,7 @@
 		System.out.println(id);
 		System.out.println(email);
 		
-		UserVO getu = dao.getUser(id); %>
+		vo = dao.getUser(id); %>
 		<!-- getu 라는 변수가 담고있는 메소드는 UserVO 의 것이다.
 		(getu 에 . 을 찍으면 나오는 메소드들은 UserVO에 있는 메소드들이라는 이야기)
 			변수 앞 뒤가 다른 이유는 단순하게 dao.getUser()의 반환형이
@@ -26,35 +27,21 @@
 			getu 앞에 UserVO 를 써야하는것이다.
 		 -->
 		
-		ASD a = ZXC();
 		
-		<% int a = 1000;
-			String b = new String("hello");
-		%>
+	
 		
-		<%= getu.getmNum() %><br>
-		<%= getu.getId() %><br>
-		<%= getu.getName() %><br>
-		<%= getu.getEmail() %><br>
-		<%= getu.getpNum() %><br>
-		<%= getu.getBirth() %><br>
-		<%= getu.getSignUpDate() %><br>
-		<%= getu.getLgnFailCnt() %><br>
-		<%= getu.getChangePwDate() %><br>
-		<%= getu.getLastLoginDate() %><br>
-		<%= getu.getIsBiz() %><br>
-		<%= getu.getNickname() %>
-		
-		<% if (//DB에 해당 ID와 Email이 존재하지 않는다면) { %>
+		<% if (vo.getEmail().equals(email)) { %>
 			<script> 
+				alert("비밀번호 재설정 페이지로 이동합니다.");
+			 	location.href="resetpw.jsp?id="+"<%=id%>"; 
+		 	</script>
+		 	
+		<% } else { %>
+			
+		 	<script> 
 				alert("해당 ID/Email 이 존재하지 않습니다."); 
 				location.href="findpw.jsp";
 			</script>
-		<% } else { %>
-			<script> 
-				alert("비밀번호 재설정 페이지로 이동합니다.");
-			 	location.href="resetpw.jsp"; 
-		 	</script>
 		<% } %>
 			
 		

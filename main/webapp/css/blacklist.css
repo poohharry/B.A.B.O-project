@@ -56,41 +56,8 @@ body {
     height: 100px;
 }
 
-.deletebutton {
+.blacklistdiv {
     text-align: center; 
-}
-
-.userwritelist {
-    margin-top: 100px;
-	
-}
-
-.userwritelist table {
-	margin: 0 auto;
-	border-collapse: collapse;
-	
-}
-
-.userwritelist tr td{
-	border: 1px solid #000;
-	width: 300px;
-}
-
-
-.userwriteboard {
-    margin-top: 100px;
-	
-}
-
-.userwriteboard table {
-	margin: 0 auto;
-	border-collapse: collapse;
-	
-}
-
-.userwriteboard tr td{
-	border: 1px solid #000;
-	width: 300px;
 }
 
 /* 푸터 영역 */
