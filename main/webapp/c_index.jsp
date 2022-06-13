@@ -23,7 +23,7 @@
           <article class="nav">
           <div class="title"><a href="./index.jsp">B.A.B.O</a></div>
           <ul id="menu">
-            <li><a href="./c_index.jsp" class="bar-anchor"><span>공지사항</span><div class="transition-bar"></div></a></li>
+            <li><a href="./Notice_board.jsp" class="bar-anchor"><span>공지사항</span><div class="transition-bar"></div></a></li>
             <li><a href="./introduce.jsp">소개 </a></li>
             <li><a href="./Free_board.jsp">자유게시판</a></li>
         <%if(id != null) {%>
@@ -65,11 +65,11 @@
             <legend>최신 글</legend>
         </fieldset>
         
-    </div>
+    	</div> <!-- display:flex -->
          <fieldset class=" Free_board">
              <legend>실시간 인기글</legend>
          </fieldset>
-      </div>
+     </div><!-- container -->
       <footer>
         <div class="footer bg-navy">
             <p>Copyright ⓒ 2022.06.22 B.A.B.O All rights reserved.</p>
