@@ -46,6 +46,7 @@ function signUpChk() {
 	}
 	const month = sFrm.month.value;
 	if(sFrm.birth-dd.value >31){
+		alert("일은 31일까지 밖에 입력이 안됩니다.");
 		sFrm.birth-dd.focus();
 		return;
 	}
