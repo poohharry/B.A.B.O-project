@@ -73,6 +73,7 @@ public class PostDAO {
 				vo.setContents(rs.getString("contents"));
 				vo.setTag(rs.getString("tag"));
 				vo.setWrDate(rs.getString("wrDate"));
+				vo.setNickname(rs.getString("nickname"));
 				if(rs.getString("corDate") != null) {
 					vo.setCorDate(rs.getString("corDate"));
 				}
@@ -232,7 +233,7 @@ public class PostDAO {
 	}
 	
 	// 댓글 불러오기
-	public List<CommentVO> getComments() {
+	public List<CommentVO> getComments(int pNum) {
 		List<CommentVO> list = new ArrayList<CommentVO>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -240,8 +241,9 @@ public class PostDAO {
 		String sql = null;
 		try {
 			con = pool.getConnection();
-			sql = "select * from comments group By comNum";
+			sql = "select * from comments where pNum = ? order By comNum";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, pNum);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				CommentVO vo = new CommentVO();

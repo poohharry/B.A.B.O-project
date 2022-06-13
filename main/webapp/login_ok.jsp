@@ -16,7 +16,7 @@
 	case 2: msg = "비밀번호가 일치하지 않습니다.";
 		break;
 	case 3: {
-		msg = "로그인에 성공하였습니다.\n" + id + "님 환영합니다!";
+		msg = "로그인에 성공하였습니다.\\n" + id + "님 환영합니다!";
 		url = "c_index.jsp";
 		session.setAttribute("lgnId", id);
 		break;

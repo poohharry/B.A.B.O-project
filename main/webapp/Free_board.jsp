@@ -77,7 +77,7 @@
 		    	<%for(int i = 0; i < list.size(); i++) { %>
 		    		<tr class="postList">
 		    			<td id="pNum"><%=list.get(i).getPNum() %></td>
-		    			<td id="title"><a href="#"><%=list.get(i).getTitle() %></a></td>
+		    			<td id="title"><a href="read.jsp?pNum=<%=list.get(i).getPNum()%>"><%=list.get(i).getTitle() %></a></td>
 		    			<td id="writter"><%=list.get(i).getWritter() %></td>
 		    			<td id="writeDate"><%=list.get(i).getWrDate() %></td>
 		    			<td id="viewCnt"><%=list.get(i).getViewCnt() %></td>
