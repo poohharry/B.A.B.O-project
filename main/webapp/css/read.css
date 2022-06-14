@@ -49,5 +49,6 @@
 	width:703px;
 }
 .comment-day{
-	margin-left: 494px;
+	position:absolute;
+	right: 589px;
 }
