@@ -2,10 +2,17 @@
     pageEncoding="UTF-8"%>
 <jsp:useBean id="udao" class="common.UserDAO" />
 <jsp:useBean id="uvo" class="common.UserVO" />
+<jsp:useBean id="dao" class="common.PostDAO" />
+<jsp:useBean id="vo" class="common.PostVO" />
+<%@ page import = "java.util.*" %>
+<%@ page import = "common.PostVO" %>
 <%
-  request.setCharacterEncoding("UTF-8");
-  String id = (String)session.getAttribute("lgnId");
-  uvo = udao.getUser(id);
+	request.setCharacterEncoding("UTF-8");
+	String id = (String)session.getAttribute("lgnId");
+	uvo = udao.getUser(id);
+	
+	String cate = "Q&A";
+	List<PostVO> list = dao.getPostList(cate);
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,15 +20,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/c_style.css">
-    <title>질문 게시판</title>
+    <link rel="stylesheet" href="css/Q&A_Board.css">
+    <title>질문과 답변 게시판</title>
     
 </head>
 <body>
     <header>
         <section class="hbody">
           <article class="nav">
-          <div class="title"><a href="./index.jsp">B.A.B.O</a></div>
+          <div class="title"><a href="c_index.jsp">B.A.B.O</a></div>
           <ul id="menu">
             <li><a href="./Notice_board.jsp" class="bar-anchor"><span>공지사항</span><div class="transition-bar"></div></a></li>
             <li><a href="./introduce.jsp">소개 </a></li>
@@ -58,6 +65,28 @@
         </section>
       </header>
       <div class="container ">
+  	<h1> 질문과 답변 게시판</h1>
+	    <div id="postListContainer">
+		    <table>
+		    	<tr class="postList">
+		    		<td id="pNum">번호</td>
+		    		<td id="title">제목</td>
+		    		<td id="writter">작성자</td>
+		    		<td id="writeDate">작성일</td>
+		    		<td id="viewCnt">조회수</td>
+		    	</tr>
+		    	<%for(int i = 0; i < list.size(); i++) { %>
+		    		<tr class="postList">
+		    			<td id="pNum"><%=list.get(i).getPNum() %></td>
+		    			<td id="title"><a href="read.jsp?pNum=<%=list.get(i).getPNum()%>"><%=list.get(i).getTitle() %></a></td>
+		    			<td id="writter"><%=list.get(i).getWritter() %></td>
+		    			<td id="writeDate"><%=list.get(i).getWrDate() %></td>
+		    			<td id="viewCnt"><%=list.get(i).getViewCnt() %></td>
+		    		</tr>
+		    	<% }%>
+		    </table>
+	    </div>
+      
         
          
      </div><!-- container -->
