@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:useBean id="dao" class="common.PostDAO" />
+<jsp:useBean id="udao" class="common.UserDAO" />
+<jsp:useBean id="vo" class="common.PostVO" />
+<jsp:useBean id="uvo" class="common.UserVO" />
+
+    <%  
+    	String id = (String)session.getAttribute("lgnId"); 
+    	uvo = udao.getUser(id);
+    	String nickname = uvo.getNickname() + "(" + uvo.getId() + ")";
+    %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,12 +74,11 @@
 <body>
 	<div class="main">	
 	    <p class="sign" align="center">게시글 작성</p>
-	    <form class="form1" action="write_proc.jsp" method="get" name="writeFrm" id="frm" enctype="multipart/form-data">
+	    <form class="form1" action="write" method="post" name="writeFrm" id="frm" enctype="multipart/form-data">
         <div style="margin-top: 35px;">
             <span class="sign-input">
             	<select id="board-type-select" class="selectbox" name="board-type" onchange="">
 	                <option value="board-type">구분</option>
-	                <option value="Notice">공지사항</option>
 	                <option value="freeBoard">자유게시판</option>
 	                <option value="Q&A">Q&A게시판</option>
                 </select>
@@ -79,7 +88,7 @@
             	<textarea name="ir1" id="ir1" cols="113" rows="20" placeholder="내용"></textarea>
             	
             	<span class="signup-input file-select" >
-            		<button type="button">파일 선택</button>
+            		<input type="file" name="fileName"></input>
             	</span>
             </span>
     	</div>
@@ -87,7 +96,8 @@
                 <input type="button" id="savebutton" class="submit" value="작성">
                 <input type="reset" class="reset" value="취소" onclick="location.href='./c_index.jsp'">
             </div>
-            <input type="hidden" name="contents">
+            <input type="hidden" name="writter" value="<%=id%>">
+            <input type="hidden" name="nickname" value="<%=nickname%>">
       	</form>
     </div>
 </body>

@@ -6,7 +6,7 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	Integer pNum = Integer.parseInt(request.getParameter("postNum"));
-	String writter = request.getParameter("writter");
+	String writter = request.getParameter("commentWritter");
 	String contents = request.getParameter("contents");
 	
 	// 태그 잘라내기

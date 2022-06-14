@@ -1,14 +1,27 @@
 package common;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 public class PostDAO {
 	private DBConMgr pool;
+	
+	// 사용자마다 현재 프로젝트의 경로가 다르기 때문에 그걸 미리 구해놓고 파일 업로드 경로를 상대적으로 바꿔준다
+	private static String path = (System.getProperty("user.dir")).replace("\\", "/");
 
+	private static final String SAVEFOLDER = path + "/src/main/webapp/uploadFiles";
+	private static final String ENCTYPE = "UTF-8";
+	private static int MAXSIZE = 10*1024*1024;
+	
 	public PostDAO() {
 		try {
 			pool = DBConMgr.getInstance();
@@ -97,36 +110,66 @@ public class PostDAO {
 	
 	// 게시글 작성
 	// PostVO를 받는데 PostVO에는 제목, 작성자, 내용, 태그(있어도 되고 없어도 됨), 게시글 비번이 있어야함
-	public boolean writePost(PostVO vo) {
+	public boolean writePost(HttpServletRequest req) {
 		boolean flag = false;
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
+		MultipartRequest multi = null;
+		int filesize = 0;
+		String fileName = null;
 		
 		try {
 			con = pool.getConnection();
+			File file = new File(SAVEFOLDER);
+			if(!file.exists()) file.mkdirs();
+			
+			multi = new MultipartRequest(req, SAVEFOLDER, MAXSIZE, ENCTYPE, new DefaultFileRenamePolicy());
+			if(multi.getFilesystemName("fileName") != null) {
+				fileName = multi.getFilesystemName("fileName");
+				filesize = (int)multi.getFile("fileName").length();
+			}
+			String content = multi.getParameter("ir1");
+//			if(multi.getParameter("contentType").equalsIgnoreCase("TEXT")) {
+//				content = UtilMgr.replace(content, "<", "&lt");
+//				content = UtilMgr.replace(content, ">", "&gt");
+//			}
+			
 			
 			// 태그가 작성되었는지 여부에 따라 sql문을 다르게 돌림
-			if(vo.getTag() == null) {
+			if(multi.getParameter("tag") == null) {
 				sql = "insert into posts(title, writter, contents, postPw, category, nickname) values(?, ?, ?, ?, ?, ?)";
 				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, vo.getTitle());
-				pstmt.setString(2, vo.getWritter());
-				pstmt.setString(3, vo.getContents());
-				pstmt.setString(4, vo.getPostPw());
-				pstmt.setString(5, vo.getCategory());
-				pstmt.setString(6, vo.getNickname());
-			} else {
-				sql = "insert into posts(title, writter, contents, tag, postPw, category, nickname) values(?, ?, ?, ?, ?, ?, ?)";
-				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, vo.getTitle());
-				pstmt.setString(2, vo.getWritter());
-				pstmt.setString(3, vo.getContents());
-				pstmt.setString(4, vo.getTag());
-				pstmt.setString(5, vo.getPostPw());
-				pstmt.setString(6, vo.getCategory());
-				pstmt.setString(7, vo.getNickname());
-			}
+				pstmt.setString(1, multi.getParameter("board-title"));		// board-title
+				pstmt.setString(2, multi.getParameter("writter"));	// writter
+				pstmt.setString(3, multi.getParameter("ir1"));	// ir1
+				pstmt.setString(4, multi.getParameter("postPw"));		// 
+				pstmt.setString(5, multi.getParameter("board-type"));	// board-type
+				pstmt.setString(6, multi.getParameter("nickname"));	// nickname
+			} 
+			// 태그가 작성되었는지 여부에 따라 sql문을 다르게 돌림
+//			if(multi.getParameter("tag") == null) {
+//				sql = "insert into posts(title, writter, contents, postPw, category, nickname) values(?, ?, ?, ?, ?, ?)";
+//				pstmt = con.prepareStatement(sql);
+//				pstmt.setString(1, vo.getTitle());		// board-title
+//				pstmt.setString(2, vo.getWritter());	// writter
+//				pstmt.setString(3, vo.getContents());	// ir1
+//				pstmt.setString(4, vo.getPostPw());		// 
+//				pstmt.setString(5, vo.getCategory());	// board-type
+//				pstmt.setString(6, vo.getNickname());	// nickname
+//			} 
+			
+//			else {
+//				sql = "insert into posts(title, writter, contents, tag, postPw, category, nickname) values(?, ?, ?, ?, ?, ?, ?)";
+//				pstmt = con.prepareStatement(sql);
+//				pstmt.setString(1, vo.getTitle());
+//				pstmt.setString(2, vo.getWritter());
+//				pstmt.setString(3, vo.getContents());
+//				pstmt.setString(4, vo.getTag());
+//				pstmt.setString(5, vo.getPostPw());
+//				pstmt.setString(6, vo.getCategory());
+//				pstmt.setString(7, vo.getNickname());
+//			}
 			
 			// executeUpdate 의 반환값은 insert,update,delete인 경우, 관련된 레코드의 수를 반환
 			// create, drop, alter인 경우에는 0을 반환
@@ -150,13 +193,15 @@ public class PostDAO {
 		String sql = null;
 		try {
 			con = pool.getConnection();
-			sql = "update posts set title = ?, contents = ?, postPw = ?, tag = ? where pNum = ?";
+			sql = "update posts set title = ?, contents = ?, postPw = ?, tag = ?, nickname = ?, category = ? where pNum = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, vo.getTitle());
 			pstmt.setString(2, vo.getContents());
 			pstmt.setString(3, vo.getPostPw());
 			pstmt.setString(4, vo.getTag());
-			pstmt.setInt(5, vo.getPNum());
+			pstmt.setString(5, vo.getNickname());
+			pstmt.setString(6, vo.getCategory());
+			pstmt.setInt(7, vo.getPNum());
 			
 			if (pstmt.executeUpdate() == 1) {
 				flag = true;

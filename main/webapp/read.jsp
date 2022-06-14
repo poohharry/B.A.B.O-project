@@ -22,6 +22,8 @@
 	// 현재 게시글에 달린 댓글 불러오기
 	List<CommentVO> commentList = dao.getComments(pNum);
 	
+	String nickname = uvo.getNickname() + "(" + uvo.getId() + ")";
+	
 %>
 
 
@@ -105,9 +107,9 @@
 						<!-- 현재 보고있는 게시글 번호 -->
 						<input type="hidden" name="postNum" value="<%=vo.getPNum()%>">
 						<!-- 현재 로그인된 계정의 ID -->
-						<input type="hidden" name="writter" value="<%=id%>">
+						<input type="hidden" name="commentWritter" value="<%=id%>">
 						<!-- 현재 로그인된 계정의 닉네임 -->
-						<input type="hidden" name="nickname" value="<%=vo.getNickname()%>">
+						<input type="hidden" name="nickname" value="<%=nickname%>">
 						
 						<!-- 댓글 내용 -->
 						<div style="display:flex;">
