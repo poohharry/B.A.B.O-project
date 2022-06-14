@@ -32,6 +32,7 @@
 <meta charset="UTF-8">
 <title><%=title %></title>
 <link rel="stylesheet" href="./css/c_style.css">
+<link rel="stylesheet" href="./css/read.css">
 </head>
 <body>
 	<header>
@@ -39,9 +40,10 @@
           <article class="nav">
           <div class="title"><a href="./c_index.jsp">B.A.B.O</a></div>
           <ul id="menu">
-            <li><a href="./c_index.jsp" class="bar-anchor"><span>공지사항</span><div class="transition-bar"></div></a></li>
+            <li><a href="./Notice_Board.jsp" class="bar-anchor"><span>공지사항</span><div class="transition-bar"></div></a></li>
             <li><a href="./introduce.jsp">소개 </a></li>
             <li><a href="./Free_board.jsp">자유게시판</a></li>
+            <li><a href="./Q&A_Board.jsp">질문게시판</a></li>
         <%if(id != null) {%>
       		<li><a href="write.jsp">글쓰기</a></li>
 	    <%}%>
@@ -73,23 +75,32 @@
       
 	<div class="container">
 		<!-- 제목 및 작성자와 같은 글 내용의 헤더 -->
-		<div>
-			제목 : <%=vo.getTitle()%> &nbsp;&nbsp; 작성자 :  <%=vo.getNickname() %>
-		</div>
+		<div class="content-title">
+			제목  <%=vo.getTitle()%> &nbsp;&nbsp; <br>
+			<div class="writer">
+			작성자 :  <%=vo.getNickname() %>
+			</div>
+			</div>
+			
+		
 		<br>
 		
 		<!-- 글 내용의 메인 -->
-		<div>
-			글 내용 : <%=vo.getContents() %>
+		<div class="article-content">
+			 <%=vo.getContents() %>
 		</div>
 		<br>
 		<!-- 댓글 -->
+		<%
+			if(id != null) {%>
+		<p class="comment-write">댓글 작성하기</p><br>
+		<%} %>
 		<div id="CommentBox">
-		
+			
 			<!-- 로그인 상태일 경우에만 활성화 -->
 			<%
 				if(id != null) {%>
-				댓글 작성하기<br>
+				
 					<form action="writeComment.jsp" method="get">
 						<!-- 현재 보고있는 게시글 번호 -->
 						<input type="hidden" name="postNum" value="<%=vo.getPNum()%>">
@@ -99,8 +110,8 @@
 						<input type="hidden" name="nickname" value="<%=vo.getNickname()%>">
 						
 						<!-- 댓글 내용 -->
-						<input name="contents" style="width:400px; height:150px;">
-						<input type="submit" value="댓글 작성" style="height:150px; width:80px;">
+						<input type="text" name="contents" class="comment-contents">
+						<input type="submit" value="댓글 작성" class="comment-submit">
 					</form>
 					
 				<% }%>
@@ -122,9 +133,9 @@
 					
 					
 				<% }%>
-		</div>
+			</div><!-- CommentBox -->
 		
-	</div>
+		</div><!-- Container -->
       
       
       

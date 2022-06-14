@@ -5,5 +5,5 @@
 	//리다이렉트
 	
 	session.invalidate(); // 세션을 끊는 메소드가 session.invalidate() 이다.
-	response.sendRedirect("c_index.jsp"); //로그아웃을 하게 되면 다시 메인 페이지로 넘어온다.
+	response.sendRedirect("c_index.jsp"); //로그아웃을 하게 되면 다시 이전 페이지로 넘어온다.
 %>

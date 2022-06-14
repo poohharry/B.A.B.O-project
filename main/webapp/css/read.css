@@ -1,0 +1,34 @@
+@charset "UTF-8";
+.container{
+	
+	margin-top: 150px;
+}
+.content-title{
+	margin-left: 580px;
+	display:flex;	
+}
+.article-content{
+	Border:1px solid black;
+	width: 730px;
+	height:450px;
+	margin-left: 585px;
+}
+#CommentBox{
+	text-align:center;
+}
+.writer{
+	margin-left: 450px;
+}
+.comment-submit{
+	height:40px; 
+	width:80px;
+	margin-right:5px;
+}
+.comment-contents{
+	width:650px;
+	height: 40px;
+	
+}
+.comment-write{
+	margin-left: 580px;
+}
