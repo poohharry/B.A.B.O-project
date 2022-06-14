@@ -30,7 +30,7 @@
           <article class="nav">
           <div class="title"><a href="c_index.jsp">B.A.B.O</a></div>
           <ul id="menu">
-            <li><a href="./Notice_board.jsp" class="bar-anchor"><span>공지사항</span><div class="transition-bar"></div></a></li>
+            <li><a href="./Notice_Board.jsp" class="bar-anchor"><span>공지사항</span><div class="transition-bar"></div></a></li>
             <li><a href="./introduce.jsp">소개 </a></li>
             <li><a href="./Free_board.jsp">자유게시판</a></li>
             <li><a href="./Q&A_Board.jsp">질문게시판</a></li>
@@ -55,7 +55,7 @@
                  
                 <%
             }else{ %>
- 				<li><a href="./login.jsp">로그인</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+ 				<li><a href="./login.jsp">로그인</a></li>
             	<li><a href="./register.jsp">회원가입 </a></li>
             <% }%>
           </ul>
@@ -84,7 +84,14 @@
 		    			<td id="viewCnt"><%=list.get(i).getViewCnt() %></td>
 		    		</tr>
 		    	<% }%>
+		    	
 		    </table>
+		    <br>
+		    <% if(id != null){%>
+		    <button type="button" class="write-btn" onclick="location.href='./write.jsp'">글쓰기</button>
+		    <%} else {%>
+		    	
+		    <% } %>
 	    </div>
       
         

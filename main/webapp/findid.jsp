@@ -16,7 +16,7 @@
     <p class="sign" align="center">아이디 찾기</p>
     <form action="login_ok.jsp" method="post" class="form1">
       <p class="" align="center">가입했을 때의 이메일을 입력해주세요</p><br>
-      <input class="un" name="login_ID" type="text" align="center" placeholder="ID">
+      <input class="un" name="login_ID" type="text" align="center" placeholder="Email">
       
       <a class="submit">아이디 검색</a>
       <!-- <p class="forgot" align="center"><a href="#">아이디 또는 패스워드를 잊었나요?</a></p> -->

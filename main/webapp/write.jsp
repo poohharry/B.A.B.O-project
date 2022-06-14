@@ -69,6 +69,7 @@
             <span class="sign-input">
             	<select id="board-type-select" class="selectbox" name="board-type" onchange="">
 	                <option value="board-type">구분</option>
+	                <option value="Notice">공지사항</option>
 	                <option value="freeBoard">자유게시판</option>
 	                <option value="Q&A">Q&A게시판</option>
                 </select>

@@ -54,7 +54,11 @@ table{
   margin: 0;
   padding: 0;
 }
-
+.write-btn{
+	width: 70px;
+	height: 30px;
+	margin-left:1200px;
+}
 a {
   text-decoration: none;
 }
@@ -74,12 +78,12 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0px;
+  padding: 10px 0px;
   color: white;
 }
  #menu-2{
-      display: flex;
-      margin-left: 760px;
+     display: flex;
+    margin-left: 621px;
     }
 .title {
   font-size: 2em;
@@ -152,7 +156,7 @@ margin-right:25px
 
   #menu-2{
       display: flex;
-      margin-left: 760px;
+      margin-left: 621px;
     }
   #menu-2 > li {
       padding: 20px 30px;

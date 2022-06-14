@@ -43,7 +43,7 @@
       <input class="pass" name="login_PW" type="password" align="center"placeholder="Password">
      
       <a class="submit" onclick="loginChk()">로그인 </a>
-      <p class="forgot" align="center"><a href="info_confirm.jsp">아이디 또는 패스워드를 잊었나요?</a></p>
+      <p class="forgot" align="center"><a href="findid.jsp">아이디 또는 패스워드를 잊었나요?</a></p>
       <p class="register" align="center"><a href="register.jsp">회원 가입</a></p>
       </form>      
             

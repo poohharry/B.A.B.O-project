@@ -2,10 +2,17 @@
     pageEncoding="UTF-8"%>
 <jsp:useBean id="udao" class="common.UserDAO" />
 <jsp:useBean id="uvo" class="common.UserVO" />
+<jsp:useBean id="dao" class="common.PostDAO" />
+<jsp:useBean id="vo" class="common.PostVO" />
+<%@ page import = "java.util.*" %>
+<%@ page import = "common.PostVO" %>
 <%
   request.setCharacterEncoding("UTF-8");
   String id = (String)session.getAttribute("lgnId");
   uvo = udao.getUser(id);
+  
+  String cate = "Notice";
+  List<PostVO> list = dao.getPostList(cate);
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,15 +28,19 @@
     <header>
         <section class="hbody">
           <article class="nav">
-          <div class="title"><a href="./index.jsp">B.A.B.O</a></div>
+          <div class="title"><a href="./c_index.jsp">B.A.B.O</a></div>
           <ul id="menu">
             <li><a href="./Notice_Board.jsp" class="bar-anchor"><span>공지사항</span><div class="transition-bar"></div></a></li>
             <li><a href="./introduce.jsp">소개 </a></li>
             <li><a href="./Free_board.jsp">자유게시판</a></li>
             <li><a href="./Q&A_Board.jsp">질문게시판</a></li>
-        <%if(id != null) {%>
-      		<li><a href="write.jsp">글쓰기</a></li>
-	    <%}%>
+            
+      <% if(id != null) {%>
+      		<li><a href="write.jsp">작성</a></li>
+	    <% if(id.equals("admin")) {%>
+	    	<li><a href="MemberList.jsp">회원 관리 페이지</a></li>
+	    <%} 
+	    	} %>
           </ul>
           
               <ul id="menu-2">
@@ -57,9 +68,39 @@
           </article>
         </section>
       </header>
-      <div class="container ">
-        
-      </div> <!-- container -->
+          <div class="container ">
+  <h1> 자유게시판</h1>
+	    <div id="postListContainer">
+		    <table>
+		    	<tr class="postList">
+		    		<td id="pNum">번호</td>
+		    		<td id="title">제목</td>
+		    		<td id="writter">작성자</td>
+		    		<td id="writeDate">작성일</td>
+		    		<td id="viewCnt">조회수</td>
+		    	</tr>
+		    	<%for(int i = 0; i < list.size(); i++) { %>
+		    		<tr class="postList">
+		    			<td id="pNum"><%=list.get(i).getPNum() %></td>
+		    			<td id="title"><a href="read.jsp?pNum=<%=list.get(i).getPNum()%>"><%=list.get(i).getTitle() %></a></td>
+		    			<td id="writter"><%=list.get(i).getWritter() %></td>
+		    			<td id="writeDate"><%=list.get(i).getWrDate() %></td>
+		    			<td id="viewCnt"><%=list.get(i).getViewCnt() %></td>
+		    		</tr>
+		    	<% }%>
+		    </table>
+		   
+		    <br>
+			<% if(id != null){%>
+			<% if(id.equals("admin")) {%>
+		    <button type="button" class="write-btn" onclick="location.href='./write.jsp'">글쓰기</button>
+		    <%} else {%>
+		    	
+		    <%}
+		}%>
+	    </div>
+   
+     </div><!-- container -->
       <footer>
         <div class="footer bg-navy">
             <p>Copyright ⓒ 2022.06.22 B.A.B.O All rights reserved.</p>

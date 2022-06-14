@@ -21,9 +21,9 @@
     <header>
         <section class="hbody">
           <article class="nav">
-          <div class="title"><a href="./index.jsp">B.A.B.O</a></div>
+          <div class="title"><a href="./c_index.jsp">B.A.B.O</a></div>
           <ul id="menu">
-            <li><a href="./Notice_board.jsp" class="bar-anchor"><span>공지사항</span><div class="transition-bar"></div></a></li>
+            <li><a href="./Notice_Board.jsp" class="bar-anchor"><span>공지사항</span><div class="transition-bar"></div></a></li>
             <li><a href="./introduce.jsp">소개 </a></li>
             <li><a href="./Free_board.jsp">자유게시판</a></li>
             <li><a href="./Q&A_Board.jsp">질문게시판</a></li>
@@ -33,7 +33,7 @@
 	    	<li><a href="MemberList.jsp">회원 관리 페이지</a></li>
 	    <% 		} 
 	    	} %>
-	    <li><p><% out.println(id); %></p></li>
+	    
           </ul>
           
               <ul id="menu-2">

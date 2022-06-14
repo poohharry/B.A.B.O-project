@@ -74,7 +74,7 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0px;
+  padding: 10px 0px;
   color: white;
 }
 
@@ -110,9 +110,13 @@ height: 900px;
 
   #menu-2{
       display: flex;
-      margin-left: 760px;
+      margin-left: 621px;
     }
-
+.write-btn{
+	width: 70px;
+	height: 30px;
+	margin-left:1200px;
+}
 
 @media screen and (min-width: 625px) {
 /* 화면이 클때 */
@@ -129,7 +133,7 @@ height: 900px;
 
   #menu-2{
       display: flex;
-      margin-left: 760px;
+      margin-left: 621px;
     }
   #menu-2 > li {
       padding: 20px 30px;
