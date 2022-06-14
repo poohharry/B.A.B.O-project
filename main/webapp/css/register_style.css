@@ -171,7 +171,7 @@ a {
     outline:none;
     cursor: pointer;
 }
-<<<<<<< HEAD
+
 .signup-input1{
     display:flex;
     padding:10px;
@@ -183,8 +183,6 @@ a {
     margin-left:75px;
     
 }
-=======
->>>>>>> origin/feature
 
 .signup-btn-wrap{
     height: 52px;
