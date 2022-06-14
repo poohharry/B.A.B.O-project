@@ -110,29 +110,35 @@
 						<input type="hidden" name="nickname" value="<%=vo.getNickname()%>">
 						
 						<!-- 댓글 내용 -->
+						<div style="display:flex;">
 						<input type="text" name="contents" class="comment-contents">
 						<input type="submit" value="댓글 작성" class="comment-submit">
+						</div>
 					</form>
 					
 				<% }%>
 			
 			<br>
-			댓글 : 
+			<p class="comment">댓글</p> 
+			<br>
+	
 			<%for(int i = 0; i < commentList.size(); i++) {%>
 					<!-- 유저의 정보(프로필)를 확인-->
-					댓글 작성자 : <a href="#"><%= commentList.get(i).getNickname()%></a>
-					댓글 작성 날짜 : <%= commentList.get(i).getWriteDate() %>
-					
+					<div style="margin-left: 580px;">
+					<div style="display:flex;">
+					<a href="#"><%= commentList.get(i).getNickname()%></a>
+					<p class="comment-day"><%= commentList.get(i).getWriteDate() %></p>
+					</div>
+					<br>
 					<% if(commentList.get(i).getTag() != null) {%>
 					<!-- 유저의 정보(프로필)를 확인  -->
 						태그 : #<a href="#"><%=commentList.get(i).getTag() %></a>
 					<%}%>
-					
-					댓글 내용 :  <%= commentList.get(i).getContents() %>
-					
+				  	<p class="comment-cont"><%= commentList.get(i).getContents() %></p>
 					
 					
-				<% }%>
+					
+				<% }%></div>
 			</div><!-- CommentBox -->
 		
 		</div><!-- Container -->
