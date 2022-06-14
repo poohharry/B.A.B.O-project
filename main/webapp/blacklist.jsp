@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:useBean id="dao" class="common.UserDAO" />
+<jsp:useBean id="vo" class="common.UserVO" />
+<%@ page import = "common.UserVO" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,38 +18,40 @@
         <p>회원 활동제한 추가 페이지</p>
         <div class="buttondiv">
             <button type="button" onclick="location.href='c_index.jsp'">메인 페이지</button>
+            <button type="button" onclick="location.href='MemberList.jsp'">회원 목록페이지</button>
         </div> <!-- buttondiv -->
     </div> <!-- headerdiv -->
 
-
+	<% String name = request.getParameter("name"); %>
+	<% vo = dao.getUser(name); %>
         <div class="infodiv">
             <table class="infotable">
                 <tr>
-                    <td>회원 번호</td> <td>mNum</td>
+                    <td>회원 번호</td> <td><%=vo.getmNum() %></td>
                 </tr>
 
                 <tr>
-                    <td>회원 아이디</td> <td>id</td> 
+                    <td>회원 아이디</td> <td><%=vo.getId() %></td> 
                 </tr>
 
                 <tr>
-                    <td>회원 이름</td> <td>name</td> 
+                    <td>회원 이름</td> <td><%=vo.getName() %></td> 
                 </tr>
 
                 <tr>
-                    <td>회원 이메일</td> <td>email</td>
+                    <td>회원 이메일</td> <td><%=vo.getEmail() %></td>
                 </tr>
 
                 <tr>
-                    <td>회원 전화번호</td> <td>pNum</td>
+                    <td>회원 전화번호</td> <td><%=vo.getpNum() %></td>
                 </tr>
 
                 <tr>
-                    <td>회원 생년월일</td> <td>birth</td>
+                    <td>회원 생년월일</td> <td><%=vo.getBirth() %></td>
                 </tr>
 
                 <tr>
-                    <td>회원 가입일자</td> <td>signUpDate</td>
+                    <td>회원 가입일자</td> <td><%=vo.getSignUpDate() %></td>
                 </tr>
                 
             </table> <!-- infotable -->	
@@ -54,24 +59,19 @@
             <br>
             
             <div class="selectdiv">
-                <div class="selectinnerdiv">
-            	<select>
-            		<option value="1day">1일 활동정지</option>
-            		<option value="3day">3일 활동정지</option>
-            		<option value="7day">7일 활동정지</option>
-            		<option value="15day">15일 활동정지</option>
-            		<option value="30day">30일 활동정지</option>
-            		<option value="forever">영구 활동정지</option>
-            	</select>
-                </div>
+            	<section class="selectsection">
+	                <form action="blacklistproc.jsp" class="selectform">
+	            	<input type="radio" name="black" value="1day" checked/>1일 활동정지<br>
+	            	<input type="radio" name="black" value="3day" />3일 활동정지<br>
+	            	<input type="radio" name="black" value="7day" />7일 활동정지<br>
+	            	<input type="radio" name="black" value="15day" />15일 활동정지<br>
+	            	<input type="radio" name="black" value="30day" />30일 활동정지<br>
+	            	<input type="radio" name="black" value="allday" />영구 활동정지<br><br>
+	            	<input style="width: 200px; height:50px; font-size:20px;" 
+	                type="submit" name="blacklistuser" value="회원 활동제한 추가"/>
+	                </form>
+                </section>
             </div>
-            
-            <div class="blacklistdiv">
-                <form action="blacklistproc.jsp">
-               <input style="width: 200px; height:50px; font-size:20px;" 
-                type="submit" name="blacklistuser" value="회원 활동제한 추가"/>
-                </form>	
-            </div> <!-- deletebutton -->
             
             
     <footer></footer>
