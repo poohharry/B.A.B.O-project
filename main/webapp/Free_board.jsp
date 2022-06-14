@@ -91,12 +91,9 @@
 		   
 		    <br>
 			<% if(id != null){%>
-			<% if(id.equals("admin")) {%>
-		    <button type="button" class="write-btn" onclick="location.href='./write.jsp'">글쓰기</button>
-		    <%} else {%>
-		    	
-		    <%}
-		}%>
+			<button type="button" class="write-btn" onclick="location.href='./write.jsp'">글쓰기</button>    
+		    <%}%>
+		
 	    </div>
       </div>
       

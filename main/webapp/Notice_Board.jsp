@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/c_style.css">
+    <link rel="stylesheet" href="./css/Notice.css">
     <title>공지사항</title>
     
 </head>
@@ -69,7 +69,7 @@
         </section>
       </header>
           <div class="container ">
-  <h1> 자유게시판</h1>
+  <h1> 공지사항</h1>
 	    <div id="postListContainer">
 		    <table>
 		    	<tr class="postList">
