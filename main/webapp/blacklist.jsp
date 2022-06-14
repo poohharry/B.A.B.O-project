@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:useBean id="dao" class="common.UserDAO" />
+<jsp:useBean id="vo" class="common.UserVO" />
+<%@ page import = "common.UserVO" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,35 +22,36 @@
         </div> <!-- buttondiv -->
     </div> <!-- headerdiv -->
 
-
+	<% String name = request.getParameter("name"); %>
+	<% vo = dao.getUser(name); %>
         <div class="infodiv">
             <table class="infotable">
                 <tr>
-                    <td>회원 번호</td> <td>mNum</td>
+                    <td>회원 번호</td> <td><%=vo.getmNum() %></td>
                 </tr>
 
                 <tr>
-                    <td>회원 아이디</td> <td>id</td> 
+                    <td>회원 아이디</td> <td><%=vo.getId() %></td> 
                 </tr>
 
                 <tr>
-                    <td>회원 이름</td> <td>name</td> 
+                    <td>회원 이름</td> <td><%=vo.getName() %></td> 
                 </tr>
 
                 <tr>
-                    <td>회원 이메일</td> <td>email</td>
+                    <td>회원 이메일</td> <td><%=vo.getEmail() %></td>
                 </tr>
 
                 <tr>
-                    <td>회원 전화번호</td> <td>pNum</td>
+                    <td>회원 전화번호</td> <td><%=vo.getpNum() %></td>
                 </tr>
 
                 <tr>
-                    <td>회원 생년월일</td> <td>birth</td>
+                    <td>회원 생년월일</td> <td><%=vo.getBirth() %></td>
                 </tr>
 
                 <tr>
-                    <td>회원 가입일자</td> <td>signUpDate</td>
+                    <td>회원 가입일자</td> <td><%=vo.getSignUpDate() %></td>
                 </tr>
                 
             </table> <!-- infotable -->	
