@@ -15,6 +15,7 @@
         <p>회원 활동제한 추가 페이지</p>
         <div class="buttondiv">
             <button type="button" onclick="location.href='c_index.jsp'">메인 페이지</button>
+            <button type="button" onclick="location.href='MemberList.jsp'">회원 목록페이지</button>
         </div> <!-- buttondiv -->
     </div> <!-- headerdiv -->
 
@@ -54,24 +55,19 @@
             <br>
             
             <div class="selectdiv">
-                <div class="selectinnerdiv">
-            	<select>
-            		<option value="1day">1일 활동정지</option>
-            		<option value="3day">3일 활동정지</option>
-            		<option value="7day">7일 활동정지</option>
-            		<option value="15day">15일 활동정지</option>
-            		<option value="30day">30일 활동정지</option>
-            		<option value="forever">영구 활동정지</option>
-            	</select>
-                </div>
+            	<section class="selectsection">
+	                <form action="blacklistproc.jsp" class="selectform">
+	            	<input type="radio" name="black" value="1day" checked/>1일 활동정지<br>
+	            	<input type="radio" name="black" value="3day" />3일 활동정지<br>
+	            	<input type="radio" name="black" value="7day" />7일 활동정지<br>
+	            	<input type="radio" name="black" value="15day" />15일 활동정지<br>
+	            	<input type="radio" name="black" value="30day" />30일 활동정지<br>
+	            	<input type="radio" name="black" value="allday" />영구 활동정지<br><br>
+	            	<input style="width: 200px; height:50px; font-size:20px;" 
+	                type="submit" name="blacklistuser" value="회원 활동제한 추가"/>
+	                </form>
+                </section>
             </div>
-            
-            <div class="blacklistdiv">
-                <form action="blacklistproc.jsp">
-               <input style="width: 200px; height:50px; font-size:20px;" 
-                type="submit" name="blacklistuser" value="회원 활동제한 추가"/>
-                </form>	
-            </div> <!-- deletebutton -->
             
             
     <footer></footer>
