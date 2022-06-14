@@ -64,7 +64,7 @@
 <body>
 	<div class="main">	
 	    <p class="sign" align="center">게시글 작성</p>
-	    <form class="form1" action="write_proc.jsp" method="get" name="writeFrm" id="frm">
+	    <form class="form1" action="write_proc.jsp" method="get" name="writeFrm" id="frm" enctype="multipart/form-data">
         <div style="margin-top: 35px;">
             <span class="sign-input">
             	<select id="board-type-select" class="selectbox" name="board-type" onchange="">
@@ -76,6 +76,7 @@
             </span>
             <span class="textarea-Contents">
             	<textarea name="ir1" id="ir1" cols="113" rows="20" placeholder="내용"></textarea>
+            	
             	<span class="signup-input file-select" >
             		<button type="button">파일 선택</button>
             	</span>
