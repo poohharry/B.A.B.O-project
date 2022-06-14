@@ -2,17 +2,10 @@
     pageEncoding="UTF-8"%>
 <jsp:useBean id="udao" class="common.UserDAO" />
 <jsp:useBean id="uvo" class="common.UserVO" />
-<jsp:useBean id="dao" class="common.PostDAO" />
-<jsp:useBean id="vo" class="common.PostVO" />
-<%@ page import = "java.util.*" %>
-<%@ page import = "common.PostVO" %>
 <%
-	request.setCharacterEncoding("UTF-8");
-	String id = (String)session.getAttribute("lgnId");
-	uvo = udao.getUser(id);
-	
-	String cate = "Q&A";
-	List<PostVO> list = dao.getPostList(cate);
+  request.setCharacterEncoding("UTF-8");
+  String id = (String)session.getAttribute("lgnId");
+  uvo = udao.getUser(id);
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,26 +13,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/Q&A_Board.css">
-    <title>질문과 답변 게시판</title>
+    <link rel="stylesheet" href="./css/c_style.css">
+    <title>B.A.B.O</title>
     
 </head>
 <body>
     <header>
         <section class="hbody">
           <article class="nav">
-          <div class="title"><a href="c_index.jsp">B.A.B.O</a></div>
+
+          <div class="title"><a href="./c_index.jsp">B.A.B.O</a></div>
+
+
           <ul id="menu">
             <li><a href="./Notice_Board.jsp" class="bar-anchor"><span>공지사항</span><div class="transition-bar"></div></a></li>
             <li><a href="./introduce.jsp">소개 </a></li>
             <li><a href="./Free_board.jsp">자유게시판</a></li>
             <li><a href="./Q&A_Board.jsp">질문게시판</a></li>
-      <% if(id != null) {%>
+        <% if(id != null) {%>
       		<li><a href="write.jsp">글쓰기</a></li>
-	    <% if(id.equals("admin")) {%>
+	    <% 		if(id.equals("admin")) {%>
 	    	<li><a href="MemberList.jsp">회원 관리 페이지</a></li>
-	    <%} 
+	    <% 		} 
 	    	} %>
+	    
           </ul>
           
               <ul id="menu-2">
@@ -58,7 +55,7 @@
                  
                 <%
             }else{ %>
- 				<li><a href="./login.jsp">로그인</a></li>
+ 				<li><a href="./login.jsp">로그인</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
             	<li><a href="./register.jsp">회원가입 </a></li>
             <% }%>
           </ul>
@@ -68,37 +65,7 @@
         </section>
       </header>
       <div class="container ">
-  	<h1> 질문과 답변 게시판</h1>
-	    <div id="postListContainer">
-		    <table>
-		    	<tr class="postList">
-		    		<td id="pNum">번호</td>
-		    		<td id="title">제목</td>
-		    		<td id="writter">작성자</td>
-		    		<td id="writeDate">작성일</td>
-		    		<td id="viewCnt">조회수</td>
-		    	</tr>
-		    	<%for(int i = 0; i < list.size(); i++) { %>
-		    		<tr class="postList">
-		    			<td id="pNum"><%=list.get(i).getPNum() %></td>
-		    			<td id="title"><a href="read.jsp?pNum=<%=list.get(i).getPNum()%>"><%=list.get(i).getTitle() %></a></td>
-		    			<td id="writter"><%=list.get(i).getWritter() %></td>
-		    			<td id="writeDate"><%=list.get(i).getWrDate() %></td>
-		    			<td id="viewCnt"><%=list.get(i).getViewCnt() %></td>
-		    		</tr>
-		    	<% }%>
-		    	
-		    </table>
-		    <br>
-		    <% if(id != null){%>
-		    <button type="button" class="write-btn" onclick="location.href='./write.jsp'">글쓰기</button>
-		    <%} else {%>
-		    	
-		    <% } %>
-	    </div>
-      
-        
-         
+  
      </div><!-- container -->
       <footer>
         <div class="footer bg-navy">
