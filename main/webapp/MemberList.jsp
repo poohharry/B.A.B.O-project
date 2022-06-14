@@ -37,12 +37,10 @@
 	<div class="boxdiv">
     <div class="listdiv">
 	    <ul class="listul">
-	        <li><p>회원 관리</p>
+	        <li><p>회원 목록</p>
 	            <ul>
-	                <li><a href="MemberList.jsp">회원 목록</a></li>
-	                <li><a href="blacklist.jsp">활동 제한 추가</a></li>
-	                <li><a href="#"></a></li>
-	                <li><a href="#"></a></li>
+	                <li><a href="MemberList.jsp">회원목록-상세정보</a></li>
+	                
 	            </ul>
 	        </li>
 	        <br><br>

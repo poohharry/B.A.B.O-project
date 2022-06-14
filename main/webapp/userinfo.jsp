@@ -18,6 +18,7 @@
         <p>회원 상세정보 페이지</p>
         <div class="buttondiv">
             <button type="button" onclick="location.href='c_index.jsp'">메인 페이지</button>
+            <button type="button" onclick="location.href='MemberList.jsp'">회원 목록페이지</button>
         </div> <!-- buttondiv -->
     </div> <!-- headerdiv -->
 
@@ -55,6 +56,7 @@
                 
             </table> <!-- infotable -->	
             <br>
+            
             <div class="deletebutton">
                 <form action="deleteproc.jsp" method="post">
                 <input name="id" type="hidden" value="<%=vo.getId()%>" />
@@ -62,6 +64,23 @@
                 type="submit" value="회원 삭제"/>
                 </form>	
             </div> <!-- deletebutton -->
+            
+            <br><br>
+            
+            <div class="selectdiv">
+            	<section class="selectsection">
+	                <form action="blacklistproc.jsp" class="selectform">
+	            	<input type="radio" name="black" value="1day" checked/>1일 활동정지<br>
+	            	<input type="radio" name="black" value="3day" />3일 활동정지<br>
+	            	<input type="radio" name="black" value="7day" />7일 활동정지<br>
+	            	<input type="radio" name="black" value="15day" />15일 활동정지<br>
+	            	<input type="radio" name="black" value="30day" />30일 활동정지<br>
+	            	<input type="radio" name="black" value="allday" />영구 활동정지<br><br>
+	            	<input style="width: 200px; height:50px; font-size:20px;" 
+	                type="submit" name="blacklistuser" value="회원 활동제한 추가"/>
+	                </form>
+                </section> <!-- selectsection -->
+            </div> <!-- selectdiv -->
             
             <div class="userwritelist">
             	<table>
