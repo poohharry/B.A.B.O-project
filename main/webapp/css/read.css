@@ -2,6 +2,7 @@
 .container{
 	
 	margin-top: 150px;
+	position:absolute;
 }
 .content-title{
 	margin-left: 580px;
@@ -13,22 +14,37 @@
 	height:450px;
 	margin-left: 585px;
 }
-#CommentBox{
-	text-align:center;
-}
+
+
 .writer{
-	margin-left: 450px;
+	margin-left: 481px;
+	position:relative;
 }
 .comment-submit{
-	height:40px; 
-	width:80px;
-	margin-right:5px;
+	height:44px; 
+	width:83px;
+	
+
 }
 .comment-contents{
 	width:650px;
 	height: 40px;
-	
+	margin-left: 580px;
+}
+#commentBox{
+	display:flex;
 }
 .comment-write{
 	margin-left: 580px;
+}
+.comment{
+	margin-left: 580px;
+}
+.comment-cont{
+	border: 1px solid black;
+	padding: 15px;
+	width:703px;
+}
+.comment-day{
+	margin-left: 494px;
 }

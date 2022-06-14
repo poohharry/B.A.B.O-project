@@ -2,14 +2,6 @@
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <jsp:useBean id="dao" class="common.UserDAO"/>
-<script>
-	alert("<%=msg%>");
-	location.href = "<%=url%>";
-	
-	function history_go2(){
-		history.go(-2);
-	}
-</script>
 <%
 	String id = request.getParameter("login_ID");
 	String pw = request.getParameter("login_PW");
@@ -25,7 +17,7 @@
 		break;
 	case 3: {
 		msg = "로그인에 성공하였습니다.\\n" + id + "님 환영합니다!";
-		url = history_go(2);
+		url = "c_index.jsp";
 		session.setAttribute("lgnId", id);
 		break;
 		}
@@ -36,9 +28,11 @@
 		break;
 	}
 %>
-
 <html>
 <body>
-
+<script>
+	alert("<%=msg%>");
+	location.href = "<%=url%>";
+</script>
 </body>
 </html>

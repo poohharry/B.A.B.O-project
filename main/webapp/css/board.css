@@ -74,10 +74,13 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 20px;
+  padding: 20px 0px;
   color: white;
 }
-
+ #menu-2{
+      display: flex;
+      margin-left: 760px;
+    }
 .title {
   font-size: 2em;
 }
@@ -149,7 +152,7 @@ margin-right:25px
 
   #menu-2{
       display: flex;
-      margin-left: 800px;
+      margin-left: 760px;
     }
   #menu-2 > li {
       padding: 20px 30px;
