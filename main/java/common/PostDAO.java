@@ -207,19 +207,21 @@ public class PostDAO {
 		try {
 			con = pool.getConnection();
 			if(vo.getTag() == null) {
-				sql = "insert into comments postNum = ?, writter = ?, contents = ?";
+				sql = "insert into comments(postNum, writter, contents, nickname) values(?, ?, ?, ?)";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, vo.getPostNum());
 				pstmt.setString(2, vo.getWritter());
 				pstmt.setString(3, vo.getContents());
+				pstmt.setString(4, vo.getNickname());
 				if(pstmt.executeUpdate() == 1) flag = true;
 			} else {
-				sql = "insert into comments postNum = ?, writter = ?, contents = ?, tag = ?";
+				sql = "insert into comments(postNum, writter, contents, tag, nickname) values(?, ?, ?, ?, ?)";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, vo.getPostNum());
 				pstmt.setString(2, vo.getWritter());
 				pstmt.setString(3, vo.getContents());
 				pstmt.setString(4, vo.getTag());
+				pstmt.setString(5, vo.getNickname());
 				if(pstmt.executeUpdate() == 1) flag = true;
 			}
 			
@@ -241,7 +243,7 @@ public class PostDAO {
 		String sql = null;
 		try {
 			con = pool.getConnection();
-			sql = "select * from comments where pNum = ? order By comNum";
+			sql = "select * from comments where postNum = ? order By comNum";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, pNum);
 			rs = pstmt.executeQuery();
@@ -253,6 +255,7 @@ public class PostDAO {
 				vo.setComNum(rs.getInt("comNum"));
 				vo.setWriteDate(rs.getString("writeDate"));
 				vo.setTag(rs.getString("tag"));
+				vo.setNickname(rs.getString("nickname"));
 				list.add(vo);
 			}
 		} catch (Exception e) {
