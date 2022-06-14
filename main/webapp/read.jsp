@@ -121,34 +121,33 @@
 			<br>
 			<p class="comment">댓글</p> 
 			<br>
-	
+		<div style="margin-left: 580px;">
 			<%for(int i = 0; i < commentList.size(); i++) {%>
 					<!-- 유저의 정보(프로필)를 확인-->
-					<div style="margin-left: 580px;">
-					<div style="display:flex;">
+					<div style="display:flex; margin-top: 15px;">
 					<a href="#"><%= commentList.get(i).getNickname()%></a>
 					<p class="comment-day"><%= commentList.get(i).getWriteDate() %></p>
-					</div>
-					<br>
-					<% if(commentList.get(i).getTag() != null) {%>
+					</div>		
+				 	 <% if(commentList.get(i).getTag() != null) {%>
 					<!-- 유저의 정보(프로필)를 확인  -->
 						태그 : #<a href="#"><%=commentList.get(i).getTag() %></a>
-					<%}%>
+					<%}%> 
 				  	<p class="comment-cont"><%= commentList.get(i).getContents() %></p>
+				<% }%>	
+					</div>
 					
-					
-					
-				<% }%></div>
+				
 			</div><!-- CommentBox -->
-		
-		</div><!-- Container -->
-      
-      
-      
-      <footer>
+			<br>
+			<br>
+		  <footer>
         <div class="footer bg-navy">
             <p>Copyright ⓒ 2022.06.22 B.A.B.O All rights reserved.</p>
           </div>
       </footer>
+		</div><!-- Container -->
+      
+      
+     
 </body>
 </html>
