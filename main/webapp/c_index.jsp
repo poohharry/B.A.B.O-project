@@ -21,7 +21,7 @@
     <header>
         <section class="hbody">
           <article class="nav">
-          <div class="title"><a href="./index.jsp">B.A.B.O</a></div>
+          <div class="title"><a href="c_index.jsp">B.A.B.O</a></div>
           <ul id="menu">
             <li><a href="./Notice_board.jsp" class="bar-anchor"><span>공지사항</span><div class="transition-bar"></div></a></li>
             <li><a href="./introduce.jsp">소개 </a></li>
