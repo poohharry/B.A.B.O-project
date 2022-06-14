@@ -22,7 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/board.css">
     
-    <title>B.A.B.O</title>
+    <title>자유 게시판</title>
 </head>
 <body>
     <header>
