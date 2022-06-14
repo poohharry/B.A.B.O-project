@@ -26,6 +26,7 @@
             <li><a href="./Notice_board.jsp" class="bar-anchor"><span>공지사항</span><div class="transition-bar"></div></a></li>
             <li><a href="./introduce.jsp">소개 </a></li>
             <li><a href="./Free_board.jsp">자유게시판</a></li>
+            <li><a href="./Q&A_Board.jsp">질문게시판</a></li>
         <%if(id != null) {%>
       		<li><a href="write.jsp">글쓰기</a></li>
 	    <%}%>
