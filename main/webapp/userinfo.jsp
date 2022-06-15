@@ -7,6 +7,7 @@
 <%@ page import = "common.PostDAO" %>
 <%@ page import = "common.PostVO" %>
 <%@ page import = "java.util.*" %>
+<%@ page import = "common.CommentVO" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,8 +30,14 @@
 
 	<% String name = request.getParameter("name"); %>
 	<% vo = dao.getUser(name); %>
+	
 	<% String postname = request.getParameter("name"); %>
 	<% List<PostVO> arr = pdao.getUserPostList(postname); %>
+	
+	<% String commentname = request.getParameter("name"); %>
+	<% List<CommentVO> cmtarr = pdao.getUserCommentList(commentname); %>
+	
+	
         <div class="infodiv">
             <table class="infotable">
                 <tr>
@@ -99,7 +106,7 @@
             		
             		<% for (int i = 0; i < arr.size(); i++){ %>
             		<tr>
-            			<td><a href="read.jsp?pNum=<%=arr.get(i).getPNum()%>">
+            			<td class="write-title"><a href="read.jsp?pNum=<%=arr.get(i).getPNum()%>">
             			<%= arr.get(i).getTitle() %></a></td>
             			<td><%= arr.get(i).getCategory() %></td>
             		</tr>
@@ -107,24 +114,28 @@
             		
            		</tbody>
             	</table>
-            </div>
+            </div> <!-- userwritelist div -->
             
             
             <div class="userwriteboard">
             	<table>
             	<tbody>
             		<tr>
-            			<td>작성한 댓글의 제목</td>
-            			<td>작성한 댓글의 게시판</td>
+            			<td>작성한 댓글의 내용</td>
+            			<td>작성한 댓글이 쓰여진 게시물의 제목</td>
             		</tr>
             		
+            		<% for (int j = 0; j < cmtarr.size(); j++) { %>
             		<tr>
-            			<td>DB 작성한 댓글 목록</td>
-            			<td>DB 작성한 댓글의 게시판 목록</td>
+            			<td><%= cmtarr.get(j).getContents() %></td>
+            			<% PostVO commentTitle = pdao.readPost(arr.get(j).getPNum()); %>
+            			<td><%= commentTitle.getTitle() %></td>
             		</tr>
+            		<% } %>
            		</tbody>
             	</table>
-            </div>
+            </div> <!-- userwirteboard div -->
+            
         </div> <!-- infodiv -->
     
 

@@ -3,6 +3,31 @@ body {
     font-family: 'Ubuntu', sans-serif;
     text-align: center;
    	}
+ .overlap-btn {
+	background:linear-gradient(to bottom, #b2b2b2 5%, #b2b2b2 100%);
+	background-color:#b2b2b2;
+	border-radius:5px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:18px;
+	font-weight:bold;
+	padding:5px;
+	text-decoration:none;
+	width: 99px;
+	height: 51px;
+	margin-right:75px;
+}
+.overlap-btn:hover {
+	background:linear-gradient(to bottom, #b2b2b2 5%, #b2b2b2 100%);
+	background-color:#b2b2b2;
+}
+.overlap-btn:active {
+	position:relative;
+	top:1px;
+}
  
 .main {
         background-color: #FFFFFF;
@@ -232,7 +257,7 @@ h3{
 .signup-input1{
     display:flex;
     padding: 10px;
-    width: 150%;
+    width: 69%;
     border: solid 1px #dadada;
     background-color: #fff;
     cursor:pointer;

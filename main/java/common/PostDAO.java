@@ -351,26 +351,26 @@ public class PostDAO {
 		return list;
 	}
 	
-	// 실험, id = writter 를 매개변수로 받아서 postNum(댓글 번호)과 
-	// contents(작성한 댓글의 제목)와 작성한 댓글의 게시판 종류를 가져옴
-	public List<PostVO> getUserCommentList(String wrt) {
-		List<PostVO> list = new ArrayList<PostVO>();
+	// 실험, id = writter 를 매개변수로 받아서 postNum(댓글이 쓰여진 게시물의 번호)과 
+	// contents(작성한 댓글의 내용)를 가져옴
+	// 참고로 불러오는 댓글의 순서는 최신일수록 위쪽에 표시되도록 설정해놓음
+	public List<CommentVO> getUserCommentList(String wrt) {
+		List<CommentVO> list = new ArrayList<CommentVO>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = null;
 		try {
 			con = pool.getConnection();
-			sql = "select pNum, title, category from posts where writter = ?";
+			sql = "select postNum,contents from comments where writter = ? order by writeDate desc";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, wrt);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				PostVO vo = new PostVO();
-				vo.setPNum(rs.getInt("pNum"));
-				vo.setTitle(rs.getString("title"));
-				vo.setCategory(rs.getString("category"));
+				CommentVO vo = new CommentVO();
+				vo.setPostNum(rs.getInt("postNum"));
+				vo.setContents(rs.getString("contents"));
 				list.add(vo);
 			}
 			
