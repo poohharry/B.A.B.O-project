@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -17,8 +18,7 @@ public class PostDAO {
 	
 	// 사용자마다 현재 프로젝트의 경로가 다르기 때문에 그걸 미리 구해놓고 파일 업로드 경로를 상대적으로 바꿔준다
 	private static String path = (System.getProperty("user.dir")).replace("\\", "/");
-
-	private static final String SAVEFOLDER = path + "/src/main/webapp/uploadFiles";
+	private static final String SAVEFOLDER = path + "/Project1/FirstProject/src/main/webapp/uploadFiles/";
 	private static final String ENCTYPE = "UTF-8";
 	private static int MAXSIZE = 10*1024*1024;
 	
@@ -79,7 +79,7 @@ public class PostDAO {
 			pstmt.setInt(1, pNum);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				vo.setPNum(rs.getInt("pNUm"));
+				vo.setPNum(rs.getInt("pNum"));
 				vo.setCategory(rs.getString("category"));
 				vo.setTitle(rs.getString("title"));
 				vo.setWritter(rs.getString("writter"));
@@ -110,13 +110,13 @@ public class PostDAO {
 	
 	// 게시글 작성
 	// PostVO를 받는데 PostVO에는 제목, 작성자, 내용, 태그(있어도 되고 없어도 됨), 게시글 비번이 있어야함
-	public boolean writePost(HttpServletRequest req) {
+	public boolean writePost(HttpServletRequest req, HttpServletResponse rep) {
 		boolean flag = false;
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
 		MultipartRequest multi = null;
-		int filesize = 0;
+		int fileSize = 0;
 		String fileName = null;
 		
 		try {
@@ -127,7 +127,7 @@ public class PostDAO {
 			multi = new MultipartRequest(req, SAVEFOLDER, MAXSIZE, ENCTYPE, new DefaultFileRenamePolicy());
 			if(multi.getFilesystemName("fileName") != null) {
 				fileName = multi.getFilesystemName("fileName");
-				filesize = (int)multi.getFile("fileName").length();
+				fileSize = (int)multi.getFile("fileName").length();
 			}
 			String content = multi.getParameter("ir1");
 //			if(multi.getParameter("contentType").equalsIgnoreCase("TEXT")) {
@@ -138,15 +138,19 @@ public class PostDAO {
 			
 			// 태그가 작성되었는지 여부에 따라 sql문을 다르게 돌림
 			if(multi.getParameter("tag") == null) {
-				sql = "insert into posts(title, writter, contents, postPw, category, nickname) values(?, ?, ?, ?, ?, ?)";
+				sql = "insert into posts(title, writter, contents, postPw, category, nickname, fileName, fileSize) values(?, ?, ?, ?, ?, ?, ?, ?)";
 				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, multi.getParameter("board-title"));		// board-title
-				pstmt.setString(2, multi.getParameter("writter"));	// writter
-				pstmt.setString(3, multi.getParameter("ir1"));	// ir1
-				pstmt.setString(4, multi.getParameter("postPw"));		// 
-				pstmt.setString(5, multi.getParameter("board-type"));	// board-type
-				pstmt.setString(6, multi.getParameter("nickname"));	// nickname
+				pstmt.setString(1, multi.getParameter("board-title"));
+				pstmt.setString(2, multi.getParameter("writter"));
+				pstmt.setString(3, multi.getParameter("ir1"));
+				pstmt.setString(4, multi.getParameter("postPw"));
+				pstmt.setString(5, multi.getParameter("boardType"));
+				pstmt.setString(6, multi.getParameter("nickname"));
+				pstmt.setString(7, fileName);
+				pstmt.setInt(8, fileSize);
 			} 
+			String url = multi.getParameter("boardType");
+			
 			// 태그가 작성되었는지 여부에 따라 sql문을 다르게 돌림
 //			if(multi.getParameter("tag") == null) {
 //				sql = "insert into posts(title, writter, contents, postPw, category, nickname) values(?, ?, ?, ?, ?, ?)";
@@ -177,6 +181,7 @@ public class PostDAO {
 			if (pstmt.executeUpdate() == 1) {
 				flag = true;
 			}
+			rep.sendRedirect( url + ".jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -311,4 +316,38 @@ public class PostDAO {
 		
 		return list;
 	}
+	
+	
+	// 실험, id를 매개변수로 받아서 해당 id가 작성한 글의 pNum(번호)과 
+	// title(글 제목)과 category(작성한 글의 게시판 종류)를 가져옴
+	public List<PostVO> getUserPostList(String wrt) {
+		List<PostVO> list = new ArrayList<PostVO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "select pNum, title, category from posts where writter = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, wrt);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				PostVO vo = new PostVO();
+				vo.setPNum(rs.getInt("pNum"));
+				vo.setTitle(rs.getString("title"));
+				vo.setCategory(rs.getString("category"));
+				list.add(vo);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		return list;
+	}
+	
+	
 }

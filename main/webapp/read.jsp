@@ -91,6 +91,10 @@
 		<div class="article-content">
 			 <%=vo.getContents() %>
 		</div>
+		<div class="content-change">
+		<button type="button" value="수정" class="cont-ch">수정</button>
+		<button type="button" value="삭제" class="cont-de">삭제</button>
+		</div>
 		<br>
 		<!-- 댓글 -->
 		<%
@@ -127,7 +131,8 @@
 			<%for(int i = 0; i < commentList.size(); i++) {%>
 					<!-- 유저의 정보(프로필)를 확인-->
 					<div style="display:flex; margin-top: 15px;">
-					<a href="#"><%= commentList.get(i).getNickname()%></a>
+					<a href="#" style="color: black;"><%= commentList.get(i).getNickname()%></a>
+					
 					<p class="comment-day"><%= commentList.get(i).getWriteDate() %></p>
 					</div>		
 				 	 <% if(commentList.get(i).getTag() != null) {%>
