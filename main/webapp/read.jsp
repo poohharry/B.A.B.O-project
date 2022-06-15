@@ -125,7 +125,7 @@
 				<% }%>
 			
 			<br>
-			<p class="comment">댓글</p> 
+			<p class="comment">댓글[<%=commentList.size() %>]</p> 
 			<br>
 		<div style="margin-left: 580px;">
 			<%for(int i = 0; i < commentList.size(); i++) {%>

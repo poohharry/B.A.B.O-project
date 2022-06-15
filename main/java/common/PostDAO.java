@@ -293,7 +293,7 @@ public class PostDAO {
 		String sql = null;
 		try {
 			con = pool.getConnection();
-			sql = "select * from comments where postNum = ? order By comNum";
+			sql = "select * from comments where postNum = ? order By writeDate";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, pNum);
 			rs = pstmt.executeQuery();
