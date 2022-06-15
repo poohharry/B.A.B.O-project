@@ -11,7 +11,7 @@
   String id = (String)session.getAttribute("lgnId");
   uvo = udao.getUser(id);
   
-  String cate = "Notice";
+  String cate = "Notice_Board";
   List<PostVO> list = dao.getPostList(cate);
 %>
 <!DOCTYPE html>

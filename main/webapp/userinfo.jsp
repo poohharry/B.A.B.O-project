@@ -7,6 +7,7 @@
 <%@ page import = "common.PostDAO" %>
 <%@ page import = "common.PostVO" %>
 <%@ page import = "java.util.*" %>
+<%@ page import = "common.CommentVO" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,8 +30,13 @@
 
 	<% String name = request.getParameter("name"); %>
 	<% vo = dao.getUser(name); %>
+	
 	<% String postname = request.getParameter("name"); %>
 	<% List<PostVO> arr = pdao.getUserPostList(postname); %>
+	
+	<% String commentname = request.getParameter("name"); %>
+	<% List<CommentVO> cmtarr = pdao.getUserCommentList(commentname); %>
+	
         <div class="infodiv">
             <table class="infotable">
                 <tr>
@@ -114,14 +120,16 @@
             	<table>
             	<tbody>
             		<tr>
-            			<td>작성한 댓글의 제목</td>
-            			<td>작성한 댓글의 게시판</td>
+            			<td>작성한 댓글의 내용</td>
+            			<td>작성한 댓글이 쓰여진 게시물의 번호(이걸로 게시글의 제목을 불러와야하는데 어떻게?)</td>
             		</tr>
             		
+            		<% for (int j = 0; j < cmtarr.size(); j++) { %>
             		<tr>
-            			<td>DB 작성한 댓글 목록</td>
-            			<td>DB 작성한 댓글의 게시판 목록</td>
+            			<td><%= cmtarr.get(j).getContents() %></td>
+            			<td><%= cmtarr.get(j).getPostNum() %></td>
             		</tr>
+            		<% } %>
            		</tbody>
             	</table>
             </div>
