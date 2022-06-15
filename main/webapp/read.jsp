@@ -131,7 +131,8 @@
 			<%for(int i = 0; i < commentList.size(); i++) {%>
 					<!-- 유저의 정보(프로필)를 확인-->
 					<div style="display:flex; margin-top: 15px;">
-					<a href="#"><%= commentList.get(i).getNickname()%></a>
+					<a href="#" style="color: black;"><%= commentList.get(i).getNickname()%></a>
+					
 					<p class="comment-day"><%= commentList.get(i).getWriteDate() %></p>
 					</div>		
 				 	 <% if(commentList.get(i).getTag() != null) {%>
