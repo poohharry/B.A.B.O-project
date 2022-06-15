@@ -37,6 +37,7 @@
 	<% String commentname = request.getParameter("name"); %>
 	<% List<CommentVO> cmtarr = pdao.getUserCommentList(commentname); %>
 	
+	
         <div class="infodiv">
             <table class="infotable">
                 <tr>
@@ -113,7 +114,7 @@
             		
            		</tbody>
             	</table>
-            </div>
+            </div> <!-- userwritelist div -->
             
             
             <div class="userwriteboard">
@@ -121,18 +122,20 @@
             	<tbody>
             		<tr>
             			<td>작성한 댓글의 내용</td>
-            			<td>작성한 댓글이 쓰여진 게시물의 번호(이걸로 게시글의 제목을 불러와야하는데 어떻게?)</td>
+            			<td>작성한 댓글이 쓰여진 게시물의 제목</td>
             		</tr>
             		
             		<% for (int j = 0; j < cmtarr.size(); j++) { %>
             		<tr>
             			<td><%= cmtarr.get(j).getContents() %></td>
-            			<td><%= cmtarr.get(j).getPostNum() %></td>
+            			<% PostVO commentTitle = pdao.readPost(arr.get(j).getPNum()); %>
+            			<td><%= commentTitle.getTitle() %></td>
             		</tr>
             		<% } %>
            		</tbody>
             	</table>
-            </div>
+            </div> <!-- userwirteboard div -->
+            
         </div> <!-- infodiv -->
     
 
