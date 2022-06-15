@@ -79,17 +79,17 @@
             <span class="sign-input">
 
           <% if(id.equals("admin")) {%>
-            	<select id="board-type-select" class="selectbox" name="board-type" onchange="">
+            	<select id="board-type-select" class="selectbox" name="boardType" onchange="">
 	                <option value="board-type">구분</option>
-	                <option value="Notice">공지사항</option>
-	                <option value="freeBoard">자유게시판</option>
-	                <option value="Q&A">Q&A게시판</option>
+	                <option value="Notice_Board">공지사항</option>
+	                <option value="Free_board">자유게시판</option>
+	                <option value="Q&A_Board">Q&A게시판</option>
                 </select>
                 <%} else{ %>
-                <select id="board-type-select" class="selectbox" name="board-type" onchange="">
+                <select id="board-type-select" class="selectbox" name="boardType" onchange="">
 	                <option value="board-type">구분</option>
-	                <option value="freeBoard">자유게시판</option>
-	                <option value="Q&A">Q&A게시판</option>
+	                <option value="Free_board">자유게시판</option>
+	                <option value="Q&A_Board">Q&A게시판</option>
          
                 <% } %>
                 <input id="signup-name" type="text" placeholder="제목" name="board-title" />
