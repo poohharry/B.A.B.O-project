@@ -89,8 +89,8 @@
 		
 		<!-- 글 내용의 메인 -->
 		<div class="article-content">
-		<% String extension = vo.getFileName().substring(vo.getFileName().lastIndexOf(".")); %>
 			<%if(vo.getFileName() != null) {
+				String extension = vo.getFileName().substring(vo.getFileName().lastIndexOf("."));
 				if(extension.equals(".jpg") || extension.equals(".jpeg") || extension.equals(".gif") || extension.equals(".png") || extension.equals(".webp")) {%>
 					<img src = "./uploadFiles/<%=vo.getFileName()%>">
 				<%}
