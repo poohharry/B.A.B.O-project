@@ -122,7 +122,7 @@
             		
             		<% for (int i = 0; i < arr.size(); i++){ %>
             		<tr>
-            			<td><a href="read.jsp?pNum=<%=arr.get(i).getPNum()%>">
+            			<td class="write-title"><a href="read.jsp?pNum=<%=arr.get(i).getPNum()%>">
             			<%= arr.get(i).getTitle() %></a></td>
             			<td><%= arr.get(i).getCategory() %></td>
             		</tr>

@@ -89,7 +89,7 @@
 		
 		<!-- 글 내용의 메인 -->
 		<div class="article-content">
-			 <%=vo.getContents() %>
+		<textarea readonly class="content-textarea"><%=vo.getContents() %></textarea>
 		</div>
 		<div class="content-change">
 		<button type="button" value="수정" class="cont-ch">수정</button>
