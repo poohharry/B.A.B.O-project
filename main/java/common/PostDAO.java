@@ -79,7 +79,7 @@ public class PostDAO {
 			pstmt.setInt(1, pNum);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				vo.setPNum(rs.getInt("pNUm"));
+				vo.setPNum(rs.getInt("pNum"));
 				vo.setCategory(rs.getString("category"));
 				vo.setTitle(rs.getString("title"));
 				vo.setWritter(rs.getString("writter"));
@@ -311,4 +311,38 @@ public class PostDAO {
 		
 		return list;
 	}
+	
+	
+	// 실험, id를 매개변수로 받아서 해당 id가 작성한 글의 pNum(번호)과 
+	// title(글 제목)과 category(작성한 글의 게시판 종류)를 가져옴
+	public List<PostVO> getUserPostList(String wrt) {
+		List<PostVO> list = new ArrayList<PostVO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "select pNum, title, category from posts where writter = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, wrt);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				PostVO vo = new PostVO();
+				vo.setPNum(rs.getInt("pNum"));
+				vo.setTitle(rs.getString("title"));
+				vo.setCategory(rs.getString("category"));
+				list.add(vo);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		return list;
+	}
+	
+	
 }
