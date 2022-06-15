@@ -9,17 +9,21 @@
 	display:flex;	
 }
 .article-content{
-	Border:1px solid black;
-	width: 730px;
-	height:450px;
+
 	margin-left: 585px;
+}
+.content-textarea{
+	width:729px;
+	height:449px;
+	border: 1px solid black;
+	resize: none;
 }
 
 
 .writer{
 	margin-left: 481px;
 	position: absolute;
-	top:20px;
+	top:1px;
 	right: 585px;
 
 }
