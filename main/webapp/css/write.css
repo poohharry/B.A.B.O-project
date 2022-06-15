@@ -1,6 +1,6 @@
 @charset "UTF-8";
 body {
-	background-color: #ddffff;
+	background-color: #B2B2B2;
     font-family: 'Ubuntu', sans-serif;
    text-align: center;
    	}
@@ -36,7 +36,7 @@ body {
       cursor: pointer;
         border-radius: 5em;
         color: #fff;
-        background: skyblue;
+        background: #B2B2B2;
         border: 0;
         padding-left: 40px;
         padding-right: 40px;

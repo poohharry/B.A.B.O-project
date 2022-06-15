@@ -91,6 +91,10 @@
 		<div class="article-content">
 			 <%=vo.getContents() %>
 		</div>
+		<div class="content-change">
+		<button type="button" value="수정" class="cont-ch">수정</button>
+		<button type="button" value="삭제" class="cont-de">삭제</button>
+		</div>
 		<br>
 		<!-- 댓글 -->
 		<%
