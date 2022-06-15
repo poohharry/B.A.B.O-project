@@ -18,8 +18,7 @@ public class PostDAO {
 	
 	// 사용자마다 현재 프로젝트의 경로가 다르기 때문에 그걸 미리 구해놓고 파일 업로드 경로를 상대적으로 바꿔준다
 	private static String path = (System.getProperty("user.dir")).replace("\\", "/");
-
-	private static final String SAVEFOLDER = path + "/src/main/webapp/uploadFiles/";
+	private static final String SAVEFOLDER = path + "/Project1/FirstProject/src/main/webapp/uploadFiles/";
 	private static final String ENCTYPE = "UTF-8";
 	private static int MAXSIZE = 10*1024*1024;
 	
