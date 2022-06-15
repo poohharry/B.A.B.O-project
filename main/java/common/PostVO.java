@@ -9,8 +9,8 @@ public class PostVO {
 	private String tag;			// 태그
 	private String wrDate;		// 작성 일자
 	private String corDate;		// 수정 일자
-//	private String file;		// 파일?(사진)
-//	private int fileSize		// 파일 사이즈 
+	private String fileName;	// 파일?(사진)
+	private int fileSize;		// 파일 사이즈 
 	private String postPw;		// 게시물 비밀번호
 	private int viewCnt;		// 조회수
 	private String nickname;	// 작성자 닉네임 
@@ -80,6 +80,18 @@ public class PostVO {
 	}
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
+	}
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	public int getFileSize() {
+		return fileSize;
+	}
+	public void setFileSize(int fileSize) {
+		this.fileSize = fileSize;
 	}
 	
 	
