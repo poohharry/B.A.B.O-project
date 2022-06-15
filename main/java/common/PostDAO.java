@@ -19,7 +19,7 @@ public class PostDAO {
 	// 사용자마다 현재 프로젝트의 경로가 다르기 때문에 그걸 미리 구해놓고 파일 업로드 경로를 상대적으로 바꿔준다
 	private static String path = (System.getProperty("user.dir")).replace("\\", "/");
 
-	private static final String SAVEFOLDER = path + "/src/main/webapp/uploadFiles";
+	private static final String SAVEFOLDER = path + "/src/main/webapp/uploadFiles/";
 	private static final String ENCTYPE = "UTF-8";
 	private static int MAXSIZE = 10*1024*1024;
 	
@@ -117,7 +117,7 @@ public class PostDAO {
 		PreparedStatement pstmt = null;
 		String sql = null;
 		MultipartRequest multi = null;
-		int filesize = 0;
+		int fileSize = 0;
 		String fileName = null;
 		
 		try {
@@ -128,7 +128,7 @@ public class PostDAO {
 			multi = new MultipartRequest(req, SAVEFOLDER, MAXSIZE, ENCTYPE, new DefaultFileRenamePolicy());
 			if(multi.getFilesystemName("fileName") != null) {
 				fileName = multi.getFilesystemName("fileName");
-				filesize = (int)multi.getFile("fileName").length();
+				fileSize = (int)multi.getFile("fileName").length();
 			}
 			String content = multi.getParameter("ir1");
 //			if(multi.getParameter("contentType").equalsIgnoreCase("TEXT")) {
@@ -139,16 +139,19 @@ public class PostDAO {
 			
 			// 태그가 작성되었는지 여부에 따라 sql문을 다르게 돌림
 			if(multi.getParameter("tag") == null) {
-				sql = "insert into posts(title, writter, contents, postPw, category, nickname) values(?, ?, ?, ?, ?, ?)";
+				sql = "insert into posts(title, writter, contents, postPw, category, nickname, fileName, fileSize) values(?, ?, ?, ?, ?, ?, ?, ?)";
 				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, multi.getParameter("board-title"));		// board-title
-				pstmt.setString(2, multi.getParameter("writter"));	// writter
-				pstmt.setString(3, multi.getParameter("ir1"));	// ir1
-				pstmt.setString(4, multi.getParameter("postPw"));		// 
-				pstmt.setString(5, multi.getParameter("boardType"));	// boardType
-				pstmt.setString(6, multi.getParameter("nickname"));	// nickname
+				pstmt.setString(1, multi.getParameter("board-title"));
+				pstmt.setString(2, multi.getParameter("writter"));
+				pstmt.setString(3, multi.getParameter("ir1"));
+				pstmt.setString(4, multi.getParameter("postPw"));
+				pstmt.setString(5, multi.getParameter("boardType"));
+				pstmt.setString(6, multi.getParameter("nickname"));
+				pstmt.setString(7, fileName);
+				pstmt.setInt(8, fileSize);
 			} 
 			String url = multi.getParameter("boardType");
+			
 			// 태그가 작성되었는지 여부에 따라 sql문을 다르게 돌림
 //			if(multi.getParameter("tag") == null) {
 //				sql = "insert into posts(title, writter, contents, postPw, category, nickname) values(?, ?, ?, ?, ?, ?)";

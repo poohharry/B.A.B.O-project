@@ -12,7 +12,7 @@
 	String id = (String)session.getAttribute("lgnId");
 	uvo = udao.getUser(id);
 	
-	String cate = "freeBoard";
+	String cate = "Free_board";
 	List<PostVO> list = dao.getPostList(cate);
 %>
 <html lang="en">
