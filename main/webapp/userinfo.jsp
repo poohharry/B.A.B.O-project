@@ -2,7 +2,12 @@
     pageEncoding="UTF-8"%>
 <jsp:useBean id="dao" class="common.UserDAO" />
 <jsp:useBean id="vo" class="common.UserVO" />
+<jsp:useBean id="pdao" class="common.PostDAO" />
 <%@ page import = "common.UserVO" %>
+<%@ page import = "common.PostDAO" %>
+<%@ page import = "common.PostVO" %>
+<%@ page import = "java.util.*" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +29,8 @@
 
 	<% String name = request.getParameter("name"); %>
 	<% vo = dao.getUser(name); %>
+	<% String postname = request.getParameter("name"); %>
+	<% List<PostVO> arr = pdao.getUserPostList(postname); %>
         <div class="infodiv">
             <table class="infotable">
                 <tr>
@@ -86,24 +93,29 @@
             	<table>
             	<tbody>
             		<tr>
-            			<td>작성한 글 목록</td>
-            			<td>작성한 게시판 분류</td>
+            			<td>작성한 글의 제목</td>
+            			<td>작성한 글의 게시판</td>
             		</tr>
             		
+            		<% for (int i = 0; i < arr.size(); i++){ %>
             		<tr>
-            			<td>DB 작성한 글 목록</td>
-            			<td>DB 작성한 게시판 목록</td>
+            			<td><a href="read.jsp?pNum=<%=arr.get(i).getPNum()%>">
+            			<%= arr.get(i).getTitle() %></a></td>
+            			<td><%= arr.get(i).getCategory() %></td>
             		</tr>
+            		<% } %>
+            		
            		</tbody>
             	</table>
             </div>
+            
             
             <div class="userwriteboard">
             	<table>
             	<tbody>
             		<tr>
-            			<td>작성한 댓글 목록</td>
-            			<td>작성한 댓글의 게시판 분류</td>
+            			<td>작성한 댓글의 제목</td>
+            			<td>작성한 댓글의 게시판</td>
             		</tr>
             		
             		<tr>
