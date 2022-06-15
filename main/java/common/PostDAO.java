@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -110,7 +111,7 @@ public class PostDAO {
 	
 	// 게시글 작성
 	// PostVO를 받는데 PostVO에는 제목, 작성자, 내용, 태그(있어도 되고 없어도 됨), 게시글 비번이 있어야함
-	public boolean writePost(HttpServletRequest req) {
+	public boolean writePost(HttpServletRequest req, HttpServletResponse rep) {
 		boolean flag = false;
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -144,9 +145,10 @@ public class PostDAO {
 				pstmt.setString(2, multi.getParameter("writter"));	// writter
 				pstmt.setString(3, multi.getParameter("ir1"));	// ir1
 				pstmt.setString(4, multi.getParameter("postPw"));		// 
-				pstmt.setString(5, multi.getParameter("board-type"));	// board-type
+				pstmt.setString(5, multi.getParameter("boardType"));	// boardType
 				pstmt.setString(6, multi.getParameter("nickname"));	// nickname
 			} 
+			String url = multi.getParameter("boardType");
 			// 태그가 작성되었는지 여부에 따라 sql문을 다르게 돌림
 //			if(multi.getParameter("tag") == null) {
 //				sql = "insert into posts(title, writter, contents, postPw, category, nickname) values(?, ?, ?, ?, ?, ?)";
@@ -177,6 +179,7 @@ public class PostDAO {
 			if (pstmt.executeUpdate() == 1) {
 				flag = true;
 			}
+			rep.sendRedirect( url + ".jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
