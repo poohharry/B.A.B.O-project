@@ -89,7 +89,7 @@
 
 
             <span class="choice">
-                <h3>본인 확인 이메일 (선택)</h3>
+                <h3>본인 확인 이메일</h3>
                
             </span>
             <span class="signup-input">
