@@ -111,7 +111,15 @@ body {
 	border: 1px solid #000;
 	width: 300px;
 }
-
+.write-title> a{
+	text-decoration:none;
+	color:rgb(225, 181, 93);
+	
+}
+.write-title >a:visited{
+	text-decoration:none;
+	color:rgb(225, 181, 93);
+}
 /* 푸터 영역 */
 footer {
     clear: left;
