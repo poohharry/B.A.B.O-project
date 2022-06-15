@@ -31,7 +31,7 @@
             <span class="signup-input1">
                 <input id="signup-id" type="text" name="id" readonly></input>
             </span>
-            <button type="button" onclick="overlap()" style="margin-right:8.5%; width:180px;">중복체크</button>
+            <button type="button" onclick="overlap()" class="overlap-btn">중복체크</button>
           </div>
            
         
