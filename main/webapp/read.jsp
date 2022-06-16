@@ -7,6 +7,7 @@
 <jsp:useBean id="cvo" class="common.CommentVO" />
 <%@ page import = "java.util.*" %>
 <%@ page import = "common.CommentVO" %>
+
 <%
 	// 파라미터 값으로 넘어오는 애들 한글깨짐 방지
 	request.setCharacterEncoding("UTF-8");
@@ -24,6 +25,7 @@
 	
 	String nickname = uvo.getNickname() + "(" + uvo.getId() + ")";
 	
+	String writer = vo.getWritter();
 %>
 
 
@@ -97,13 +99,25 @@
 				<%}
 			}
 			%>
+			
 				<%=vo.getContents() %>
+				
 		</div>
+		<% if(id != null){ %>
+			<% if(id.equals(writer)){ %>	
 		<div class="content-change">
-		<button type="button" value="목록" class="move-board" onclick="history.back()">목록</button>
 		<button type="button" value="수정" class="cont-ch">수정</button>
 		<button type="button" value="삭제" class="cont-de">삭제</button>
+		<button type="button" value="목록" class="move-board" onclick="history.back()">목록</button>	
 		</div>
+			<% }else{%>
+		
+			<div class="content-change">
+		<button type="button" value="목록" class="move-board" onclick="history.back()">목록</button>
+		</div>
+		
+		<%}} %>
+	
 		<br>
 		<!-- 댓글 -->
 		<%
