@@ -89,9 +89,10 @@
 		
 		<!-- 글 내용의 메인 -->
 		<div class="article-content">
-		<textarea readonly class="content-textarea"><%=vo.getContents() %></textarea>
+		<p><%=vo.getContents() %></p>
 		</div>
 		<div class="content-change">
+		<button type="button" value="목록" class="move-board" onclick="history.back()">목록</button>
 		<button type="button" value="수정" class="cont-ch">수정</button>
 		<button type="button" value="삭제" class="cont-de">삭제</button>
 		</div>
