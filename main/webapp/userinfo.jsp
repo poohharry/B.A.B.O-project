@@ -85,6 +85,9 @@
               <tr>
                   <td>회원 가입일자</td> <td><%=vo.getSignUpDate() %></td>
               </tr>
+              <tr>
+              	  <td>회원 닉네임</td> <td><%=vo.getNickname() %>
+              </tr>
               
           </table> <!-- infotable -->   
           <br>
