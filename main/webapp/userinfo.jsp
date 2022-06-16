@@ -43,7 +43,8 @@
 	<% List<PostVO> arr = pdao.getUserPostList(postname); %>
 	<!-- postname을 PostDAO의 getUserPostList 메소드에 매개변수로 넣는다.
 		getUserPostList는 매개변수로 받은 id가 작성한 글들의 고유번호(pNum)와 글 제목(title)과
-		작성한 게시판 종류(category)를 반환한다. 그 반환값들을 arr 에 담는다. -->
+		작성한 게시판 종류(category)를 반환한다. 그 반환값들을 arr 에 담는다. 
+		즉 arr은 현재 id의 작성한 글의 고유번호, 글 제목, 작성한 게시판 종류가 담긴 변수이다.-->
 	
 	<% String commentname = request.getParameter("name"); %>
 	<!-- 회원 목록 리스트에서 아이디를 클릭시 그 아이디가 name에 담겨서 넘어오고 그 name의 값을 String 변수 commentname에 담는다-->
@@ -51,7 +52,8 @@
 	<% List<CommentVO> cmtarr = pdao.getUserCommentList(commentname); %>
 	<!-- commentname을 PostDAO의 getUserCommentList 메소드의 매개변수로 넣는다.
 		getUserCommentList는 매개변수로 받은 id가 작성한 댓글이 쓰여진 게시물의 번호(postNum)와
-		작성한 댓글의 내용(contents)을 반환한다. 그 반환값들을 cmtarr에 담는다. -->
+		작성한 댓글의 내용(contents)을 반환한다. 그 반환값들을 cmtarr에 담는다. 
+		즉 cmtarr은 현재 id의 게시물번호와 댓글내용이 담긴 변수이다.-->
 	
 	
         <div class="infodiv">
@@ -142,11 +144,35 @@
             		</tr>
             		
            		<% if (cmtarr.size() > 0 && arr.size() > 0) {%>
+           		<!-- cmtarr은 현재 id의 게시물번호와 댓글내용이 담긴 변수 -->
+           		<!-- cmtarr.size()는 현재 id의 댓글 배열(작성한 게시물번호+댓글내용)의 길이 -->
+           		<!-- cmtarr.size()가 0이라는것은 작성한 댓글이 하나도 없다는것 -->
+           		<!-- arr은 현재 id의 게시글 배열(작성한 글의 고유번호, 글 제목, 작성한 게시판 종류)이 담긴 변수 -->
+           		<!-- arr.size()가 0이라는것은 작성한 글이 하나도 없다는것 -->
            			<% for (int j = 0; j < cmtarr.size(); j++) { %>
            			<% PostVO commentTitle = pdao.readPost(arr.get(j).getPNum()); %>
+           			<!-- arr.get(j) = arr(에 담긴 list)의 j번째 인덱스
+           			(= 현재 아이디로 쓴 j번째 게시물) 
+           			(= 이 인덱스에는 게시글 고유번호,글제목,게시판 종류 값이 들어있다)를 가져오는것. -->
+           			<!-- arr.get(j).getPNum = arr의 j번째 인덱스의 게시물 고유번호 -->
+           			<!-- pdao.readPost(N) 
+           			= N이라는 게시글 고유번호를 매개변수로 받아서 그 게시물의 모든 정보를 vo에 담아서 return -->
+           			<!-- 그 값들을 다시 commentTitle 이라는 변수에 저장 -->
             		<tr>
-            			<td><%= cmtarr.get(j).getContents() %></td>            			
+            			<td><%= cmtarr.get(j).getContents() %></td> 
+            			<!-- cmtarr.get(j) = cmtarr 의 j번째 인덱스
+            			= [j번째로 작성한 댓글의 내용]과 [그 댓글이 달린 게시물의 번호] 이다. -->
+            			<!-- cmtarr.get(j).getContents()
+            			= cmtarr 의 j번째 인덱스의 getContents 값 (=댓글 내용) -->
+            			<!-- cmtarr은 CommentVO 타입 이므로 CommentVO의 모든 변수와 메소드를 가지고있다
+            			그래서 getContents()도 사용 가능 -->           			
+            			
             			<td><%= commentTitle.getTitle() %></td>
+            			<!-- commentTitle.getTitle
+            			= commentTitle은 PostVO 타입이므로 모든 getter, setter를 가지고있다.
+            			그래서 getTitle 메소드를 쓸수있고 getTitle 메소드는 title 값을 반환하므로
+            			결국 commentTitle(arr에 담긴 list의 j번째 게시물의 모든 정보)에 담긴 
+            			id의 title 값을 반환한다. 그래서 결국 표시되는 값은 현재 id가 작성한 게시글의 제목이다. -->
             		</tr>
             		<% } 
            			} else {
