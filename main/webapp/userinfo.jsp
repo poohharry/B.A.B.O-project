@@ -102,30 +102,14 @@
           <div class="selectdiv">
              <section class="selectsection">
                <form action="blacklistproc.jsp" class="selectform">
-                 <input class="blackinput" type="radio" name="black" value="1day" checked/>1일 활동정지
-                 <input class="reasoninput" type="text" name="reason"
-                 placeholder="사유를 입력하세요" /><br>
-                 
-                 <input class="blackinput" type="radio" name="black" value="3day" />3일 활동정지
-                 <input class="reasoninput" type="text" name="reason" 
-                 placeholder="사유를 입력하세요"/><br>
-                 
-                 <input class="blackinput" type="radio" name="black" value="7day" />7일 활동정지
-                 <input class="reasoninput" type="text" name="reason" 
-                 placeholder="사유를 입력하세요"/><br>
-                 
-                 <input class="blackinput" type="radio" name="black" value="15day" />15일 활동정지
-                 <input class="reasoninput" type="text" name="reason" 
-                 placeholder="사유를 입력하세요"/><br>
-                 
-                 <input class="blackinput" type="radio" name="black" value="30day" />30일 활동정지
-                 <input class="reasoninput" type="text" name="reason" 
-                 placeholder="사유를 입력하세요"/><br>
-                 
-                 <input class="blackinput" type="radio" name="black" value="allday" />영구 활동정지
-                 <input class="reasoninput" type="text" name="reason" 
-                 placeholder="사유를 입력하세요"/><br><br>
-                 
+                 <label><input class="blackinput" type="radio" name="black" value="1day" checked/>1일 활동정지</label><br> 
+                 <label><input class="blackinput" type="radio" name="black" value="3day" />3일 활동정지</label><br>
+                 <label><input class="blackinput" type="radio" name="black" value="7day" />7일 활동정지</label><br>
+                 <label><input class="blackinput" type="radio" name="black" value="15day" />15일 활동정지</label><br>
+                 <label><input class="blackinput" type="radio" name="black" value="30day" />30일 활동정지</label><br>
+                 <label><input class="blackinput" type="radio" name="black" value="allday" />영구 활동정지</label><br><br>
+                 <label><input class="reasoninput" type="text" name="reason"
+                 placeholder="사유를 입력하세요" /><br><br>
                  <input style="width: 200px; height:50px; font-size:20px;" 
                   type="submit" name="blacklistuser" value="회원 활동제한 추가"/>
                </form>
