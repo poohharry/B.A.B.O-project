@@ -35,9 +35,8 @@
 	if(flag){
 		msg = "정보수정에 성공했습니다..";
 		location = "c_index.jsp";
-	}
+	}	%>
 	
-%>
 <script>
  	alert("<%=msg%>");
 	location.href = "<%=location%>";
