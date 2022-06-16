@@ -380,6 +380,28 @@ public class UserDAO {
 		return list;
 	}
 	
-	
+	// 블랙리스트 등록
+	// BlackVO와 day를 매개변수로 계정을 블랙리스트로 등록
+	// vo에 담긴 id에게 day만큼 로그인을 차단시킨다
+	public void appointBlack(BlackVO vo, int day) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "insert into blackmember(mNum, id, freeDate, reason) values(?, ?, (select date_add(now(), INTERVAL ? DAY)), ?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, vo.getmNum());
+			pstmt.setString(2, vo.getId());
+			pstmt.setInt(3, day);
+			pstmt.setString(4, vo.getReason());
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
+		}
+	}
 	
 }
