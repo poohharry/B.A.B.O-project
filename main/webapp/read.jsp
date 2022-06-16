@@ -89,6 +89,7 @@
 		
 		<!-- 글 내용의 메인 -->
 		<div class="article-content">
+		<p><%=vo.getContents() %></p>
 			<%if(vo.getFileName() != null) {
 				String extension = vo.getFileName().substring(vo.getFileName().lastIndexOf("."));
 				if(extension.equals(".jpg") || extension.equals(".jpeg") || extension.equals(".gif") || extension.equals(".png") || extension.equals(".webp")) {%>
@@ -99,6 +100,7 @@
 		<textarea readonly class="content-textarea"><%=vo.getContents() %></textarea>
 		</div>
 		<div class="content-change">
+		<button type="button" value="목록" class="move-board" onclick="history.back()">목록</button>
 		<button type="button" value="수정" class="cont-ch">수정</button>
 		<button type="button" value="삭제" class="cont-de">삭제</button>
 		</div>
