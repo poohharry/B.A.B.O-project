@@ -15,6 +15,8 @@
 	height:450px;
 	min-height:450px;
 	margin-left: 585px;
+	overflow:scroll;
+	overflow-x: hidden;
 }
 .content-textarea{
 	width:729px;
