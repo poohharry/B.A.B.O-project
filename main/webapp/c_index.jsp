@@ -19,69 +19,65 @@
 </head>
 <body>
     <header>
-        <section class="hbody">
-          <article class="nav">
+    	<section class="hbody">
+       	    <article class="nav">
+       	    
+            	<div class="title">
+            		<a href="./c_index.jsp">B.A.B.O</a>
+            	</div>
 
-          <div class="title"><a href="./c_index.jsp">B.A.B.O</a></div>
-
-
-          <ul id="menu">
-            <li><a href="./Notice_Board.jsp" class="bar-anchor"><span>공지사항</span><div class="transition-bar"></div></a></li>
-            <li><a href="./introduce.jsp">소개 </a></li>
-            <li><a href="./Free_board.jsp">자유게시판</a></li>
-            <li><a href="./Q&A_Board.jsp">질문게시판</a></li>
-        <% if(id != null) {%>
-      		<li><a href="write.jsp">글쓰기</a></li>
-	    <% 		if(id.equals("admin")) {%>
-	    	<li><a href="MemberList.jsp">회원 관리 페이지</a></li>
-	    <% 		} 
-	    	} %>
-	    
-          </ul>
-          
-              <ul id="menu-2">
-              	
-                <li>
-                <%if(id != null){
-                	 if(uvo.getNickname().length() < 6) {
-                out.print(uvo.getNickname() +"님 환영합니다.");
-                	 }else{
-                		 out.print(uvo.getNickname().substring(0, 5) + "...님");
-                	 }
-                	 
-                %></li>
-                <li><a href="./info_confirm.jsp">마이 페이지</a></li>
-                <li><a href="./logout.jsp">로그아웃</a></li>
-                 
-                <%
-            }else{ %>
- 				<li><a href="./login.jsp">로그인</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
-            	<li><a href="./register.jsp">회원가입 </a></li>
-            <% }%>
-          </ul>
-     
-        
-          </article>
-        </section>
-      </header>
-      <div class="container ">
-        <div style="display: flex;">
-         <fieldset class=" notice">
-             <legend>공지사항</legend>
-         </fieldset>
-         <fieldset class=" new_board">
-            <legend>최신 글</legend>
-        </fieldset>
-        
-    	</div> <!-- display:flex -->
-         <fieldset class=" Free_board">
-             <legend>실시간 인기글</legend>
-         </fieldset>
-     </div><!-- container -->
-      <footer>
-        <div class="footer bg-navy">
-            <p>Copyright ⓒ 2022.06.22 B.A.B.O All rights reserved.</p>
-          </div>
-      </footer>
+	            <ul id="menu">
+	            <li><a href="./Notice_Board.jsp" class="bar-anchor"><span>공지사항</span><div class="transition-bar"></div></a></li>
+	            <li><a href="./introduce.jsp">소개 </a></li>
+	            <li><a href="./Free_board.jsp">자유게시판</a></li>
+	            <li><a href="./Q&A_Board.jsp">질문게시판</a></li>
+		        <% if(id != null) {%>
+		      		<li><a href="write.jsp">글쓰기</a></li>
+			    <% 	if(id.equals("admin")) {%>
+			    	<li><a href="MemberList.jsp">회원 관리 페이지</a></li>
+			    <% } } %>
+	          	</ul>
+	          
+	              <ul id="menu-2">
+	              	<li>
+	                <%
+	                if(id != null){
+	                	 if(uvo.getNickname().length() < 6) {
+	                		out.print(uvo.getNickname() +"님 환영합니다.");
+	                	 }else{
+	                		out.print(uvo.getNickname().substring(0, 5) + "...님");
+	                	 } %>
+	                </li>
+	                <li><a href="./info_confirm.jsp">마이 페이지</a></li>
+	                <li><a href="./logout.jsp">로그아웃</a></li>
+	                <% } else { %>
+	 				<li><a href="./login.jsp">로그인</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+	            	<li><a href="./register.jsp">회원가입 </a></li>
+	            	<% }%>
+	         	  </ul>
+         	  
+          	</article> <!-- nav -->
+        </section> <!-- hbody -->
+    </header>
+    
+	<div class="container ">
+    	<div style="display: flex;">
+     		<fieldset class=" notice">
+         		<legend>공지사항</legend>
+     		</fieldset>
+     		<fieldset class=" new_board">
+        		<legend>최신 글</legend>
+    		</fieldset>
+		</div> <!-- display:flex -->
+     	<fieldset class=" Free_board">
+         	<legend>실시간 인기글</legend>
+     	</fieldset>
+ 	</div><!-- container -->
+ 	
+    <footer>
+    	<div class="footer bg-navy">
+        	<p>Copyright ⓒ 2022.06.22 B.A.B.O All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

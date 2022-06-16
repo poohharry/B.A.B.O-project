@@ -36,18 +36,17 @@
     
 </head>
 <body>
-
   <div class="main">	
     <p class="sign" align="center">로그인</p>
     <form action="login_ok.jsp" method="post" class="form1" name="loginFrm" >
       <input class="un" name="login_ID" type="text" align="center" placeholder="ID">
       <input class="pass" name="login_PW" type="password" align="center"placeholder="Password">
-     
+
       <button class="submit" onclick="loginChk()">로그인 </button>
+
       <p class="forgot" align="center"><a href="findid.jsp">아이디 또는 패스워드를 잊었나요?</a></p>
       <p class="register" align="center"><a href="register.jsp">회원 가입</a></p>
-      </form>      
-            
-    </div>
+      </form> <!-- form1 form -->    
+    </div> <!-- main -->
 </body>
 </html>
