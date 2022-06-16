@@ -64,19 +64,27 @@ body {
 /* 메인 - 회원 활동제한 영역 */
 .selectdiv {
 	border: 1px solid #000;
-	height: 300px;
+	height: 350px;
 }
 
 .selectsection > form{
 	margin: 0 auto;
 /*     width: 300px;
-    height: 300px; */
-    border: 1px solid #000;
+    height: 300px;
+    border: 1px solid #000; */
     /* justify-content: center;
     vertical-align: "middle"; */
     text-align: center;
 }
 
+.blackinput {
+	margin-top: 20px;
+}
+
+.reasoninput {
+	width: 200px;
+	height: 20px;
+}
 
 /* 메인 - 유저 작성 글, 댓글 영역 */
 .userwritelist {

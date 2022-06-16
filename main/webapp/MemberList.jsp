@@ -35,71 +35,67 @@
 	</div>
 	
 	<div class="boxdiv">
-    <div class="listdiv">
-	    <ul class="listul">
-	        <li><p>회원 목록</p>
-	            <ul>
-	                <li><a href="MemberList.jsp">회원목록-상세정보</a></li>
-	                
-	            </ul>
-	        </li>
-	        <br><br>
-	        <li><p>게시판 관리</p>
-	            <ul>
-	                <li><a href="#"></a></li>
-	                <li><a href="#"></a></li>
-	                <li><a href="#"></a></li>
-	                <li><a href="#"></a></li>
-	            </ul>
-	        </li>
-	        <br><br>
-	        <li><p>~~@@</p>
-	            <ul>
-	                <li><a href="#"></a></li>
-	                <li><a href="#"></a></li>
-	                <li><a href="#"></a></li>
-	                <li><a href="#"></a></li>
-	            </ul>
-	        </li>
-	    </ul>
-    </div>
-		
-	<div class="MainDiv">
-		<section class="MainSection">
-		<table class="MemberTable">
-			<thead class="MemberThead">
-				<tr>
-					<td>순서</td>
-					<td>회원 아이디</td>
-					<td>회원 이름</td>
-					<td>회원 이메일</td>
-					<td>회원 전화번호</td>
-					<td>회원 가입날짜</td>
-				</tr>
-				<% for(int i = 0; i < arr.size(); i++) {%>
-				<tr>
-					<td> <%= arr.get(i).getmNum() %></td>
-					<td ><a href="userinfo.jsp?name=<%=arr.get(i).getId() %>" 
-					target="_blank"> <%= arr.get(i).getId() %></a></td>
-					<td> <%= arr.get(i).getName() %></td>
-					<td> <%= arr.get(i).getEmail() %></td>
-					<td> <%= arr.get(i).getpNum() %></td>
-					<td> <%= arr.get(i).getSignUpDate() %></td>
-					<td>
-					<button class="deleteBtn"
-					onClick="deliver('<%=arr.get(i).getId() %>')">회원 삭제하기</button>
-					</td>
-				</tr> <% } %>
-				 
-			</thead> <!-- MemberThead -->
-		</table> <!-- MemberTable -->
-		</section> <!-- MainSection -->
-	</div> <!-- MainDiv -->
 	
+	    <div class="listdiv">
+		    <ul class="listul">
+		        <li><p>회원 목록</p>
+		            <ul>
+		                <li><a href="MemberList.jsp">회원상세정보</a></li>
+		            </ul>
+		        </li>
+		        <br><br>
+		        <li><p>게시판 관리</p>
+		            <ul>
+		                <li><a href="#"></a></li>
+		                <li><a href="#"></a></li>
+		                <li><a href="#"></a></li>
+		                <li><a href="#"></a></li>
+		            </ul>
+		        </li>
+		        <br><br>
+		        <li><p>~~@@</p>
+		            <ul>
+		                <li><a href="#"></a></li>
+		                <li><a href="#"></a></li>
+		                <li><a href="#"></a></li>
+		                <li><a href="#"></a></li>
+		            </ul>
+		        </li>
+		    </ul>
+	    </div> <!-- listdiv -->
+		
+		<div class="MainDiv">
+			<section class="MainSection">
+				<table class="MemberTable">
+					<thead class="MemberThead">
+						<tr>
+							<td>순서</td>
+							<td>회원 아이디</td>
+							<td>회원 이름</td>
+							<td>회원 이메일</td>
+							<td>회원 전화번호</td>
+							<td>회원 가입날짜</td>
+						</tr>
+						<% for(int i = 0; i < arr.size(); i++) {%>
+						<tr>
+							<td> <%= arr.get(i).getmNum() %></td>
+							<td ><a href="userinfo.jsp?name=<%=arr.get(i).getId() %>" 
+							target="_blank"> <%= arr.get(i).getId() %></a></td>
+							<td> <%= arr.get(i).getName() %></td>
+							<td> <%= arr.get(i).getEmail() %></td>
+							<td> <%= arr.get(i).getpNum() %></td>
+							<td> <%= arr.get(i).getSignUpDate() %></td>
+							<td>
+							<button class="deleteBtn"
+							onClick="deliver('<%=arr.get(i).getId() %>')">회원 삭제하기</button>
+							</td>
+						</tr> <% } %>
+					</thead> <!-- MemberThead -->
+				</table> <!-- MemberTable -->
+			</section> <!-- MainSection -->
+		</div> <!-- MainDiv -->
+		
 	</div> <!-- boxdiv -->
 		<br>
-		
-		
-		
 </body>
 </html>
