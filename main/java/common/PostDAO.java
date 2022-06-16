@@ -87,6 +87,8 @@ public class PostDAO {
 				vo.setTag(rs.getString("tag"));
 				vo.setWrDate(rs.getString("wrDate"));
 				vo.setNickname(rs.getString("nickname"));
+				vo.setFileName(rs.getString("fileName"));
+				vo.setFileSize(rs.getInt("fileSize"));
 				if(rs.getString("corDate") != null) {
 					vo.setCorDate(rs.getString("corDate"));
 				}
