@@ -77,15 +77,14 @@
               <tr>
                   <td>회원 전화번호</td> <td><%=vo.getpNum() %></td>
               </tr>
+ 
+              <tr>
+                  <td>회원 생년월일</td> <td><%=vo.getBirth() %></td>
+              </tr>
 
-<<<<<<< HEAD
-                <tr>
-                    <td>회원 생년월일</td> <td><%=vo.getBirth() %></td>
-                </tr>
-
-                <tr>
-                    <td>회원 가입일자</td> <td><%=vo.getSignUpDate() %></td>
-                </tr>
+              <tr>
+                  <td>회원 가입일자</td> <td><%=vo.getSignUpDate() %></td>
+              </tr>
                 
             </table> <!-- infotable -->	
             <br>
@@ -184,12 +183,13 @@
             </div> <!-- userwirteboard div -->
             
         </div> <!-- infodiv -->
-    
-=======
               <tr>
                   <td>회원 생년월일</td> <td><%=vo.getBirth() %></td>
               </tr>
->>>>>>> origin/feature
+              
+              <tr>
+                  <td>회원 생년월일</td> <td><%=vo.getBirth() %></td>
+              </tr>
 
               <tr>
                   <td>회원 가입일자</td> <td><%=vo.getSignUpDate() %></td>
