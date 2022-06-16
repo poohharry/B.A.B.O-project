@@ -117,7 +117,6 @@
 		</div>
 		
 		<%}%>
-			
 			<% } %>
 			<div class="content-change">
 			<button type="button" value="목록" class="move-board" onclick="history.back()">목록</button>
