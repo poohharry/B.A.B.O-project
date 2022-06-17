@@ -27,10 +27,10 @@
 
 
 .writer{
-	margin-left: 481px;
+	
 	position: absolute;
-	top:1px;
-	right: 585px;
+	top:10px;
+	right: 796px;
 
 }
 .comment-submit{
@@ -68,8 +68,8 @@
 }
 .content-change{
 	position:absolute;
-	top:503px;
-	right:586px;
+	top:497px;
+	right:796px;
 }
 .footer{
 	position: relative;

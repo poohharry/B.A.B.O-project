@@ -11,6 +11,7 @@
   }
   body{
 	   font-family: 'Godo', sans-serif;
+	   
   }
  
   
@@ -148,6 +149,7 @@ a{
 
 
 #a1{
+	
   background-image:url('https://a.cdn-hotels.com/gdcs/production132/d545/0870f01b-96ec-4854-98b6-72dfc747fa92.jpg');
   background-repeat: no-repeat;
   background-size:cover;
@@ -179,6 +181,7 @@ a{
     
 }
 .intro-title{
+	
 	color:#fff;
 	position:absolute;
 	top:381px;
