@@ -5,5 +5,9 @@
 
 
 <%
+	int day = Integer.parseInt(request.getParameter("black"));
+	String reason = request.getParameter("reason");
+	
+	
 	
 %>
