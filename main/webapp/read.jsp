@@ -105,14 +105,18 @@
 			}
 			%>
 			
-				<%=vo.getContents() %>
+				<%=vo.getContents() %>		
 				
 		</div>
 		<% if(id != null){ %>
 			<% if(id.equals(writer)){ %>	
 		<div class="content-change">
 		<button type="button" value="수정" class="cont-ch">수정</button>
-		<button type="button" value="삭제" class="cont-de">삭제</button>
+<!-- 		<form action="postDelete.jsp">
+			<input type="submit" value="임시삭제버튼"/>
+		</form> -->
+		<button type="button" class="cont-de" 
+		onclick="location.href='postDelete.jsp?name=<%=pNum%>'">게시물 삭제</button>
 		<button type="button" value="목록" class="move-board" onclick="history.back()">목록</button>	
 		</div>
 			<% }else{%>
