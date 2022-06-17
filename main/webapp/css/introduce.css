@@ -12,7 +12,7 @@
   body{
 	   font-family: 'Godo', sans-serif;
   }
-  
+ 
   
   a {
 	text-decoration: none;
@@ -161,7 +161,7 @@ a{
   
 }
 #a3{
-    background-image:url('https://www.visitbusan.net/uploadImgs/files/cntnts/20191222180830266_oen');
+    background-image:url('https://www.yeongdo.go.kr/CmsMultiFile/view.do?multifileId=MF00000182&idx=27717');
     background-repeat: no-repeat;
     background-size:cover;
 
@@ -178,6 +178,119 @@ a{
     background-size:cover;
     
 }
+.intro-title{
+	color:#fff;
+	position:absolute;
+	top:381px;
+	left: 450px;
+	font-size: 3.5em;
+}
+.intro-first{
+	color:#fff;
+	position:absolute;
+	position:absolute;
+	top:481px;
+	left: 450px;
+	font-size: 3.5em;
+}
+.intro-maker{
+	color:#fff;
+	position:absolute;
+	
+	top:581px;
+	left: 450px;
+	font-size: 3.5em;
+}
+.intro-comment{
+	color:#fff;
+	position:absolute;
+	top:381px;
+	left: 1300px;
+	font-size: 2em;
+}
 
 
-  
+.team-introduce{
+  color:#fff;
+	position:absolute;
+  font-size: 3.5em;
+  top:1590px;
+  left: 890px;
+}
+.front-introduce{
+  color:#fff;
+	position:absolute;
+  font-size: 3.5em;
+  top: 2438px;
+  left: 408px;
+}
+.front-team1{
+  color:#fff;
+	position:absolute;
+  font-size: 2.5em;
+  top: 2638px;
+  left: 408px;
+}
+.use-skill1{
+  color:#fff;
+	position:absolute;
+  font-size: 2.5em;
+  top: 2738px;
+  left: 408px;
+}
+.front-team2{
+  color:#fff;
+	position:absolute;
+  font-size: 2.5em;
+  top: 2838px;
+  left: 408px;
+}
+.use-skill2{
+  color:#fff;
+	position:absolute;
+  font-size: 2.5em;
+  top: 2938px;
+  left: 408px;
+}
+.back-introduce{
+  color:#fff;
+	position:absolute;
+  font-size: 3.5em;
+  top: 3500px;
+  left: 408px;
+}
+.back-team1{
+  color:#fff;
+	position:absolute;
+  font-size: 2.5em;
+  top: 3600px;
+  left: 408px;
+}
+.back-use-skill1{
+  color:#fff;
+	position:absolute;
+  font-size: 2.5em;
+  top: 3700px;
+  left: 408px;
+}
+.back-team2{
+  color:#fff;
+	position:absolute;
+  font-size: 2.5em;
+  top: 3800px;
+  left: 408px;
+}
+.back-use-skill2{
+  color:#fff;
+	position:absolute;
+  font-size: 2.5em;
+  top: 3900px;
+  left: 408px;
+}
+.production-period{
+  color:#fff;
+	position:absolute;
+  font-size: 3.5em;
+  top:4831px;
+  left: 768px;
+}
