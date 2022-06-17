@@ -27,6 +27,7 @@
 	background-color: black;
 	width: 100%;
 	height: 100px;
+	position:fixed;
   }
   
   .nav {
@@ -144,53 +145,39 @@ a{
   height: 100vh;
 }
 
-on>li:first-child{
-  background-color: #f38181;
-}
-.button>li:nth-child(2){
-  background-color: #fce38a;
-}
-.button>li:nth-child(3){
-  background-color: #eaffd0;
-}
-.button>li:nth-child(4){
-  background-color: #95e1d3;
-}
-.button>li:last-child{
-  border-right: 5px solid #fff;
-  background-color: #3f72af;
-}
 
 
 #a1{
   background-image:url('https://a.cdn-hotels.com/gdcs/production132/d545/0870f01b-96ec-4854-98b6-72dfc747fa92.jpg');
   background-repeat: no-repeat;
   background-size:cover;
-  opacity: 0.8;
+
   }
 
 #a2{
     background-image:url('https://www.visitbusan.net/uploadImgs/files/cntnts/20191229153530671_oen');
     background-repeat: no-repeat;
     background-size:cover;
-    opacity: 0.8;
+  
 }
 #a3{
     background-image:url('https://www.visitbusan.net/uploadImgs/files/cntnts/20191222180830266_oen');
     background-repeat: no-repeat;
     background-size:cover;
-    opacity: 0.8;
+
 }
 #a4{
     background-image:url('http://www.thebay101.com/wp-content/uploads/2020/11/front1-1280x480.jpg');
     background-repeat: no-repeat;
     background-size:cover;
-    opacity: 0.8;
+    
 }
 #a5{
     background-image:url('https://www.busan.go.kr/resource/img/geopark/sub/busantour/busantour7.jpg');
     background-repeat: no-repeat;
     background-size:cover;
-    opacity: 0.8;
+    
 }
+
+
   
