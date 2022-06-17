@@ -7,17 +7,19 @@
 	// default URL주소
 	String location = "info_confirm.jsp";
 	
-	// 세션ID와 입력받은 비밀번호를 매개변수로 비밀번호 체크메소드 호출(boolean 반환)
-	if(dao.ChkPW(id, pw)) {
-		location = "Change_info.jsp";
-	} else{
-		// 비밀번호 틀렸을 경우 알림창을 띄우던가 해야하는데...?
-	}
+	session.setAttribute("id",id);
 	
-%>
-<script>
-	if("<%=location%>" == "info_confirm.jsp") {
-		alert("비밀번호가 틀렸습니다.");
-	}
-	location.href="<%=location%>";
-</script>
+	// 세션ID와 입력받은 비밀번호를 매개변수로 비밀번호 체크메소드 호출(boolean 반환)
+	if(dao.ChkPW(id, pw)) { 
+		session.setAttribute("id",id);
+	%>
+		<script>
+		location.href = "myinfo.jsp";
+		</script>
+	<% } else { %>
+		<script>
+			alert("비밀번호가 다릅니다. 다시 입력해주세요");
+			history.back();
+		</script>
+	<% }%>
+	

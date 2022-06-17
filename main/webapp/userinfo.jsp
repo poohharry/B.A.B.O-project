@@ -33,24 +33,17 @@
    
    <% vo = dao.getUser(name); %>
    <!-- name을 UserDAO의 getUser 메소드의 매개변수에 넣는다. 
-      getUser는 매개배변수로 받은 id의 모든 정보(mNum,id,email,pNum 등등)을 반환한다.
+      getUser는 매개변수로 받은 id의 모든 정보(mNum,id,email,pNum 등등)을 반환한다.
       그 리턴값을 vo 에 저장한다.-->
-   
-   
-   <% String postname = request.getParameter("name"); %>
-   <!-- 회원 목록 리스트에서 아이디를 클릭시 그 아이디가 name에 담겨서 넘어오고 그 name의 값을 String 변수 postname에 담는다-->
-   
-   <% List<PostVO> arr = pdao.getUserPostList(postname); %>
-   <!-- postname을 PostDAO의 getUserPostList 메소드에 매개변수로 넣는다.
+
+   <% List<PostVO> arr = pdao.getUserPostList(name); %>
+   <!-- name을 PostDAO의 getUserPostList 메소드에 매개변수로 넣는다.
       getUserPostList는 매개변수로 받은 id가 작성한 글들의 고유번호(pNum)와 글 제목(title)과
       작성한 게시판 종류(category)를 반환한다. 그 반환값들을 arr 에 담는다. 
       즉 arr은 현재 id의 작성한 글의 고유번호, 글 제목, 작성한 게시판 종류가 담긴 변수이다.-->
    
-   <% String commentname = request.getParameter("name"); %>
-   <!-- 회원 목록 리스트에서 아이디를 클릭시 그 아이디가 name에 담겨서 넘어오고 그 name의 값을 String 변수 commentname에 담는다-->
-   
-   <% List<CommentVO> cmtarr = pdao.getUserCommentList(commentname); %>
-   <!-- commentname을 PostDAO의 getUserCommentList 메소드의 매개변수로 넣는다.
+   <% List<CommentVO> cmtarr = pdao.getUserCommentList(name); %>
+   <!-- name을 PostDAO의 getUserCommentList 메소드의 매개변수로 넣는다.
       getUserCommentList는 매개변수로 받은 id가 작성한 댓글이 쓰여진 게시물의 번호(postNum)와
       작성한 댓글의 내용(contents)을 반환한다. 그 반환값들을 cmtarr에 담는다. 
       즉 cmtarr은 현재 id의 게시물번호와 댓글내용이 담긴 변수이다.-->

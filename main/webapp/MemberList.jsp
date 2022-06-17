@@ -32,7 +32,12 @@
 	
 	<div class="headerdiv">
 		<p class="MainP">회원 목록</p>
+		<div class="buttondiv">
+            <button type="button" onclick="location.href='c_index.jsp'">메인 페이지</button>
+    	</div> <!-- buttondiv -->
 	</div>
+	
+	
 	
 	<div class="boxdiv">
 	

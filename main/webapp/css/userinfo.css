@@ -28,7 +28,6 @@ body {
 .buttondiv > button {
     width: 150px;
     height: 50px;
-    
 }
 
 /* 메인 - 회원상세정보 영역 */
@@ -82,6 +81,7 @@ body {
 	resize: none;
 }
 
+
 /* 메인 - 유저 작성 글, 댓글 영역 */
 .userwritelist {
     margin-top: 100px;
@@ -133,6 +133,8 @@ body {
 	text-decoration:none;
 	color:rgb(225, 181, 93);
 }
+
+
 /* 푸터 영역 */
 footer {
     clear: left;

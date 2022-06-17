@@ -340,3 +340,24 @@ margin: auto;
     font-size: 13px;
     font-family: Dotum,'돋움',Helvetica,sans-serif;
 }
+#password-danger,#password-danger2{
+  color:red;
+  position:absolute;
+  top:418px;
+  left:698px;
+  display:none;
+}
+#success{
+  color:blue;
+  position:absolute;
+  top:530px;
+  left:702px;
+  display:none;
+}
+#fail{
+  color:red;
+  position:absolute;
+  top:525px;
+  left:702px;
+  display:none;
+}
