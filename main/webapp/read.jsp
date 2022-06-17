@@ -11,15 +11,20 @@
 <%
 	// 파라미터 값으로 넘어오는 애들 한글깨짐 방지
 	request.setCharacterEncoding("UTF-8");
+
 	// 로그인된 ID
 	String id = (String)session.getAttribute("lgnId");
 	uvo = udao.getUser(id);
+	
 	// 문자열로 받은 쿼리속 변수를 Integer로 변환후 저장
 	Integer pNum = Integer.parseInt(request.getParameter("pNum"));
+	
 	// 파라미터로 전달받은 postNumber값에 따라 read.jsp내용물 vo로 받아오기
 	vo = dao.readPost(pNum);
+	
 	// 탭에 들어갈 페이지 제목, 글의 제목
 	String title = vo.getTitle();
+	
 	// 현재 게시글에 달린 댓글 불러오기
 	List<CommentVO> commentList = dao.getComments(pNum);
 	
@@ -82,9 +87,9 @@
 		<div class="content-title">
 			제목  <%=vo.getTitle()%> &nbsp;&nbsp; <br>
 			<div class="writer">
-			작성자 :  <%=vo.getNickname() %>
+			작성자 :  <a href="profilepage.jsp?id=<%=vo.getNickname()%>"><%=vo.getNickname() %></a>
 			</div>
-			</div>
+		</div> <!-- content-title -->
 			
 		
 		<br>

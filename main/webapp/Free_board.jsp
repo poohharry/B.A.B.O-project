@@ -26,6 +26,12 @@
     <link rel="stylesheet" href="./css/board.css">
     
     <title>자유 게시판</title>
+    
+    <script>
+    	function1 () {
+    		
+    	}
+    </script>
 </head>
 <body>
     <header>
@@ -81,12 +87,16 @@
 		    		<td id="writeDate">작성일</td>
 		    		<td id="viewCnt">조회수</td>
 		    	</tr>
-		    	<%for(int i = 0; i < list.size(); i++) { %>
+		    	<% for(int i = 0; i < list.size(); i++) { %>
 		    	<% List<CommentVO> comList = dao.getComments(list.get(i).getPNum());%>
 		    		<tr class="postList">
 		    			<td id="pNum"><%=list.get(i).getPNum() %></td>
-		    			<td id="title"><a href="read.jsp?pNum=<%=list.get(i).getPNum()%>"><%=list.get(i).getTitle() %>[<%=comList.size() %>]</a></td>
-		    			<td id="writter"><%=list.get(i).getWritter() %></td>
+		    			<td id="title">
+		    			<a href="read.jsp?pNum=<%=list.get(i).getPNum()%>">
+		    			<%=list.get(i).getTitle() %>[<%=comList.size() %>]</a></td>
+		    			<td id="writter">
+		    			<a href="profilepage.jsp?id=<%=list.get(i).getWritter() %>">
+		    			<%=list.get(i).getWritter() %></a></td>
 		    			<td id="writeDate"><%=list.get(i).getWrDate() %></td>
 		    			<td id="viewCnt"><%=list.get(i).getViewCnt() %></td>
 		    		</tr>
