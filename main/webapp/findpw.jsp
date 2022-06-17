@@ -15,7 +15,7 @@
 	<div class="main">	
     <p class="sign" align="center">비밀번호 찾기</p>
 
-    <form action="findpwproc.jsp" method="post" class="form1">
+    <form action="find_proc.jsp?item=email" method="post" class="form1">
       <p class="" align="center">비밀번호를 찾을 계정의 ID와<br> 이메일을 입력해주세요</p><br>
       <input class="pass" name="login_id" type="text" placeholder="ID" />
       <input class="pass" name="login_email" type="text"  placeholder="E-mail" />

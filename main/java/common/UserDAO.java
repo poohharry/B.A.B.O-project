@@ -245,7 +245,7 @@ public class UserDAO {
 				pstmt.executeUpdate();
 				if(isBlack(id)) {
 					flag = 5;
-				}else {
+				} else {
 					flag = 4;					
 				}
 				
@@ -404,6 +404,35 @@ public class UserDAO {
 		}
 	}
 	
+	//블랙리스트 정보
+	// id를 입력받아서 그 아이디가 블랙리스트로 지정된 상태라면 블랙리스트 관련 정보를 전부 반환해준다
+	public BlackVO getBlack(String id) {
+		BlackVO vo = new BlackVO();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "select * from blackmember where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				vo.setmNum(rs.getInt("mNum"));
+				vo.setId(rs.getString("id"));
+				vo.setAppointDate(rs.getString("appointDate"));
+				vo.setFreeDate(rs.getString("freeDate"));
+				vo.setReason(rs.getString("reason"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		return vo;
+	}
+	
 	// 매개변수로 받은 id가 블랙리스트 지정 여부를 반환(true = 블랙)
 	// 이 DAO안에서만 쓰이는 메소드이기에 private으로 선언
 	private boolean isBlack(String id) {
@@ -427,6 +456,58 @@ public class UserDAO {
 			pool.freeConnection(con, pstmt);
 		}
 		return flag;
+	}
+	
+	// 아이디 찾기
+	// 이메일을 입력받아 해당하는 아이디 반환
+	public String findID(String email) {
+		String id = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "select id from users where email = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				id = rs.getString("id");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			 pool.freeConnection(con, pstmt, rs);
+		}
+		return id;
+	}
+	// 비밀번호 찾기
+	// id를 집어넣어 이메일과 비밀번호를 조회한 후
+	// 입력받은 이베일과 조회결과의 이메일이 일치하면 비밀번호를 반환
+	public String findPW(String id, String email) {
+		String pw = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "select email, pw from users where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				if(rs.getString("email").equals(email)) {
+					pw = rs.getString("pw");
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			 pool.freeConnection(con, pstmt, rs);
+		}
+		return pw;
 	}
 	
 }
