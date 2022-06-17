@@ -91,14 +91,17 @@
             </span>
 
 
-            <span class="choice">
+                 <span class="choice">
                 <h3>본인 확인 이메일</h3>
                
             </span>
-            <span class="signup-input">
+            <div style="display: flex;">
+            <span class="signup-input1">
                 <input id="signup-email" type="text" placeholder="선택입력" name="email"></input>
+                
             </span>
-
+            <button type="button" onclick="eoverlap()" class="overlap-btn">중복체크</button>
+            </div>
             
         </div>
     
@@ -135,6 +138,14 @@
             "width=400, height=300, top=50, left=50"
           );
         }
+        function eoverlap(){
+        	window.open(
+      		"eoverlap.jsp",
+      		"이메일 중복 확인",
+      		"width=400, height=300, top=50, left=50"
+        	
+        );
+      }
         
 	
     function maxLengthCheck(object){
