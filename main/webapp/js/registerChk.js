@@ -2,6 +2,25 @@
 
 const sFrm = document.regiFrm;
 
+// 비밀번호 확인
+$('.pw').focusout(function () {   
+    let pwd1 = $("#signup-pw").val();
+    let pwd2 = $("#signup-pww").val();
+    if ( pwd1 != '' && pwd2 == '' ) {
+        null;
+    } else if (pwd1 != "" || pwd2 != "") {
+        if (pwd1 == pwd2) {
+            $("#success").css('display', 'block');
+            $("#fail").css('display', 'none');
+        } else {
+            $("#success").css('display', 'none');
+            $("#fail").css('display', 'block');
+        }
+    }
+});
+
+
+
 
 function signUpChk() {
 
@@ -16,18 +35,25 @@ function signUpChk() {
 		sFrm.pw.focus();
 		return;
 	}
-	
 	if(sFrm.ChkPw.value == "" || sFrm.pw.value != sFrm.ChkPw.value) {
-		alert("비밀번호를 확인하십시오");
-		sFrm.ChkPw.value="";
-		sFrm.ChkPw.focus();
-		return;
+    alert("비밀번호를 확인하십시오");
+    sFrm.ChkPw.value="";
+    sFrm.ChkPw.focus();
+    return;
 	}
-	if (sFrm.pw.value != sFrm.ChkPw.value){
-		alert("비밀번호가 일치하지 않습니다.");
-		sFrm.Chkpw.focus();
-		return;
-	}
+  // 정규식
+    if(!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/.test(pwd1)){
+        if(!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/.test(pwd2)){  
+        $("#password-danger").css('display', 'block');
+        $("#password-danger2").css('display', 'none');
+        $('#signup-pw').val('').focus();
+        $('#signup-pww').val('').focus();
+        setTimeout(function() {
+            $("#password-danger").css('display', 'none');
+        },5000)
+        return false;
+        }
+    }  
 	
 	if(sFrm.nick.value == "") {
 		alert("닉네임을 입력하십시오");
