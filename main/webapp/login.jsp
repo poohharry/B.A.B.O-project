@@ -13,7 +13,7 @@
     <script>
     	
     	// 로그인체크 (ID와 비밀번호가 공백인지 체크후 각 상황에 맞게 알림창과 포커스를 맞춰준다)
-	    function loginChk() {
+  	    function loginChk() {
     		
 	    	// 로그인 form의 name을 따와서 변수로 사용
 	    	const frm = document.loginFrm;
@@ -33,14 +33,17 @@
 	    	frm.submit();
 	    }
     </script>
+    
 </head>
 <body>
   <div class="main">	
     <p class="sign" align="center">로그인</p>
-    <form action="login_ok.jsp" method="post" class="form1" name="loginFrm">
-      <input class="un " name="login_ID" type="text" align="center" placeholder="ID">
+    <form action="login_ok.jsp" method="post" class="form1" name="loginFrm" >
+      <input class="un" name="login_ID" type="text" align="center" placeholder="ID">
       <input class="pass" name="login_PW" type="password" align="center"placeholder="Password">
-      <a class="submit" onclick="loginChk()">로그인 </a>
+
+      <button class="submit" onclick="loginChk()">로그인 </button>
+
       <p class="forgot" align="center"><a href="findid.jsp">아이디 또는 패스워드를 잊었나요?</a></p>
       <p class="register" align="center"><a href="register.jsp">회원 가입</a></p>
       </form> <!-- form1 form -->    

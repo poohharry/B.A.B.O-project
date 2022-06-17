@@ -104,7 +104,7 @@
           
           <div class="selectdiv">
              <section class="selectsection">
-               <form action="blacklistproc.jsp" class="selectform">
+               <form action="blacklistproc.jsp" method="post" class="selectform">
                  <label><input class="blackinput" type="radio" name="black" value="1" checked/>
                  1일 활동정지</label><br> 
                  

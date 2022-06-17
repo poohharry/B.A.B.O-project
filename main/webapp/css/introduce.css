@@ -1,0 +1,183 @@
+@charset "UTF-8";
+* {
+	margin: 0;
+	padding: 0;
+  }
+  @font-face {
+	font-family: 'Godo';
+	font-style: normal;
+	font-weight: 400;
+	src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+  }
+  body{
+	   font-family: 'Godo', sans-serif;
+  }
+  
+  
+  a {
+	text-decoration: none;
+  }
+  
+  li {
+	list-style-type: none;
+	margin-left:-50px;
+  }
+  
+  .hbody {
+	background-color: black;
+	width: 100%;
+	height: 100px;
+	position:fixed;
+  }
+  
+  .nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 0px;
+	color: white;
+  }
+  
+  .title {
+	font-size: 2em;
+  }
+  
+  .title > a {
+	color: white;
+  }
+  .footer {
+	background-color: black;
+	color:white;
+	height: 70px;
+	font-size: 15px;
+	
+  } 
+  .footer p{
+/* vertical-align: middle;  */
+	line-height: 70px;
+	text-align: center;;
+	
+  }
+  .bg-red{
+  background-color: red;;
+  
+  } 
+  .container{
+  width: 100%;
+  height: 100%;
+  
+  }
+
+	#menu-2{
+		display: flex;
+		margin-left: 621px;
+	  }
+
+  
+  @media screen and (min-width: 625px) {
+  /* 화면이 클때 */
+	#menu {
+	  display: flex;
+	  margin-left: 200px;
+	}
+  
+	#menu > li {
+	  padding: 20px 30px;
+	  font-size: 20px;
+	  margin-left: -42px;
+	}
+  
+	#menu-2{
+		display: flex;
+		margin-left: 621px;
+	  }
+	#menu-2 > li {
+		padding: 20px 30px;
+		font-size: 20px;
+		
+	 }
+	
+	li > a {
+	  color: white;
+	}
+  
+  
+  }
+  
+  
+  @media screen and (max-width: 625px) {
+  /* 화면이 작을 때 */
+	.nav {
+	  padding: 30px 40px;
+	}
+  
+	#menu {
+	  display: none;
+	}
+  
+	.fab {
+	  display : none;
+	}
+  
+	.fas {
+	  font-size: 2em;
+	}
+  }
+  *{
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+ul{
+  padding-left: 0;
+  list-style: none;
+}
+a{
+  color: #000;
+  text-decoration: none;
+}
+.wrap{
+  width: 100%;
+}
+
+.wrap>div{
+  width: 100%;
+  height: 100vh;
+}
+
+
+
+#a1{
+  background-image:url('https://a.cdn-hotels.com/gdcs/production132/d545/0870f01b-96ec-4854-98b6-72dfc747fa92.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;
+
+  }
+
+#a2{
+    background-image:url('https://www.visitbusan.net/uploadImgs/files/cntnts/20191229153530671_oen');
+    background-repeat: no-repeat;
+    background-size:cover;
+  
+}
+#a3{
+    background-image:url('https://www.visitbusan.net/uploadImgs/files/cntnts/20191222180830266_oen');
+    background-repeat: no-repeat;
+    background-size:cover;
+
+}
+#a4{
+    background-image:url('http://www.thebay101.com/wp-content/uploads/2020/11/front1-1280x480.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    
+}
+#a5{
+    background-image:url('https://www.busan.go.kr/resource/img/geopark/sub/busantour/busantour7.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    
+}
+
+
+  

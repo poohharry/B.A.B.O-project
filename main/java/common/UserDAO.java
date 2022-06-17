@@ -199,6 +199,8 @@ public class UserDAO {
 		// 1 : 아이디가 존재하지 않음
 		// 2 : 비밀번호가 일치하지 않음
 		// 3 : 로그인 성공
+		// 4 : 로그인은 성공했지만 로그인실패 카운트 초과로 추가인증
+		// 5 : 로그인은 성공했지만 블랙리스트에 지정되어 일정 기간동안 로그인 불가
 		int flag = 0;
 		
 		try {
@@ -226,7 +228,13 @@ public class UserDAO {
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, id);
 				pstmt.executeUpdate();
-				flag = 3;
+				// id를 넣어서 블랙리스트에 등록됐는지 여부 파악
+				if(isBlack(id)) {
+					// true이면 5를 반환함으로 로그인 차단
+					flag = 5;
+				} else {
+					flag = 3;
+				}
 			} else {
 				// 로그인 실패 카운트가 5를 넘어섰기에 로그인에 성공해도 추가 인증이 필요로 함
 				// 이메일 확인 페이지로 이동시키기 위해 플래그 4를 반환
@@ -235,16 +243,18 @@ public class UserDAO {
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, id);
 				pstmt.executeUpdate();
-				flag = 4;
-			}
-			
-		
+				if(isBlack(id)) {
+					flag = 5;
+				}else {
+					flag = 4;					
+				}
+				
+			}		
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			pool.freeConnection(con, pstmt, rs);
 		}
-		
 		return flag;
 	}
 	
@@ -295,16 +305,6 @@ public class UserDAO {
 		return cnt;
 	}
 	
-	// 카운트가 5까지 쌓이면 로그인에 성공해도 추가적인 인증이 필요하도록 만듬
-	public boolean  addAuth() {
-		boolean flag = false;
-		
-		
-		
-		
-		
-		return flag;
-	}
 	
 	// 매개변수로 받은 ID의 모든 정보를 반환(VO)
 	public UserVO getUser(String id) {
@@ -402,6 +402,31 @@ public class UserDAO {
 		} finally {
 			pool.freeConnection(con, pstmt);
 		}
+	}
+	
+	// 매개변수로 받은 id가 블랙리스트 지정 여부를 반환(true = 블랙)
+	// 이 DAO안에서만 쓰이는 메소드이기에 private으로 선언
+	private boolean isBlack(String id) {
+		boolean flag = false;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "select * from blackmember where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				flag = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
+		}
+		return flag;
 	}
 	
 }
