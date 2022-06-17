@@ -104,7 +104,7 @@
 				<%}
 			}
 			%>
-<<<<<<< HEAD
+
 				<%=vo.getContents() %>
 				
 		</div> <!-- article-content -->
@@ -124,12 +124,8 @@
 		</div> <!-- content-change -->
 			<% }else{%>
 		
-		<div class="content-change">
-			<button type="button" value="목록" class="move-board" onclick="history.back()">목록</button>
-		</div>
-		
-		<%}%>
-			<% } %>
+					<%}%>
+			<% } %> <!-- if(id != null) -->
 				
 		<br>
 		<!-- 댓글 -->
