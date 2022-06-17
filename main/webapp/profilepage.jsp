@@ -56,13 +56,15 @@
                    <td>작성한 글의 제목</td>
                    <td>작성한 글의 게시판</td>
                 </tr>
-                <% for (int i = 0; i < arr.size(); i++){ %>
+                <% for (int i = 0; i < arr.size(); i++){ 
+                	if (cmtarr.size() > 0 && arr.size() > 0) {%>
                 <tr>
                    <td class="write-title"><a target="blank" href="read.jsp?pNum=<%=arr.get(i).getPNum()%>">
                    <%= arr.get(i).getTitle() %></a></td>
                    <td><%= arr.get(i).getCategory() %></td>
                 </tr>
-                <% } %>
+                			<% } 
+                	} %>
                </tbody>
             </table>
          </div> <!-- userwritelist -->

@@ -87,7 +87,7 @@
 		<div class="content-title">
 			제목  <%=vo.getTitle()%> &nbsp;&nbsp; <br>
 			<div class="writer">
-			작성자 :  <a href="profilepage.jsp?id=<%=vo.getNickname()%>"><%=vo.getNickname() %></a>
+			작성자 :  <a href="profilepage.jsp?id=<%=vo.getWritter()%>"><%=vo.getNickname() %></a>
 			</div>
 		</div> <!-- content-title -->
 			
@@ -104,29 +104,26 @@
 				<%}
 			}
 			%>
-			
 				<%=vo.getContents() %>
 				
-		</div>
+		</div> <!-- article-content -->
+		
 		<% if(id != null){ %>
 			<% if(id.equals(writer)){ %>	
 		<div class="content-change">
-		<button type="button" value="수정" class="cont-ch">수정</button>
-		<button type="button" value="삭제" class="cont-de">삭제</button>
-		<button type="button" value="목록" class="move-board" onclick="history.back()">목록</button>	
+			<button type="button" value="수정" class="cont-ch">수정</button>
+			<button type="button" value="삭제" class="cont-de">삭제</button>
+			<button type="button" value="목록" class="move-board" onclick="history.back()">목록</button>	
 		</div>
 			<% }else{%>
 		
-			<div class="content-change">
-		<button type="button" value="목록" class="move-board" onclick="history.back()">목록</button>
+		<div class="content-change">
+			<button type="button" value="목록" class="move-board" onclick="history.back()">목록</button>
 		</div>
 		
 		<%}%>
 			<% } %>
-			<div class="content-change">
-			<button type="button" value="목록" class="move-board" onclick="history.back()">목록</button>
-			</div> 
-	
+				
 		<br>
 		<!-- 댓글 -->
 		<%
