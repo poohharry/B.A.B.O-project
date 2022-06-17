@@ -69,11 +69,6 @@ body {
 
 .selectsection > form{
 	margin: 0 auto;
-/*     width: 300px;
-    height: 300px;
-    border: 1px solid #000; */
-    /* justify-content: center;
-    vertical-align: "middle"; */
     text-align: center;
 }
 
@@ -96,7 +91,6 @@ body {
 .userwritelist table {
 	margin: 0 auto;
 	border-collapse: collapse;
-	
 }
 
 .userwritelist tr td{
@@ -107,19 +101,29 @@ body {
 
 .userwriteboard {
     margin-top: 100px;
-	
+    margin-bottom: 100px;
 }
 
 .userwriteboard table {
 	margin: 0 auto;
 	border-collapse: collapse;
-	
 }
 
 .userwriteboard tr td{
 	border: 1px solid #000;
 	width: 300px;
 }
+
+.secondlink > a {
+	text-decoration: none;
+	color: rgb(225, 181, 93);
+}
+
+.secondlink > a:visited {
+	text-decoration: none;
+	color: rgb(225, 181, 93);
+}
+
 .write-title> a{
 	text-decoration:none;
 	color:rgb(225, 181, 93);

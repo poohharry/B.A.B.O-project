@@ -66,6 +66,9 @@ public class PostDAO {
 	// 글 읽기
 	// 게시글 번호를 매개변수로 그 게시글이 갖고있는 모든 정보를 vo에 담아서 반환
 	public PostVO readPost(int pNum) {
+		// 어떤 메소드의 return 타입이 PostVo 라는 것은 그 메소드가 안에서  
+		// 무엇을 하는지 어떤 공정이 일어나는지는 모르겠는데 어쨌든 공정이 다 끝나고 나서
+		// return 하는 결과값이 PostVO의 객체여야 한다는 것이다.
 		PostVO vo = new PostVO();
 		Connection con = null;
 		PreparedStatement pstmt = null;

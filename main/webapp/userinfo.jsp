@@ -149,7 +149,7 @@
           </div> <!-- userwritelist -->
           
           <div class="userwriteboard">
-             <table>
+             <table class="userwritetable">
              <tbody>
                 <tr>
                    <td>작성한 댓글의 내용</td>
@@ -179,7 +179,9 @@
                    <!-- cmtarr은 CommentVO 타입 이므로 CommentVO의 모든 변수와 메소드를 가지고있다
                    그래서 getContents()도 사용 가능 -->                    
                    
-                   <td><%= commentTitle.getTitle() %></td>
+                   <td class="secondlink">
+                   <a href="read.jsp?pNum=<%=arr.get(j).getPNum()%>">
+                   <%= commentTitle.getTitle() %></a></td>
                    <!-- commentTitle.getTitle
                    = commentTitle은 PostVO 타입이므로 모든 getter, setter를 가지고있다.
                    그래서 getTitle 메소드를 쓸수있고 getTitle 메소드는 title 값을 반환하므로
