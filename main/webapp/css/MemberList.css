@@ -14,6 +14,16 @@ body {
 	margin-top: 100px;
 }
 
+.buttondiv {
+    justify-content: center;
+    text-align: center;
+}
+
+.buttondiv > button {
+    width: 150px;
+    height: 50px;
+}
+
 .MainP {
 	display: inline-block;
 	width: 100px;
