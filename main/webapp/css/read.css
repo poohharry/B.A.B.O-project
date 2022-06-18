@@ -3,17 +3,16 @@
 	margin-top: 120px;
 }
 .content-title{
-	display: flex;
 	margin: 0 auto;
 	width: 732px;
 }
 
 .Title {
-	margin: 0 auto;
+	margin-left: 1px;
 }
 
 .writer{
-	margin-left: 480px;
+	margin-left: 1px;
 }
 
 .article-content{
@@ -65,7 +64,7 @@
 
 .comment-contents{
 	margin: 0 auto;
-	width: 300px;
+	width: 600px;
 }
 
 .comment-submit{
@@ -78,6 +77,19 @@
 	margin: 0 auto;
 }
 
+.replydiv {
+	margin-top: 15px;
+}
+
+.rphdiv {
+	width: 732px;
+	margin: 0 auto;
+}
+
+.rphdiv > p {
+	float: right;
+}
+
 .content-textarea{
 	width:729px;
 	height:449px;
@@ -88,10 +100,13 @@
 .comment-cont{
 	border: 1px solid black;
 	padding: 15px;
-	width:703px;
+	width: 703px;
+	margin: 0 auto;
+	clear: both;
 }
 
 footer {
 	margin-bottom: 0px;
 }
+
 

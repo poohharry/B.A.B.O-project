@@ -45,6 +45,9 @@
 	      smartEditor()
 	      	// 전송버튼 클릭이벤트
 			$("#savebutton").click(function(){
+				if(document.getElementById("board-type-select").value == "board-type") {
+					alert("게시판 종류를 선택해주세요")
+					return }
 				//if(confirm("저장하시겠습니까?")) {
 					// id가 smarteditor인 textarea에 에디터에서 대입
 					oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
@@ -78,7 +81,7 @@
         <div style="margin-top: 35px;">
             <span class="sign-input">
 
-          <% if(id.equals("admin")) {%>
+          <% if(id.equals("admin")) { %>
             	<select id="board-type-select" class="selectbox" name="boardType" onchange="">
 	                <option value="board-type">구분</option>
 	                <option value="Notice_Board">공지사항</option>
@@ -90,7 +93,7 @@
 	                <option value="board-type">구분</option>
 	                <option value="Free_board">자유게시판</option>
 	                <option value="Q&A_Board">Q&A게시판</option>
-         
+         		</select>
                 <% } %>
                 <input id="signup-name" type="text" placeholder="제목" name="board-title" />
             </span>
