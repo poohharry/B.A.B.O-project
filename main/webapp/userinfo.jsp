@@ -20,6 +20,14 @@
     <title>회원 상세정보 페이지</title>
 </head>
 <body>
+	<% String id = (String)session.getAttribute("lgnId"); %>
+	<%
+		if(id == null) id = "";
+	%>
+	<% if (!(id.equals("admin")) || id.equals("")){ %>
+		<script>alert("접근 권한이 없습니다.");
+		location.href="c_index.jsp"; </script>
+	<% } %>
     <div class="headerdiv">
         <p>회원 상세정보 페이지</p>
         <div class="buttondiv">

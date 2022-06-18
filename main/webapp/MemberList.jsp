@@ -28,7 +28,14 @@
 </head>
 <body>
 	<% List<UserVO> arr = dao.getUsers(); %>
-	<% boolean del = dao.deleteUser("selector"); %>
+	<% String id = (String)session.getAttribute("lgnId"); %>
+	<%
+		if(id == null) id = "";
+	%>
+	<% if (!(id.equals("admin")) || id.equals("")){ %>
+		<script>alert("접근 권한이 없습니다.");
+		location.href="c_index.jsp"; </script>
+	<% } %>
 	
 	<div class="headerdiv">
 		<p class="MainP">회원 목록</p>
