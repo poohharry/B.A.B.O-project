@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String id = request.getParameter("id");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +14,10 @@
 <body>
 	<div class="main">	
 		<p class="sign" align="center">비밀번호 재설정</p>
-		<form action="login_ok.jsp" method="post" class="form1" name="loginFrm" >
-		    <input class="pass" name="login_ID" type="password" align="center" placeholder="새 비밀번호">
-		    <input class="pass" name="login_PW" type="password" align="center"placeholder="비밀번호 확인">
-		
-		    <button class="submit" onclick="location.href=''">로그인 </button>
+		<form action="resetpw_proc.jsp?id=<%=id%>" method="post" class="form1" name="resetPWFrm" >
+		    <input class="pass" name="newPW" type="password" align="center" placeholder="새 비밀번호">
+		    <input class="pass" name="chkNewPW" type="password" align="center"placeholder="비밀번호 확인">
+		    <button type="button" class="submit" onclick="document.resetPWFrm.submit()">비밀번호 재설정</button>
 		
 		</form> <!-- form1 form -->    
 	</div> <!-- main -->

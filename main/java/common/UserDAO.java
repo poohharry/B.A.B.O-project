@@ -472,6 +472,7 @@ public class UserDAO {
 				vo.setAppointDate(rs.getString("appointDate"));
 				vo.setFreeDate(rs.getString("freeDate"));
 				vo.setReason(rs.getString("reason"));
+				list.add(vo);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
