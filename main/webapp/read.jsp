@@ -42,6 +42,16 @@
 <title><%=title %></title>
 <link rel="stylesheet" href="./css/c_style.css">
 <link rel="stylesheet" href="./css/read.css">
+
+<script>
+function del () {
+	if (confirm("정말 삭제하시겠습니까?") == true) {
+		location.href="postDelete.jsp?name="+<%=pNum%>
+	} else {
+		return false;
+	}
+}
+</script>
 </head>
 <body>
 	<header>
@@ -120,9 +130,10 @@
 			<% if(id != null){ %> <!-- 로그인 상태라면 {}내부의 코드를 실행 -->
 				<% if(id.equals(writer) || id.equals("admin")){ %> 
 				<!-- 아이디가 작성자 이거나 아이디가 admin일 경우 -->
-					<button type="button" class="cont-ch">수정</button>
-					<button type="submit" class="cont-de" 
-					onclick="location.href='postDelete.jsp?name=<%=pNum%>'">게시물 삭제</button>
+					<button type="button" class="cont-ch"
+					onclick="location.href='updatePost.jsp?pNum=<%=pNum%>'">수정</button>
+					<button type="button" class="cont-de" 
+					onclick="del()">게시물 삭제</button>
 				<% }
 			} %> <!-- if(id != null) -->
 			
@@ -182,7 +193,7 @@
 		</div> <!-- style="margin-left: 580px -->
 					
 	</div> <!-- Container -->
-			<br>
+	<br>
 			
     <footer>
     	<div class="footer bg-navy">

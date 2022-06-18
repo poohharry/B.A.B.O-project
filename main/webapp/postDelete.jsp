@@ -10,12 +10,15 @@
 <title>Insert title here</title>
 <% boolean A = dao.deletePost(pNum); %>
 <script>
-	history.back(3);
-	/* 게시글 목록으로 되돌리는 작업 필요 */
+	
+	/* 원래 보고있던 게시판으로 되돌리는 기능이 필요 */
 </script>
 	
 </head>
 <body>
-
+	<script>
+		<%=A%>
+		location.href="c_index.jsp"
+	</script>
 </body>
 </html>
