@@ -70,6 +70,20 @@
 		
 			return true;
 		}
+	    
+	 	// 지정된 형식이 아니면 return
+		function fileChk(obj) {
+	 		pathPoint = obj.value.lastIndexOf('.');
+	 		filePoint = obj.value.substring(pathPoint + 1, obj.length);
+	 		fileType = filePoint.toLowerCase();
+	 		if(fileType != 'jpg' && fileType != 'gif' && fileType != 'png' != fileType != 'jpeg' && fileType != 'webp') {
+	 			alert("파일형식은 jpg, jpeg, gif, png, webp만 가능합니다.");
+	 			/* parentObj = obj.parentNode;
+	 			node = parentObj.replaceChild(obj.cloneNode(true), obj); */
+	 			$("#upFile").val("");
+	 			return false;
+	 		}
+	 	}
 	</script>
     
     <title>게시글 작성</title>
@@ -101,7 +115,7 @@
             	<textarea name="ir1" id="ir1" cols="113" rows="20" placeholder="내용"></textarea>
             	
             	<span class="signup-input file-select" >
-            		<input type="file" name="fileName"></input>
+            		<input id="upFile" type="file" name="fileName" accept="image/jpeg, image/gif, image/webp" onchange="fileChk(this)"></input>
             	</span>
             </span>
     	</div>

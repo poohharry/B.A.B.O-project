@@ -19,7 +19,7 @@
 	// 페이징 넘버 작업
 	
 	// 한 페이지에 보여줄 게시글 개수
-	int pageSize = 2;
+	int pageSize = 10;
 	// 현재 페이지
 	String pageNum = request.getParameter("pageNum");
 	// pageNum이 null이라는 뜻은 처음 이 사이트에 들어왔다는 뜻이며, 그러한 경우 1번 페이지를 보여준다.
