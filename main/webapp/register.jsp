@@ -97,7 +97,7 @@
             </span>
             <div style="display: flex;">
             <span class="signup-input1">
-                <input id="signup-email" type="text" placeholder="선택입력" name="email"></input>
+                <input id="signup-email" type="text" placeholder="선택입력" name="email" readonly></input>
                 
             </span>
             <button type="button" onclick="eoverlap()" class="overlap-btn">중복체크</button>
@@ -142,7 +142,7 @@
         	window.open(
       		"eoverlap.jsp",
       		"이메일 중복 확인",
-      		"width=400, height=300, top=50, left=50"
+      		"width=500, height=300, top=50, left=50"
         	
         );
       }
