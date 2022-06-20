@@ -35,25 +35,13 @@ function signUpChk() {
 		sFrm.pw.focus();
 		return;
 	}
-	if(sFrm.ChkPw.value == "" || sFrm.pw.value != sFrm.ChkPw.value) {
+	if(sFrm.ChkPw.value == "") {
     alert("비밀번호를 확인하십시오");
     sFrm.ChkPw.value="";
     sFrm.ChkPw.focus();
     return;
 	}
-  // 정규식
-    if(!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/.test(pwd1)){
-        if(!/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/.test(pwd2)){  
-        $("#password-danger").css('display', 'block');
-        $("#password-danger2").css('display', 'none');
-        $('#signup-pw').val('').focus();
-        $('#signup-pww').val('').focus();
-        setTimeout(function() {
-            $("#password-danger").css('display', 'none');
-        },5000)
-        return false;
-        }
-    }  
+ 
 	
 	if(sFrm.nick.value == "") {
 		alert("닉네임을 입력하십시오");
