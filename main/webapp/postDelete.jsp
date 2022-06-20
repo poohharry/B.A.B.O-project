@@ -8,12 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<% boolean A = dao.deletePost(pNum); %>
-<script>
-	
-	/* 원래 보고있던 게시판으로 되돌리는 기능이 필요 */
-</script>
-	
+<% boolean A = dao.deletePost(pNum); %>	
 </head>
 <body>
 	<script>
