@@ -18,6 +18,15 @@
     <link rel="stylesheet" href="css/userinfo.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <title>나의 상세정보 페이지</title>
+    <script>
+    	function surefunc() {
+    		if(confirm("정말 탈퇴하시겠습니까?") == true) {
+    			document.getElementById("frm").submit();
+    		} else {
+    			return false
+    		}
+    	}
+    </script>
 </head>
 <body>
     <div class="headerdiv">
@@ -32,6 +41,7 @@
 	<% UserVO uid = dao.getUser(id); %>
 	<% List<PostVO> arr = pdao.getUserPostList(id); %>
    	<% List<CommentVO> cmtarr = pdao.getUserCommentList(id); %>
+   	<% session.setAttribute("id", id); %>
    
       <div class="infodiv">
           <table class="infotable">
@@ -69,10 +79,10 @@
           <br>
           
           <div class="deletebutton">
-              <form action="deleteproc.jsp" method="post">
-              <input name="id" type="hidden" value="<%=vo.getId()%>" />
-              <input style="width: 150px; height:50px; font-size:20px;" 
-              type="submit" value="회원 탈퇴"/>
+              <form id="frm" action="myinfodelete.jsp" method="post">
+              	<input name="id" type="hidden" value="<%=uid.getId()%>" />
+              	<input style="width: 150px; height:50px; font-size:20px;" 
+              	type="submit" onclick="surefunc()" value="회원 탈퇴"/>
               </form>   
           </div> <!-- deletebutton -->
           
