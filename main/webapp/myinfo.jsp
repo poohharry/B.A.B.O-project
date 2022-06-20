@@ -9,6 +9,21 @@
 <%@ page import = "java.util.*" %>
 <%@ page import = "common.CommentVO" %>
 
+	<% String id = (String)session.getAttribute("lgnId"); %>
+	<% UserVO uid = dao.getUser(id); %>
+	<% List<PostVO> arr = pdao.getUserPostList(id); %>
+   	<% List<CommentVO> cmtarr = pdao.getUserCommentList(id); %>
+   	<% String myid = request.getParameter("id"); %>
+   	<% System.out.println(id); %>
+   	<% if (id == null) id = "";  %>
+
+<% if (id == "") { %>
+   		<script>
+   			alert("로그인이 필요합니다.");
+   			location.href="login.jsp";
+   		</script>
+   	<% } %> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,11 +44,9 @@
     </script>
 </head>
 <body>
-	<% String id = (String)session.getAttribute("id"); %>
-	<% UserVO uid = dao.getUser(id); %>
-	<% List<PostVO> arr = pdao.getUserPostList(id); %>
-   	<% List<CommentVO> cmtarr = pdao.getUserCommentList(id); %>
-   	<% String myid = request.getParameter("id"); %>
+	
+   	
+   	
 	
 	
     <div class="headerdiv">
