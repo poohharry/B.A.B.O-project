@@ -2,10 +2,15 @@
     pageEncoding="UTF-8"%>
 <jsp:useBean id="udao" class="common.UserDAO" />
 <jsp:useBean id="uvo" class="common.UserVO" />
+<jsp:useBean id="dao" class="common.PostDAO" />
+
+<%@ page import="common.PostVO" %>
+<%@ page import="java.util.*" %>
 <%
   request.setCharacterEncoding("UTF-8");
   String id = (String)session.getAttribute("lgnId");
   uvo = udao.getUser(id);
+  List<PostVO> noticeList = dao.getPostList("Notice_Board", 0, 10);
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,6 +69,11 @@
     	<div style="display: flex;">
      		<fieldset class=" notice">
          		<legend>공지사항</legend>
+         		<table>
+         			<tr>
+         				
+         			</tr>
+         		</table>
      		</fieldset>
      		<fieldset class=" new_board">
         		<legend>최신 글</legend>
