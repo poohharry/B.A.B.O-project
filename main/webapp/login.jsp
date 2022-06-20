@@ -44,7 +44,7 @@
 
       <button class="submit" onclick="loginChk()">로그인 </button>
 
-      <p class="forgot" align="center"><a href="findid.jsp" class ="forgot_a">아이디 또는 패스워드를 잊었나요?</a></p>
+      <p class="forgot" align="center"><a href="findall.jsp" class ="forgot_a">아이디 또는 패스워드를 잊었나요?</a></p>
       <p class="register" align="center"><a href="register.jsp">회원 가입</a></p>
       </form> <!-- form1 form -->    
     </div> <!-- main -->
