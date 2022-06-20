@@ -77,7 +77,7 @@
                  
                 <%
             }else{ %>
- 				<li><a href="./login.jsp">로그인</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+ 				<li><a href="./login.jsp">로그인</a></li>
             	<li><a href="./register.jsp">회원가입 </a></li>
             <% }%>
           </ul>
