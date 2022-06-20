@@ -14,7 +14,6 @@
 	year = birthArr[0];
 	month = birthArr[1];
 	day = birthArr[2];
-	
 %>
 
 <!DOCTYPE html>
@@ -25,18 +24,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="부산광역시-removebg-preview.ico">
     <link rel="stylesheet" href="css/Chan_info.css">
-     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
     <title>회원정보수정</title>
+    
     <script>
     	$(document).ready(function(){
     		$(('select[name="month"]').find('option:value="<%=month%>"')).attr("selected",true);
     				
     	});
+    	
+    	
+    	
   	</script>
 </head>
 <body>
 	<div class="main">	
     	<p class="sign" align="center">회원정보수정</p>
+    	
     	<form action="Change_info_proc.jsp" method="post" class="form1">
         	<div>
         	<h3>신규 비밀번호</h3>
