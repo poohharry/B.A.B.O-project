@@ -41,6 +41,8 @@
   
   .title {
 	font-size: 2em;
+	position:absolute;
+	left:10px;
   }
   
   .title > a {
@@ -72,6 +74,8 @@
 	#menu-2{
 		display: flex;
 		margin-left: 621px;
+		position:absolute;
+		left:1300px;
 	  }
 
   
@@ -79,7 +83,7 @@
   /* 화면이 클때 */
 	#menu {
 	  display: flex;
-	  margin-left: 200px;
+	  margin-left: 650px;
 	}
   
 	#menu > li {
@@ -175,125 +179,119 @@ a{
     
 }
 #a5{
-    background-image:url('https://www.busan.go.kr/resource/img/geopark/sub/busantour/busantour7.jpg');
+    background-image:url('https://t1.daumcdn.net/cfile/blog/1964DF0E4B4D66A84D');
     background-repeat: no-repeat;
     background-size:cover;
     
 }
-.intro-title{
+.map1-title{
 	
 	color:#fff;
-	position:absolute;
-	top:381px;
-	left: 450px;
-	font-size: 3.5em;
-}
-.intro-first{
-	color:#fff;
-	position:absolute;
 	position:absolute;
 	top:481px;
-	left: 450px;
+	left: 400px;
 	font-size: 3.5em;
 }
-.intro-maker{
+.map1-first{
 	color:#fff;
 	position:absolute;
-	
+	position:absolute;
 	top:581px;
-	left: 450px;
-	font-size: 3.5em;
+	left: 400px;
+	font-size: 1.5em;
 }
-.intro-comment{
+
+.map1-comment{
 	color:#fff;
 	position:absolute;
-	top:381px;
-	left: 1300px;
+	top:481px;
+	left: 1100px;
 	font-size: 2em;
 }
 
 
-.team-introduce{
+.map2-title{
   color:#fff;
-	position:absolute;
+  position:absolute;
   font-size: 3.5em;
   top:1590px;
-  left: 890px;
+  left: 400px;
 }
-.front-introduce{
-  color:#fff;
+.map2-first{
+	color:#fff;
 	position:absolute;
+    font-size: 1.5em;
+    top:1690px;
+    left: 400px;
+}
+.map2-comment{
+	color:#fff;
+	position:absolute;
+	top:1590px;
+	left: 1100px;
+	font-size: 2em;
+}
+.map3-title{
+  color:#fff;
+  position:absolute;
   font-size: 3.5em;
-  top: 2438px;
-  left: 408px;
-}
-.front-team1{
-  color:#fff;
-	position:absolute;
-  font-size: 2.5em;
   top: 2638px;
-  left: 408px;
+  left: 400px;
 }
-.use-skill1{
+.map3-first{
   color:#fff;
-	position:absolute;
-  font-size: 2.5em;
+  position:absolute;
+  font-size: 1.5em;
   top: 2738px;
-  left: 408px;
+  left: 400px;
 }
-.front-team2{
+.map3-comment{
   color:#fff;
-	position:absolute;
+  position:absolute;
+  font-size: 2em;
+  top: 2638px;
+  left: 1100px;
+}
+.map4-title{
+  color:#fff;
+  position:absolute;
   font-size: 2.5em;
-  top: 2838px;
-  left: 408px;
+  top: 3838px;
+  left: 400px;
 }
-.use-skill2{
+.map4-first{
   color:#fff;
-	position:absolute;
+  position:absolute;
+  font-size: 1.5em;
+  top: 3938px;
+  left: 400px;
+}
+.map4-comment{
+  color:#fff;
+  position:absolute;
+  font-size: 2em;
+  top: 3838px;
+  left: 1100px;
+}
+.map5-title{
+  color:#fff;
+  position:absolute;
   font-size: 2.5em;
-  top: 2938px;
-  left: 408px;
+  top: 4798px;
+  left: 400px;
 }
-.back-introduce{
+.map5-first{
   color:#fff;
-	position:absolute;
-  font-size: 3.5em;
-  top: 3500px;
-  left: 408px;
+  position:absolute;
+  font-size: 1.5em;
+  top: 4898px;
+  left: 400px;
 }
-.back-team1{
+.map5-comment{
   color:#fff;
-	position:absolute;
-  font-size: 2.5em;
-  top: 3600px;
-  left: 408px;
+  position:absolute;
+  font-size: 2em;
+  top: 4798px;
+  left: 1100px;
 }
-.back-use-skill1{
-  color:#fff;
-	position:absolute;
-  font-size: 2.5em;
-  top: 3700px;
-  left: 408px;
-}
-.back-team2{
-  color:#fff;
-	position:absolute;
-  font-size: 2.5em;
-  top: 3800px;
-  left: 408px;
-}
-.back-use-skill2{
-  color:#fff;
-	position:absolute;
-  font-size: 2.5em;
-  top: 3900px;
-  left: 408px;
-}
-.production-period{
-  color:#fff;
-	position:absolute;
-  font-size: 3.5em;
-  top:4831px;
-  left: 768px;
-}
+

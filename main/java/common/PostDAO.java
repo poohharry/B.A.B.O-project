@@ -54,6 +54,14 @@ public class PostDAO {
 		return cnt;
 	}
 	
+	// 공지사항을 제외한 모든 글 불러오기
+	public List<PostVO> getAllPostList() {
+		List<PostVO> list = new ArrayList<PostVO>();
+		
+		
+		return list;
+	}
+	
 	
 	// 글 목록 불러오기
 	// 카테고리(문자열)를 집어넣으면 그 카테고리에 해당하는 전체 게시글 리스트를 ArrayList<PostVO> 형으로 반환
