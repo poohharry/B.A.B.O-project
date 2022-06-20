@@ -121,10 +121,11 @@
                 
                     
                 
-            
+        <label> 
         <div class="signup-btn-wrap">
             <button type="button" id="signup-btn" onclick="signUpChk()">가입하기</button>
         </div>
+        </label>
 
       </form>      
             

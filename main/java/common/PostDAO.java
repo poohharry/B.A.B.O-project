@@ -54,11 +54,62 @@ public class PostDAO {
 		return cnt;
 	}
 	
-	// 공지사항을 제외한 모든 글 불러오기
+	// 공지사항을 제외한 모든 카테고리에서 10개의 게시글 불러오기 -> 메인페이지의 최신글에 올라갈 내용들
 	public List<PostVO> getAllPostList() {
 		List<PostVO> list = new ArrayList<PostVO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "select title, wrDate, category, pNum from posts where category != 'Notice_Board' order by wrDate desc limit 0, 10";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				PostVO vo = new PostVO();
+				vo.setTitle(rs.getString("title"));
+				vo.setWrDate(rs.getString("wrDate").substring(0, 10));
+				vo.setCategory(rs.getString("category"));
+				vo.setPNum(rs.getInt("pNum"));
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
 		
-		
+		return list;
+	}
+	
+	// 실시간 인기글 불러오기
+	// 공지사항을 제외하고 7일 이내에 작성된 글 중 조회수가 20이상인 게시글을 10개 불러온다
+	public List<PostVO> getHotList() {
+		List<PostVO> list = new ArrayList<PostVO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "select * from posts where viewCnt > 20 and wrDate > (select date_sub(now(), interval 7 day)) and category != 'Notice_Board' order by viewCnt desc limit 0, 10";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				PostVO vo = new PostVO();
+				vo.setTitle(rs.getString("title"));
+				vo.setWrDate(rs.getString("wrDate").substring(0, 10));
+				vo.setCategory(rs.getString("category"));
+				vo.setPNum(rs.getInt("pNum"));
+				vo.setViewCnt(rs.getInt("viewCnt"));
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
 		return list;
 	}
 	
