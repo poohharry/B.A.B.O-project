@@ -1,6 +1,7 @@
 /* login findid findpw info_confirm */
 @charset "UTF-8";
 body {
+    /* login */
 	background-color: #B2B2B2;
     font-family: 'Ubuntu', sans-serif;
 	overflow-y: hidden;
@@ -8,6 +9,9 @@ body {
 }
 
 .main {
+    /* login */
+    /* findall */
+    /* info_confirm */
     background-color: #FFFFFF;
     width: 550px;
     height: 550px;
@@ -15,7 +19,30 @@ body {
     box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
 
+#main {
+    background-color: #FFFFFF;
+    width: 550px;
+    height: 550px;
+    border-bottom-left-radius: 1.5em;
+    border-bottom-right-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+#main2 {
+    /* findall */
+    /* display: none; */
+    background-color: #FFFFFF;
+    width: 550px;
+    height: 550px;
+    border-bottom-left-radius: 1.5em;
+    border-bottom-right-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
 .sign {
+    /* login */
+    /* findall */
+    /* info_confirm */
     padding-top: 40px;
     color: #000;
     font-family: 'Ubuntu', sans-serif;
@@ -24,14 +51,20 @@ body {
 }
     
 form.form1 {
+    /* login */
+    /* findall */
+    /* info_confirm */
     padding-top: 40px;
 }
-
-form.form1_findpw {
-    padding-top: 0px;
-}
     
+.un:focus .pass:focus {
+    /* login */
+    /* findall */
+    border: 2px solid rgba(0, 0, 0, 0.18) !important;    
+}
+
 .pass {
+    /* login */
     width: 76%;
     color: rgb(38, 50, 56);
     font-weight: 700;
@@ -49,62 +82,51 @@ form.form1_findpw {
     margin-bottom: 27px;
     font-family: 'Ubuntu', sans-serif;
 }
-      
-.un:focus, .pass:focus {
-    border: 2px solid rgba(0, 0, 0, 0.18) !important;    
-}
-    
-.submit {
- cursor: pointer;
- border-radius: 5em;
- color: #fff;
- background: #B2B2B2;
- border: 0;
- padding-left: 40px;
- padding-right: 40px;
- padding-bottom: 10px;
- padding-top: 10px;
- font-family: 'Ubuntu', sans-serif;
- margin-left: 3%;
- font-size: 16px;
- box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
- font-weight: bold;;
-}
-.submit2 {
- cursor: pointer;
- border-radius: 5em;
- color: #fff;
- background: #B2B2B2;
- border: 0;
- padding-left: 40px;
- padding-right: 40px;
- padding-bottom: 10px;
- padding-top: 10px;
- font-family: 'Ubuntu', sans-serif;
- margin-left: 35%;
- font-size: 16px;
- box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
- font-weight: bold;;
-}
-.submit_info_confirm {
-    cursor: pointer;
-    border-radius: 5em;
-    color: #fff;
-    background: skyblue;
-    border: 0;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 10px;
-    padding-top: 10px;
+
+#pass {
+    /* findall */
+    width: 300px;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border: 1px solid;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+    margin-left: 6px;
+    text-align: center;
+    margin-bottom: 27px;
     font-family: 'Ubuntu', sans-serif;
-    margin-left: auto;
-    font-size: 16px;
-    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
-    font-weight: bold;;
 }
 
-.submit_findid_findpw{
-    width: 180px;
+#un {
+    /* findall */
+    margin-right:110px;
+    margin-left:110px;
+    border: 1px solid;
+    width: 300px;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    margin-bottom: 50px; 
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.submit {
+    /* login */
+    /* findall */
+    /* info_confirm */
     cursor: pointer;
     border-radius: 5em;
     color: #fff;
@@ -116,22 +138,32 @@ form.form1_findpw {
     padding-top: 10px;
     font-family: 'Ubuntu', sans-serif;
     margin-left: auto;
-    margin-top: -9px;
-    margin-bottom: -10px;
+    margin-right: auto;
     font-size: 16px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
-    font-weight: bold;
-    text-align: center;
+    font-weight: bold;;
 }
 
-.submit_findid_findpw a{
-    /* findid */
-    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+.submit2 {
+    /* findall */
+    cursor: pointer;
+    border-radius: 5em;
     color: #fff;
-    text-decoration: none
+    background: #B2B2B2;
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    margin-left: 35%;
+    font-size: 16px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    font-weight: bold;;
 }
 
 .forgot {
+    /* login */
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
     color: #000;
     padding-top: 15px;
@@ -139,17 +171,17 @@ form.form1_findpw {
 }
     
  .register a {
-    /* findid, findpw */
+    /* login */
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
     color: #000;
     text-decoration: none
 } 
 
 .forgot_a {
+    /* login */
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
     color: #000;
-    text-decoration: none
-    /* -findid -findpw  */
+    text-decoration: none;
 }
     
 
@@ -174,14 +206,16 @@ img{
 }
 
 .txt_center{
+    /* info_confirm */
     text-align:center;
     margin-top:auto;
     padding-bottom:25px;
     font-size: 14px;
-
 }
 
 .reset {
+    /* findall */
+    /* info_confirm */
     cursor: pointer;
     border-radius: 5em;
     color: #fff;
@@ -196,24 +230,10 @@ img{
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
     font-weight: bold;;
 }
-#main {
-        background-color: #FFFFFF;
-        width: 550px;
-        height: 550px;
-        border-bottom-left-radius: 1.5em;
-        border-bottom-right-radius: 1.5em;
-        box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-}
-#main2 {
-    /* display: none; */
-    background-color: #FFFFFF;
-    width: 550px;
-    height: 550px;
-    border-bottom-left-radius: 1.5em;
-    border-bottom-right-radius: 1.5em;
-    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-}
+
+
 #findid{
+    /* findall */
     background-color: #FFFFFF;
     border:none;
     width: 280px;
@@ -227,7 +247,9 @@ img{
     font-size: 20px;
     cursor:pointer;
 }
+
 #findpw{
+    /* findall */
     background-color: #FFFFFF;
     border:none;
     width: 270px;
@@ -241,13 +263,17 @@ img{
     font-size: 20px;
     cursor:pointer;
 }
+
 .hr-id{
+    /* findall */
     width: 275px;
     position:absolute;
     top:16px;
     border-top: 2px solid #b2b2b2;
 }
+
 .hr-pw{
+    /* findall */
     width: 275px;
     position:absolute;
     top:16px;
@@ -255,52 +281,17 @@ img{
     border-top: 2px solid #b2b2b2;
     /* display:none; */
 }
- #reset{
-        position:absolute;
-        left:243px;
-        font-size:15px;
-        top: 370px;
+
+#reset{
+    position:absolute;
+    left:243px;
+    font-size:15px;
+    top: 370px;
 }
- #reset2{
-        position:absolute;
-        left:243px;
-        font-size:15px;
-        top:450px;
-    }
-#pass {
-    width: 300px;
-    color: rgb(38, 50, 56);
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-    background: rgba(136, 126, 126, 0.04);
-    padding: 10px 20px;
-    border: 1px solid;
-    border-radius: 20px;
-    outline: none;
-    box-sizing: border-box;
-    margin-bottom: 50px;
-    margin-left: 6px;
-    text-align: center;
-    margin-bottom: 27px;
-    font-family: 'Ubuntu', sans-serif;
+
+#reset2{
+    position:absolute;
+    left:243px;
+    font-size:15px;
+    top:450px;
 }
-#un {
-	margin-right:95px;
-    margin-left:125px;
-    border: 1px solid;
-    width: 300px;
-    color: rgb(38, 50, 56);
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-    background: rgba(136, 126, 126, 0.04);
-    padding: 10px 20px;
-    border-radius: 20px;
-    outline: none;
-    box-sizing: border-box;
-    margin-bottom: 50px; 
-    text-align: center;
-    font-family: 'Ubuntu', sans-serif;
-}
-    
