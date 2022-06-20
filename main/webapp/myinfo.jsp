@@ -24,6 +24,7 @@
         <p>나의 상세정보 페이지</p>
         <div class="buttondiv">
             <button type="button" onclick="location.href='c_index.jsp'">메인 페이지</button>
+            <button type="button" onclick="location.href='Change_info.jsp'">회원정보 수정</button>
         </div> <!-- buttondiv -->
     </div> <!-- headerdiv -->
 
