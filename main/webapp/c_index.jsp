@@ -5,12 +5,17 @@
 <jsp:useBean id="dao" class="common.PostDAO" />
 
 <%@ page import="common.PostVO" %>
+<%@ page import="common.CommentVO" %>
 <%@ page import="java.util.*" %>
+
 <%
   request.setCharacterEncoding("UTF-8");
   String id = (String)session.getAttribute("lgnId");
   uvo = udao.getUser(id);
-  List<PostVO> noticeList = dao.getPostList("Notice_Board", 0, 10);
+  // 공지사항 필드에 최신순으로 10개만 올라가도록
+  List<PostVO> noticeList = dao.getPostList("Notice_Board", 1, 10);
+  List<PostVO> recentPostList = dao.getAllPostList();
+  List<PostVO> hotList = dao.getHotList();
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,17 +75,45 @@
      		<fieldset class=" notice">
          		<legend>공지사항</legend>
          		<table>
-         			<tr>
-         				
-         			</tr>
+        			<%for(int i = 0; i < noticeList.size(); i++) { %>
+   	     			<tr>
+         				<td><a href="read.jsp?pNum=<%=noticeList.get(i).getPNum()%>"><%=noticeList.get(i).getTitle()%></a></td>
+        				<td><%=noticeList.get(i).getWrDate() %></td>
+        			</tr>
+         			<%}%>
          		</table>
      		</fieldset>
      		<fieldset class=" new_board">
         		<legend>최신 글</legend>
+        		<table>
+        			<%for(int i = 0; i < recentPostList.size(); i++) {
+        			PostVO recentVO = recentPostList.get(i);%>
+        			<tr>
+        				<td><%=recentVO.getCategory() %></td>
+        				<td><a href="read.jsp?pNum=<%=recentVO.getPNum()%>"><%=recentVO.getTitle() %></a></td>
+        				<td><%=recentVO.getWrDate() %></td>
+        			</tr>
+        				
+        			<%}%>
+        		</table>
     		</fieldset>
 		</div> <!-- display:flex -->
      	<fieldset class=" Free_board">
          	<legend>실시간 인기글</legend>
+         	<table>
+         		<%for(int i = 0; i < hotList.size() ; i++) {
+         		PostVO vo = hotList.get(i);
+         		// 댓글 개수를 표시하기 위해 
+         		List<CommentVO> comList = dao.getComments(vo.getPNum());%>
+         		<tr>
+         			<td>카테고리 : <%=vo.getCategory()%> &nbsp;</td>
+         			<td>제목 : <a href="read.jsp?pNum=<%=vo.getPNum()%>"> <%=vo.getTitle()%> [<%=comList.size()%>] </a>&nbsp;</td>
+         			<td><%=vo.getWrDate() %></td>
+         			<td>조회수 : <%=vo.getViewCnt()%> &nbsp;</td>
+         		</tr>
+         		<%}%>
+         		
+         	</table>
      	</fieldset>
  	</div><!-- container -->
  	
