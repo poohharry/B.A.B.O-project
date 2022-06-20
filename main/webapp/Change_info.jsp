@@ -120,7 +120,7 @@
                 <input type="submit" class="submit" value="수정">
                 <input type="reset" class="reset" value="리셋">
             </div>
-      
+      	</div>
       </form>      
             
     </div>
