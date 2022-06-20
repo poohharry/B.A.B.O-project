@@ -29,6 +29,13 @@
     </script>
 </head>
 <body>
+	<% String id = (String)session.getAttribute("id"); %>
+	<% UserVO uid = dao.getUser(id); %>
+	<% List<PostVO> arr = pdao.getUserPostList(id); %>
+   	<% List<CommentVO> cmtarr = pdao.getUserCommentList(id); %>
+   	<% String myid = request.getParameter("id"); %>
+	
+	
     <div class="headerdiv">
         <p>나의 상세정보 페이지</p>
         <div class="buttondiv">
@@ -37,11 +44,7 @@
         </div> <!-- buttondiv -->
     </div> <!-- headerdiv -->
 
-	<% String id = (String)session.getAttribute("id"); %>
-	<% UserVO uid = dao.getUser(id); %>
-	<% List<PostVO> arr = pdao.getUserPostList(id); %>
-   	<% List<CommentVO> cmtarr = pdao.getUserCommentList(id); %>
-   	<% session.setAttribute("id", id); %>
+	
    
       <div class="infodiv">
           <table class="infotable">

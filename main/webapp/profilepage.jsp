@@ -24,6 +24,14 @@
 	<% UserVO uid = dao.getUser(id); %>
 	<% List<PostVO> arr = pdao.getUserPostList(id); %>
    	<% List<CommentVO> cmtarr = pdao.getUserCommentList(id); %>
+   	
+   	<% if(uid.getId() == null) {%>
+		<script>
+			alert("이미 탈퇴한 회원입니다.");
+			history.back();
+		</script>
+	<% } %> 
+   	
     <div class="headerdiv">
         <p><%=id %>님의 프로필 페이지</p>
         <div class="buttondiv">
