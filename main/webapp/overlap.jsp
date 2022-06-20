@@ -24,7 +24,7 @@
     
 </head>
 <body>
-    <form action="overlap_proc.jsp" name="overlap-id" method="post">
+    <form action="overlap_proc.jsp?item=id" name="overlap-id" method="post">
         <div>
 		    <h1>아이디 중복확인 </h1>
 		    <input type="text" name="inputID" id="inputid"

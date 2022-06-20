@@ -79,6 +79,31 @@ public class UserDAO {
 		return flag;
 	}
 	
+	// 회원가입시 이메일 중복체크
+	public boolean isEmailExist(String email) {
+		boolean flag = false;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		ResultSet rs = null;
+		try {
+			con = pool.getConnection();
+			sql = "select pNum from users where email = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+			// 결과물이 있다는 것은 입력받은 아이디가 이미 존재한다는 뜻
+			if(rs.next()) {
+				flag = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		return flag;		
+	}
+	
 	
 	// 회원계정 삭제
 	// 삭제 유예 테이블로 옮기기? 옮겨진 후 30일 지나면 DB에서 완전 삭제
