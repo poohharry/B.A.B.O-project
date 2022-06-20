@@ -79,6 +79,31 @@ public class UserDAO {
 		return flag;
 	}
 	
+	// 회원가입시 이메일 중복체크
+	public boolean isEmailExist(String email) {
+		boolean flag = false;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		ResultSet rs = null;
+		try {
+			con = pool.getConnection();
+			sql = "select pNum from users where email = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+			// 결과물이 있다는 것은 입력받은 아이디가 이미 존재한다는 뜻
+			if(rs.next()) {
+				flag = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		return flag;		
+	}
+	
 	
 	// 회원계정 삭제
 	// 삭제 유예 테이블로 옮기기? 옮겨진 후 30일 지나면 DB에서 완전 삭제
@@ -185,6 +210,26 @@ public class UserDAO {
 		}
 		
 		return flag;
+	}
+	
+	// 비밀번호 재설정
+	// 비밀번호 찾기이후 인증절차를 밟고나서 id를 매개변수로 비밀번호만 재설정하도록 한다
+	public void resetPW(String id, String newPW) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "update users set pw = ? where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, newPW);
+			pstmt.setString(2, id);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
+		}
 	}
 	
 	
@@ -433,6 +478,34 @@ public class UserDAO {
 		return vo;
 	}
 	
+	// 블랙리스트 멤버 전체 조회
+	public List<BlackVO> getBlackList() {
+		List<BlackVO> list  = new ArrayList<BlackVO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "select * from blackmember order By mNum";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				BlackVO vo = new BlackVO();
+				vo.setmNum(rs.getInt("mNum"));
+				vo.setId(rs.getString("id"));
+				vo.setAppointDate(rs.getString("appointDate"));
+				vo.setFreeDate(rs.getString("freeDate"));
+				vo.setReason(rs.getString("reason"));
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		return list;
+	}
 	// 매개변수로 받은 id가 블랙리스트 지정 여부를 반환(true = 블랙)
 	// 이 DAO안에서만 쓰이는 메소드이기에 private으로 선언
 	private boolean isBlack(String id) {

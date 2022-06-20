@@ -11,15 +11,20 @@
 <%
 	// 파라미터 값으로 넘어오는 애들 한글깨짐 방지
 	request.setCharacterEncoding("UTF-8");
+
 	// 로그인된 ID
 	String id = (String)session.getAttribute("lgnId");
 	uvo = udao.getUser(id);
+	
 	// 문자열로 받은 쿼리속 변수를 Integer로 변환후 저장
 	Integer pNum = Integer.parseInt(request.getParameter("pNum"));
+	
 	// 파라미터로 전달받은 postNumber값에 따라 read.jsp내용물 vo로 받아오기
 	vo = dao.readPost(pNum);
+	
 	// 탭에 들어갈 페이지 제목, 글의 제목
 	String title = vo.getTitle();
+	
 	// 현재 게시글에 달린 댓글 불러오기
 	List<CommentVO> commentList = dao.getComments(pNum);
 	
@@ -37,6 +42,16 @@
 <title><%=title %></title>
 <link rel="stylesheet" href="./css/c_style.css">
 <link rel="stylesheet" href="./css/read.css">
+
+<script>
+function del () {
+	if (confirm("정말 삭제하시겠습니까?") == true) {
+		location.href="postDelete.jsp?name="+<%=pNum%>
+	} else {
+		return false;
+	}
+}
+</script>
 </head>
 <body>
 	<header>
@@ -80,11 +95,13 @@
 	<div class="container">
 		<!-- 제목 및 작성자와 같은 글 내용의 헤더 -->
 		<div class="content-title">
-			제목  <%=vo.getTitle()%> &nbsp;&nbsp; <br>
+			<div class="Title">
+				<p>제목 : <%=vo.getTitle()%></p> &nbsp;&nbsp; <br>
+			</div> <!-- Title -->
 			<div class="writer">
-			작성자 :  <%=vo.getNickname() %>
-			</div>
-			</div>
+			작성자 : <a href="profilepage.jsp?id=<%=vo.getWritter()%>"><%=vo.getNickname() %></a>
+			</div> <!-- writer -->
+		</div> <!-- content-title -->
 			
 		
 		<br>
@@ -92,96 +109,100 @@
 		<!-- 글 내용의 메인 -->
 		<div class="article-content">
 	
-			<%if(vo.getFileName() != null) {
+			<%if(vo.getFileName() != null) { // 게시글에 사진이 있는지 여부 검사, 있으면 밑의 코드 실행
 				String extension = vo.getFileName().substring(vo.getFileName().lastIndexOf("."));
-				if(extension.equals(".jpg") || extension.equals(".jpeg") || extension.equals(".gif") || extension.equals(".png") || extension.equals(".webp")) {%>
-					<img src = "./uploadFiles/<%=vo.getFileName()%>">
+				if(extension.equals(".jpg") 
+				|| extension.equals(".jpeg") 
+				|| extension.equals(".gif") 
+				|| extension.equals(".png") 
+				|| extension.equals(".webp")) {%>
+				<img src = "./uploadFiles/<%=vo.getFileName()%>">
 				<%}
-			}
-			%>
-			
-				<%=vo.getContents() %>
+			}%>
+
+				<%=vo.getContents() %> <!-- 게시글 내용을 출력하는 코드 -->
 				
-		</div>
-		<% if(id != null){ %>
-			<% if(id.equals(writer)){ %>	
-		<div class="content-change">
-		<button type="button" value="수정" class="cont-ch">수정</button>
-		<button type="button" value="삭제" class="cont-de">삭제</button>
-		<button type="button" value="목록" class="move-board" onclick="history.back()">목록</button>	
-		</div>
-			<% }else{%>
+		</div> <!-- article-content -->
 		
-			<div class="content-change">
-		<button type="button" value="목록" class="move-board" onclick="history.back()">목록</button>
-		</div>
-		
-		<%}%>
-			<% } %>
-			<div class="content-change">
-			<button type="button" value="목록" class="move-board" onclick="history.back()">목록</button>
-			</div> 
-	
 		<br>
+		<div class="content-change">
+			<div class="mbdiv">
+			<% if(id != null){ %> <!-- 로그인 상태라면 {}내부의 코드를 실행 -->
+				<% if(id.equals(writer) || id.equals("admin")){ %> 
+				<!-- 아이디가 작성자 이거나 아이디가 admin일 경우 -->
+					<button type="button" class="cont-ch"
+					onclick="location.href='updatePost.jsp?pNum=<%=pNum%>'">수정</button>
+					<button type="button" class="cont-de" 
+					onclick="del()">게시물 삭제</button>
+				<% }
+			} %> <!-- if(id != null) -->
+			
+				<button type="button" value="목록" class="move-board" 
+				onclick="history.back()">목록</button>
+			</div> <!-- mbdiv -->
+		</div> <!-- content-change -->
+				
+		<br><br>
 		<!-- 댓글 -->
 		<%
 			if(id != null) {%>
-		<p class="comment-write">댓글 작성하기</p><br>
+		<div class="comment-write">
+			<p>댓글 작성하기</p><br>
+		</div>
+		
 		<%} %>
 		<div id="CommentBox">
-			
 			<!-- 로그인 상태일 경우에만 활성화 -->
-			<%
-				if(id != null) {%>
+			<% if(id != null) {%>
+			<form action="writeComment.jsp" method="get">
+				<!-- 현재 보고있는 게시글 번호 -->
+				<input type="hidden" name="postNum" value="<%=vo.getPNum()%>">
+				<!-- 현재 로그인된 계정의 ID -->
+				<input type="hidden" name="commentWritter" value="<%=id%>">
+				<!-- 현재 로그인된 계정의 닉네임 -->
+				<input type="hidden" name="nickname" value="<%=nickname%>">
 				
-					<form action="writeComment.jsp" method="get">
-						<!-- 현재 보고있는 게시글 번호 -->
-						<input type="hidden" name="postNum" value="<%=vo.getPNum()%>">
-						<!-- 현재 로그인된 계정의 ID -->
-						<input type="hidden" name="commentWritter" value="<%=id%>">
-						<!-- 현재 로그인된 계정의 닉네임 -->
-						<input type="hidden" name="nickname" value="<%=nickname%>">
-						
-						<!-- 댓글 내용 -->
-						<div style="display:flex;">
-						<input type="text" name="contents" class="comment-contents">
-						<input type="submit" value="댓글 작성" class="comment-submit">
-						</div>
-					</form>
-					
-				<% }%>
-			
-			<br>
-			<p class="comment">댓글[<%=commentList.size() %>]</p> 
-			<br>
-		<div style="margin-left: 580px;">
+				<!-- 댓글 내용 -->
+				<div class="cbdiv">
+					<input type="text" name="contents" class="comment-contents">
+					<input type="submit" value="댓글 작성" class="comment-submit">
+				</div> <!-- class="cbdiv" -->
+			</form>
+			<% }%> <!-- if문 끝 -->
+		</div> <!-- CommentBox -->
+				
+		<br>
+		<div class="cdiv">
+			<p class="comment">댓글[<%=commentList.size() %>]</p>
+		</div> <!-- cdiv -->
+		
+		<div class="replydiv">
 			<%for(int i = 0; i < commentList.size(); i++) {%>
-					<!-- 유저의 정보(프로필)를 확인-->
-					<div style="display:flex; margin-top: 15px;">
-					<a href="#" style="color: black;"><%= commentList.get(i).getNickname()%></a>
-					
+				<!-- 유저의 정보(프로필)를 확인-->
+				<div class="rphdiv">
+					<a href="#" style="color: black;">
+					<%= commentList.get(i).getNickname()%></a>
 					<p class="comment-day"><%= commentList.get(i).getWriteDate() %></p>
-					</div>		
-				 	 <% if(commentList.get(i).getTag() != null) {%>
-					<!-- 유저의 정보(프로필)를 확인  -->
-						태그 : #<a href="#"><%=commentList.get(i).getTag() %></a>
-					<%}%> 
-				  	<p class="comment-cont"><%= commentList.get(i).getContents() %></p>
-				<% }%>	
-					</div>
-					
+				</div> <!-- rphdiv-->
 				
-			</div><!-- CommentBox -->
-			<br>
-			<br>
-		  <footer>
-        <div class="footer bg-navy">
-            <p>Copyright ⓒ 2022.06.22 B.A.B.O All rights reserved.</p>
-          </div>
-      </footer>
-		</div><!-- Container -->
+			 	<% if(commentList.get(i).getTag() != null) {%>
+					<!-- 유저의 정보(프로필)를 확인  -->
+					태그 : #<a href="#">
+					<%=commentList.get(i).getTag() %></a> <%}%> <!-- if문 끝 -->
+				  	<p class="comment-cont">
+				  	<%= commentList.get(i).getContents() %></p><br><% }%> <!-- for문 끝 -->
+				  	
+		</div> <!-- replydiv -->
+		
+					
+	</div> <!-- Container -->
+	<br>
+			
+    <footer>
+    	<div class="footer bg-navy">
+        	<p>Copyright ⓒ 2022.06.22 B.A.B.O All rights reserved.</p>
+        </div>
+    </footer>
       
-      
-     
 </body>
 </html>

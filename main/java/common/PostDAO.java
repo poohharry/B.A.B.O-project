@@ -30,9 +30,34 @@ public class PostDAO {
 		}
 	}
 	
+	// 입력받은 카테고리의 게시글이 총 몇 개인지 
+	public int getPostCount(String cate) {
+		int cnt = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		try {
+			con = pool.getConnection();
+			sql = "select pNum from posts where category = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, cate);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				cnt++;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		return cnt;
+	}
+	
+	
 	// 글 목록 불러오기
 	// 카테고리(문자열)를 집어넣으면 그 카테고리에 해당하는 전체 게시글 리스트를 ArrayList<PostVO> 형으로 반환
-	public List<PostVO> getPostList(String cate) {
+	public List<PostVO> getPostList(String cate, int startRow, int pageSize) {
 		List<PostVO> list = new ArrayList<PostVO>();
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -40,9 +65,11 @@ public class PostDAO {
 		String sql = null;
 		try {
 			con = pool.getConnection();
-			sql = "select pNum, title, writter, wrDate, viewCnt from posts where category = ? order By pNum desc";
+			sql = "select pNum, title, writter, wrDate, viewCnt from posts where category = ? order By pNum desc limit ?, ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, cate);
+			pstmt.setInt(2, startRow - 1);
+			pstmt.setInt(3, pageSize);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {

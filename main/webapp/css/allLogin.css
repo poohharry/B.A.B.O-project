@@ -117,7 +117,18 @@ body {
         border: 2px solid rgba(0, 0, 0, 0.18) !important;
         
     }
-    
+    .reset{
+        position:absolute;
+        left:243px;
+        font-size:15px;
+        top:370px;
+    }
+    .reset2{
+        position:absolute;
+        left:243px;
+        font-size:15px;
+        top:450px;
+    }
     .submit {
         cursor: pointer;
           border-radius: 5em;
@@ -134,18 +145,7 @@ body {
           box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
           font-weight: bold;;
       }
-    .reset{
-        position:absolute;
-        left:243px;
-        font-size:15px;
-       	top:370px;
-    }
-    .reset2{
-        position:absolute;
-        left:243px;
-        font-size:15px;
-       	top:440px;
-    }
+
   
 
     .submit a{
@@ -188,9 +188,4 @@ body {
         border-bottom-right-radius: 1.5em;
  }
     }
-     img{
-    width: 200px;
-    height: 200px;
-    padding: 0;
-    text-align:center;
-}
+

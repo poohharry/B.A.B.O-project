@@ -15,11 +15,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/userinfo.css">
+    <link rel="stylesheet" href="css/allUser.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <title>회원 상세정보 페이지</title>
 </head>
 <body>
+	<% String id = (String)session.getAttribute("lgnId"); %>
+	<%
+		if(id == null) id = "";
+	%>
+	<% if (!(id.equals("admin")) || id.equals("")){ %>
+		<script>alert("접근 권한이 없습니다.");
+		location.href="c_index.jsp"; </script>
+	<% } %>
     <div class="headerdiv">
         <p>회원 상세정보 페이지</p>
         <div class="buttondiv">
@@ -79,7 +87,7 @@
                   <td>회원 가입일자</td> <td><%=vo.getSignUpDate() %></td>
               </tr>
               <tr>
-              	  <td>회원 닉네임</td> <td><%=vo.getNickname() %>
+              	  <td>회원 닉네임</td> <td><%=vo.getNickname() %></td>
               </tr>
               
           </table> <!-- infotable -->   
@@ -97,7 +105,7 @@
           
           <div class="selectdiv">
              <section class="selectsection">
-               <form action="blacklistproc.jsp" method="post" class="selectform">
+               <form action="blacklistproc.jsp?id=<%=vo.getId()%>" method="post" class="selectform">
                  <label><input class="blackinput" type="radio" name="black" value="1" checked/>
                  1일 활동정지</label><br> 
                  

@@ -21,10 +21,11 @@
 		} else {
 			msg = "해당하는 ID가 존재하지 않습니다.";
 		}
-	} else if(item.equals("email")) {
+	} else if(item.equals("pw")) {
 		findPW = dao.findPW(id, email);
 		if(findPW != null) {
-			msg = "찾으시는 pw는 " + findPW + "입니다.";
+			msg = "비밀번호 재설정 페이지로 이동합니다";
+			url = "resetpw.jsp?id=" + id;
 		} else {
 			msg = "입력하신 정보를 다시 한번 확인해 주세요.";
 		}

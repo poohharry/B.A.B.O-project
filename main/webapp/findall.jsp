@@ -7,11 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="부산광역시-removebg-preview.ico">
-    <link rel="stylesheet" href="css/findid.css">
+    <link rel="stylesheet" href="css/allLogin.css">
      <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <title>아이디 찾기 페이지</title>
 </head>
 <body>
+
 	  <button type="button" value="아이디찾기" id="findid" >아이디 찾기</button>
     <button type="button" value="비밀번호찾기" id="findpw">패스워드 찾기</button>
     <hr class="hr-id">
@@ -23,7 +24,7 @@
           <input class="un" name="login_email" type="text" align="center" placeholder="Email">
           
           <a class="submit" onclick="document.findId.submit()">아이디 검색</a>
-  		  
+ 		<br><br>
           <a class="reset" onclick="history.back()">뒤로가기 </a>
           </form>        
         </div>
@@ -40,6 +41,7 @@
               </div>
             </form>        
         </div>
+
 </body>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="js/find.js">

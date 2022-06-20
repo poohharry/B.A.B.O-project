@@ -15,15 +15,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/userinfo.css">
+    <link rel="stylesheet" href="css/allUser.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <title>나의 상세정보 페이지</title>
+    <script>
+    	function surefunc() {
+    		if(confirm("정말 탈퇴하시겠습니까?") == true) {
+    			document.getElementById("frm").submit();
+    		} else {
+    			return false
+    		}
+    	}
+    </script>
 </head>
 <body>
     <div class="headerdiv">
         <p>나의 상세정보 페이지</p>
         <div class="buttondiv">
             <button type="button" onclick="location.href='c_index.jsp'">메인 페이지</button>
+            <button type="button" onclick="location.href='Change_info.jsp'">회원정보 수정</button>
         </div> <!-- buttondiv -->
     </div> <!-- headerdiv -->
 
@@ -31,6 +41,7 @@
 	<% UserVO uid = dao.getUser(id); %>
 	<% List<PostVO> arr = pdao.getUserPostList(id); %>
    	<% List<CommentVO> cmtarr = pdao.getUserCommentList(id); %>
+   	<% session.setAttribute("id", id); %>
    
       <div class="infodiv">
           <table class="infotable">
@@ -61,17 +72,17 @@
                   <td>회원 가입일자</td> <td><%=uid.getSignUpDate() %></td>
               </tr>
               <tr>
-              	  <td>회원 닉네임</td> <td><%=uid.getNickname() %>
+              	  <td>회원 닉네임</td> <td><%=uid.getNickname() %></td>
               </tr>
               
           </table> <!-- infotable -->   
           <br>
           
           <div class="deletebutton">
-              <form action="deleteproc.jsp" method="post">
-              <input name="id" type="hidden" value="<%=vo.getId()%>" />
-              <input style="width: 150px; height:50px; font-size:20px;" 
-              type="submit" value="회원 탈퇴"/>
+              <form id="frm" action="myinfodelete.jsp" method="post">
+              	<input name="id" type="hidden" value="<%=uid.getId()%>" />
+              	<input style="width: 150px; height:50px; font-size:20px;" 
+              	type="submit" onclick="surefunc()" value="회원 탈퇴"/>
               </form>   
           </div> <!-- deletebutton -->
           
