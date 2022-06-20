@@ -26,7 +26,11 @@
     <link rel="stylesheet" href="css/chInfo_write.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <title>회원정보수정</title>
-
+	<script>
+	function backfunc () {
+    	history.back();
+    }
+	</script>
 </head>
 <body>
 	<div class="main">	
@@ -91,7 +95,7 @@
             	<h3>이메일</h3>
             </span>
             <span class="signup-input">
-                <input id="signup-email" type="text" placeholder="선택입력" 
+                <input id="signup-email" type="text" placeholder="선택입력" readonly
                 name="email" value="<%=vo.getEmail()%>"></input>
             </span>
         </div> <!-- style="margin-top: 35px -->
@@ -113,7 +117,7 @@
             </div>
             <div class="change_btn">
                 <input type="submit" class="submit" value="수정">
-                <input type="reset" class="reset" value="리셋">
+                <input type="button" class="reset" value="뒤로가기" onclick="backfunc()">
             </div>
       	</div>
       </form>      
