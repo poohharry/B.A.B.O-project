@@ -26,16 +26,7 @@
     <link rel="stylesheet" href="css/chInfo_write.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <title>회원정보수정</title>
-    
-    <script>
-    	$(document).ready(function(){
-    		$(('select[name="month"]').find('option:value="<%=month%>"')).attr("selected",true);
-    				
-    	});
-    	
-    	
-    	
-  	</script>
+
 </head>
 <body>
 	<div class="main">	
@@ -45,14 +36,18 @@
         	<div>
         	<h3>신규 비밀번호</h3>
         	<span class="signup-input">
-            	<input id="signup-pw" type="password" name="newPw"></input>
+            	<input id="signup-pw" class="pw" type="password" name="newPw"></input>
             	<span class="pw-lock"></span>
         	</span>
+        		<div id="password-danger">숫자+ 영문+특수문자 조합으로 8자리 이상 사용해야 합니다.</div>
+            	<div id="password-danger2"> 같은 문자를 4번 이상 사용 하실 수 없습니다.</div>
 		<h3>비밀번호 재확인</h3>
         	<span class="signup-input">
-            	<input id="signup-pww" type="password" name="newPwChk"></input>
+            	<input id="signup-pww" class="pw" type="password" name="newPwChk"></input>
             	<span class="pww-lock"></span>
         	</span>
+        		<div id="success">비밀번호가 일치합니다.</div>
+         		<div id="fail">비밀번호가 일치하지않습니다.</div>
     </div> <!-- main --> 
     
     <div style="margin-top: 35px;">
@@ -120,9 +115,16 @@
                 <input type="submit" class="submit" value="수정">
                 <input type="reset" class="reset" value="리셋">
             </div>
-      
+      	</div>
       </form>      
-            
     </div>
 </body>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script defer src="./js/registerChk.js">
+    $(document).ready(function(){
+		$(('select[name="month"]').find('option:value="<%=month%>"')).attr("selected",true);
+				
+	});
+    </script>
+   
 </html>

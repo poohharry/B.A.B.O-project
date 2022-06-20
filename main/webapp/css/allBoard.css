@@ -1,4 +1,4 @@
-/* Notice_board Q&A_board c_index(Free_board) */
+/* Notice_board Q&A_board c_index(Free_board) introduce*/
 @charset "UTF-8";
 * {
   margin: 0;
@@ -102,6 +102,7 @@ li {
 
 .title > a {
   color: white;
+  margin-left:10px;
 }
 
 .footer {
@@ -213,14 +214,7 @@ legend{
   li > a {
     color: white;
   }
-  .fab {
-    font-size: 35px;
-    color: #1DA1F2;
-  }
 
-  .fas {
-    display: none;
-  }
 }
 
 
@@ -236,11 +230,5 @@ legend{
     display: none;
   }
 
-  .fab {
-    display : none;
-  }
 
-  .fas {
-    font-size: 2em;
-  }
 }

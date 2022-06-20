@@ -163,3 +163,26 @@ span {
   width: 720px;
   margin: auto;
 } 
+ #password-danger,#password-danger2{
+/*   color:red;
+  margin-to
+  top:418px;
+  left:698px; */
+  display:none;
+}
+#success{
+  color:blue;
+  /* position:absolute;
+  top:423px;
+  left:591px; */
+  margin:0px 553px 0px 0px;
+  display:none;
+}
+#fail{
+  color:red;
+ /*  position:absolute;
+  top:423px;
+  left:591px; */
+ margin:0px 501px 0px 0px;
+  display:none;
+}
