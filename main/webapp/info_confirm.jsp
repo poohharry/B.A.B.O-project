@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="부산광역시-removebg-preview.ico">
-    <link rel="stylesheet" href="css/info_confirm.css">
+    <link rel="stylesheet" href="css/allLogin.css">
      <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <title>회원정보확인</title>
 </head>
