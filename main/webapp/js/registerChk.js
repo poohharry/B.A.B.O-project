@@ -64,12 +64,12 @@ function signUpChk() {
 		
 	}
 	if(sFrm.birthyy.value < "1930"){
-		alert("정말인가요?");
+		alert("태어난 연도는 1931년 이상이어야 합니다.");
 		sFrm.birthyy.focus();
 		return;
 	}
 	if(sFrm.birthyy.value > "2022"){
-		alert("미래에서 오신건가요?");
+		alert("태어난 연도는 2022년 이하여야 합니다.");
 		sFrm.birthyy.focus();
 		return;
 		
