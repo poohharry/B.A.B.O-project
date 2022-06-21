@@ -47,6 +47,8 @@
 
       <p class="forgot" align="center"><a href="findall.jsp" class ="forgot_a">아이디 또는 패스워드를 잊었나요?</a></p>
       <p class="register" align="center"><a href="register.jsp">회원 가입</a></p>
+      <button type="button" onclick="location.href='c_index.jsp'"
+      style="width: 150px;">메인 페이지</button>
       </form> <!-- form1 form -->    
     </div> <!-- main -->
 </body>

@@ -125,17 +125,30 @@
             
             </div>
             <div style="margin-top: 35px;">
-                
                 <h3><label>사업자 여부 <input type="checkbox" name="isBiz"></label></h3>
             </div>
          </div>
                     
                 
-        <label> 
-        <div class="signup-btn-wrap">
-            <button type="button" id="signup-btn" onclick="signUpChk()">가입하기</button>
+        <br><br>
+        <div>
+        	<div class="lastdiv">
+	        	<label> 
+		        <div class="signup-btn-wrap">
+		            <button type="button" id="signup-btn" onclick="signUpChk()">가입하기</button>
+		        </div>
+		        </label>
+		        
+		        <label>
+		        <div class="signup-btn-wrap">
+		        	<button type="button" id="signup-btn" onclick="location.href='c_index.jsp'"
+		            style="width:150px; margin-left: 10px;">메인페이지</button>
+		        </div>
+		        </label>
+	        </div>
         </div>
-        </label>
+        
+        
 
       </form>      
             
