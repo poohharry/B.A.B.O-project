@@ -16,7 +16,7 @@ body{
 
 #postListContainer{
 	width:1280px;
-	margin: 200px auto;
+	margin: 200px auto 100px auto;
 }
 
  h1{
@@ -265,4 +265,8 @@ legend{
 #main_notice_title {
 	margin: 0 50px;
 	color: black;
+}
+
+footer{
+	margin-top: 150px;
 }

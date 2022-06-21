@@ -102,7 +102,7 @@
                 <input id="signup-name" type="text" placeholder="제목" name="board-title" value="<%=vo.getTitle() %>" />
             </span>
             <span class="textarea-Contents">
-            	<textarea name="ir1" id="ir1" cols="113" rows="20" placeholder="내용" value="<%=vo.getContents()%>"></textarea>
+            	<textarea name="ir1" id="ir1" cols="113" rows="20" placeholder="내용"><%=vo.getContents()%></textarea>
             	
             </span>
     	</div>
