@@ -218,10 +218,8 @@ a {
     color: #fff;
     cursor: pointer;
   	border-radius: 5em;
-    border: 0;
-      
+    border: 0; 
     font-family: 'Ubuntu', sans-serif;
-    margin-left: 35%;
     font-size: 16px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 }
@@ -342,22 +340,18 @@ margin: auto;
 }
 #password-danger,#password-danger2{
   color:red;
-  position:absolute;
+  /* position:absolute;
   top:418px;
   left:698px;
-  display:none;
+ */  display:none;
 }
 #success{
-  color:blue;
-  position:absolute;
-  top:530px;
-  left:702px;
-  display:none;
+ color:blue;
+ margin: 0px 553px 0px 0px;
+ display:none;
 }
 #fail{
   color:red;
-  position:absolute;
-  top:525px;
-  left:702px;
+  margin:0px 501px 0px 0px ;
   display:none;
 }

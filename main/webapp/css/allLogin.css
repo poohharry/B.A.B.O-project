@@ -30,7 +30,16 @@ form.form1 {
 form.form1_findpw {
     padding-top: 0px;
 }
-    
+.back>a{
+	color:#000;
+	text-decoration: none;
+	
+}
+.back> a:visited{
+	color:#000;
+	text-decoration:none
+}
+   
 .pass {
     width: 76%;
     color: rgb(38, 50, 56);
@@ -70,6 +79,21 @@ form.form1_findpw {
  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
  font-weight: bold;;
 }
+#submit {
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: #B2B2B2;
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  font-weight: bold;;
+ }
 .submit2 {
  cursor: pointer;
  border-radius: 5em;
@@ -81,11 +105,28 @@ form.form1_findpw {
  padding-bottom: 10px;
  padding-top: 10px;
  font-family: 'Ubuntu', sans-serif;
- margin-left: 35%;
+ margin-left: 22%;
  font-size: 16px;
  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
  font-weight: bold;;
 }
+#submit2 {
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: #B2B2B2;
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  font-weight: bold;;
+  
+ }
+ 
 .submit_info_confirm {
     cursor: pointer;
     border-radius: 5em;

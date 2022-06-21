@@ -24,8 +24,7 @@
           <input id="un" name="login_email" type="text" align="center" placeholder="Email">
           
           <a class="submit" onclick="document.findId.submit()">아이디 검색</a>
- 		<br><br>
-          <a id="reset" onclick="history.back()">뒤로가기 </a>
+          <a id="submit" onclick="history.back()">뒤로가기 </a>
           </form>        
         </div>
         <div id="main2">	
@@ -37,7 +36,7 @@
               <input id="pass" name="login_email" type="text"  placeholder="E-mail" /> 
               <div style="display:flex;">
               <input type="submit" class="submit2" value="비밀번호 찾기" />
-          	  <a id="reset2" onclick="history.back()">뒤로가기 </a>
+          	  <a id="submit2" onclick="history.back()">뒤로가기 </a>
               </div>
             </form>        
         </div>

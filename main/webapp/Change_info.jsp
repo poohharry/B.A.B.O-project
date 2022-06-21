@@ -112,8 +112,8 @@
             
             </div>
             <div class="change_btn">
-                <input type="submit" class="submit" value="수정">
-                <input type="reset" class="reset" value="리셋">
+                <label><input type="submit" class="submit" value="수정"></label>
+                <label><input type="reset" class="reset" value="리셋"></label>
             </div>
       	</div>
       </form>      

@@ -17,7 +17,6 @@
 </head>
 <body>
 
-  
   <div class="main">	
     <p class="sign" align="center">회원가입</p>
     
@@ -121,11 +120,14 @@
                 
                     
                 
-            
-        <div class="signup-btn-wrap">
+            <div style="display:flex;">
+        <div class="signup-btn-wrap" style="margin-left:150px;">
             <button type="button" id="signup-btn" onclick="signUpChk()">가입하기</button>
         </div>
-
+         <div class="signup-btn-wrap" style="margin-right:200px;">
+            <button type="button" id="signup-btn" onclick="history.back()">취소</button>
+        </div>
+        </div>
       </form>      
             
     </div>

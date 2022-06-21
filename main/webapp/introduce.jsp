@@ -108,6 +108,7 @@
       <div class="wrap">
            <div class="box" id="a1">
             <div class="map1-title">감천문화마을</div>
+             <div class="map1-title-real">감천문화마을</div>
         	<div class="map1-first">위치:부산광역시 사하구 감내1로 200</div>
         	<div class="map1-comment">감천문화마을은 1950년대 6.25 피난민의 힘겨운<br>
         	삶의 터전으로 시작되어 현재에 이르기까지<br>
@@ -120,6 +121,7 @@
         </div>
         <div class="box" id="a2">
             <div class="map2-title">해운대해수욕장</div>
+            <div class="map2-title-real">해운대해수욕장</div>
             <div class="map2-first">위치:부산광역시 해운대구</div>
             <div class="map2-comment">부산광역시 해운대구에 있는 해수욕장.<br>
             	 광안대교와 더불어 외지인들에게 가장<br>
