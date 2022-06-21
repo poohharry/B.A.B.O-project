@@ -11,7 +11,10 @@
 <%
 	// 파라미터 값으로 넘어오는 애들 한글깨짐 방지
 	request.setCharacterEncoding("UTF-8");
-
+	String pageNum = request.getParameter("pageNum");
+	if(pageNum == null) {
+		pageNum = "1";
+	}
 	// 로그인된 ID
 	String id = (String)session.getAttribute("lgnId");
 	uvo = udao.getUser(id);
@@ -138,7 +141,7 @@ function del () {
 			} %> <!-- if(id != null) -->
 			
 				<button type="button" value="목록" class="move-board" 
-				onclick="history.back()">목록</button>
+				onclick="location.href='<%=vo.getCategory()%>.jsp?pageNum=<%=pageNum%>'">목록</button>
 			</div> <!-- mbdiv -->
 		</div> <!-- content-change -->
 				
