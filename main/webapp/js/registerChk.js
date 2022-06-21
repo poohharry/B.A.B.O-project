@@ -35,7 +35,7 @@ function signUpChk() {
 		sFrm.pw.focus();
 		return;
 	}
-	if(sFrm.ChkPw.value == "") {
+	if(sFrm.ChkPw.value == "" || (sFrm.ChkPw.value) != (sFrm.pw.value)) {
     alert("비밀번호를 확인하십시오");
     sFrm.ChkPw.value="";
     sFrm.ChkPw.focus();
@@ -63,8 +63,8 @@ function signUpChk() {
 		return;
 		
 	}
-	if(sFrm.birthyy.value < "1930"){
-		alert("태어난 연도는 1931년 이상이어야 합니다.");
+	if(sFrm.birthyy.value < "1900"){
+		alert("태어난 연도는 1900년 이상이어야 합니다.");
 		sFrm.birthyy.focus();
 		return;
 	}
