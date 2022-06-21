@@ -14,7 +14,7 @@
 <head>
 <meta charset="UTF-8">
 <title>이메일 확인</title>
-<link rel="stylesheet" href="./css/login_style.css">
+<link rel="stylesheet" href="./css/allLogin.css">
 
 </head>
 <body>
@@ -22,7 +22,9 @@
     <p class="sign" align="center">이메일 확인인증</p>
     <form action="c_index.jsp" method="post" class="form1" name="email_confirm">
     <br><br>
+    <div style = "height: 150px;">
       <input class="pass" name="inputEmail" type="text" align="center" placeholder="Email" id=inEmail>
+    </div>
       <a class="submit" onclick="checkEmail()">확인</a>
       </form>      
             

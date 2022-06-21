@@ -40,7 +40,7 @@
 <head>
 <meta charset="UTF-8">
 <title><%=title %></title>
-<link rel="stylesheet" href="./css/c_style.css">
+<link rel="stylesheet" href="./css/allBoard.css">
 <link rel="stylesheet" href="./css/read.css">
 
 <script>
