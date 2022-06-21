@@ -188,6 +188,7 @@ li {
   background-image:url('https://a.cdn-hotels.com/gdcs/production132/d545/0870f01b-96ec-4854-98b6-72dfc747fa92.jpg');
   background-repeat: no-repeat;
   background-size:cover;
+  text-align:center;
 
   }
 
@@ -195,117 +196,102 @@ li {
     background-image:url('https://www.visitbusan.net/uploadImgs/files/cntnts/20191229153530671_oen');
     background-repeat: no-repeat;
     background-size:cover;
-  
+    text-align: center;;
 }
 #a3{
     background-image:url('https://www.yeongdo.go.kr/CmsMultiFile/view.do?multifileId=MF00000182&idx=27717');
     background-repeat: no-repeat;
     background-size:cover;
-
+    text-align:center;
 }
 #a4{
     background-image:url('http://www.thebay101.com/wp-content/uploads/2020/11/front1-1280x480.jpg');
     background-repeat: no-repeat;
     background-size:cover;
-    
+    text-align:center;
 }
 #a5{
     background-image:url('https://t1.daumcdn.net/cfile/blog/1964DF0E4B4D66A84D');
     background-repeat: no-repeat;
     background-size:cover;
-    
+    text-align:center;
 }
 .map1-title{
-	padding-top: 400px;
-  margin: 0px 0px 0px 400px;
+	padding-top: 20%;
 	color:#fff;
 	font-size: 3.5em;
 }
 .map1-first{
+  padding-top:20px;
 	color:#fff;
-  margin: 40px 0px 0px 400px;
-	font-size: 1.5em;
-	
+	font-size: 1.5em;	
 }
 
 .map1-comment{
+  padding-top: 20px;
   color:#fff;
   font-size: 2em;
-  margin: -130px 0px 0px 950px;
-
-	
 }
-
-
 .map2-title{
- color:#fff;
- font-size: 3.5em;
- padding-top: 400px;
- margin: 0px 0px 0px 400px;
+	padding-top: 20%;
+	color:#fff;
+	font-size: 3.5em;
 }
-
 .map2-first{
-  color:#fff;
-  font-size: 1.5em;
-  margin: 40px 0px 0px 400px;
+  padding-top:20px;
+	color:#fff;
+	font-size: 1.5em;	
 }
 .map2-comment{
+  padding-top: 20px;
   color:#fff;
   font-size: 2em;
-  margin: -130px 0px 0px 950px;
 }
 .map3-title{
-  color:#fff;
-  font-size: 3.5em;
-  padding-top: 400px;
-  margin: 0px 0px 0px 400px;
- }
- 
- .map3-first{
-   color:#fff;
-   font-size: 1.5em;
-   margin: 40px 0px 0px 400px;
- }
- .map3-comment{
-   color:#fff;
-   font-size: 2em;
-   margin: -130px 0px 0px 950px;
- }
+	padding-top: 20%;
+	color:#fff;
+	font-size: 3.5em;
+}
+.map3-first{
+  padding-top:20px;
+	color:#fff;
+	font-size: 1.5em;	
+}
 
- .map4-title{
+.map3-comment{
+  padding-top: 20px;
   color:#fff;
-  font-size: 3.5em;
-  padding-top: 400px;
-  margin: 0px 0px 0px 400px;
- }
- 
- .map4-first{
-   color:#fff;
-   font-size: 1.5em;
-   margin: 40px 0px 0px 400px;
- }
- .map4-comment{
-   color:#fff;
-   font-size: 2em;
-   margin: -130px 0px 0px 950px;
- }
+  font-size: 2em;
+}
+.map4-title{
+	padding-top: 20%;
+	color:#fff;
+	font-size: 3.5em;
+}
+.map4-first{
+  padding-top:20px;
+	color:#fff;
+	font-size: 1.5em;	
+}
 
- .map5-title{
+.map4-comment{
+  padding-top: 20px;
   color:#fff;
-  font-size: 3.5em;
-  padding-top: 400px;
-  margin: 0px 0px 0px 400px;
- }
- 
- .map5-first{
-   color:#fff;
-   font-size: 1.5em;
-   margin: 40px 0px 0px 400px;
- }
- .map5-comment{
-   color:#fff;
-   font-size: 2em;
-   margin: -130px 0px 0px 1050px;
- }
-
+  font-size: 2em;
+}
+.map5-title{
+	padding-top: 20%;
+	color:#fff;
+	font-size: 3.5em;
+}
+.map5-first{
+  padding-top:20px;
+	color:#fff;
+	font-size: 1.5em;	
+}
+.map5-comment{
+  padding-top: 20px;
+  color:#fff;
+  font-size: 2em;
+}
 

@@ -120,8 +120,8 @@
         	</div>
         </div>
         <div class="box" id="a2">
+        <div style="align-content: center;">
             <div class="map2-title">해운대해수욕장</div>
-            <div class="map2-title-real">해운대해수욕장</div>
             <div class="map2-first">위치:부산광역시 해운대구</div>
             <div class="map2-comment">부산광역시 해운대구에 있는 해수욕장.<br>
             	 광안대교와 더불어 외지인들에게 가장<br>
@@ -131,6 +131,7 @@
 				 이 때문에 7~8월 성수기엔 전국에서 몰려드는<br>
 				 관광객들로 인해 가장 붐비는 해수욕장으로 유명하다.
 				 </div>
+			</div>	 
         </div>
         <div class="box" id="a3">
                   <div class="map3-title">태종대</div>
