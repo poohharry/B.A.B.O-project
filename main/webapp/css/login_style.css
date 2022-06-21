@@ -25,25 +25,7 @@ body {
     .register{
     	margin-left:0px;
     }
-    .un {
-    width: 300px;
-    color: rgb(38, 50, 56);
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-    background: rgba(136, 126, 126, 0.04);
-    padding: 10px 20px;
-    border:1px solid;
-    border-radius: 20px;
-    outline: none;
-    box-sizing: border-box;
-    margin-bottom: 50px;
-    margin-left: 130px;
-    text-align: center;
-    margin-bottom: 27px;
-    font-family: 'Ubuntu', sans-serif;
-    }
-    
+
     form.form1 {
         padding-top: 40px;
     }
@@ -61,7 +43,7 @@ body {
     box-sizing: border-box;
     border:1px solid;
     margin-bottom: 50px;
-    margin-left: 130px;
+    margin-left: 6px;
     text-align: center;
     margin-bottom: 27px;
     font-family: 'Ubuntu', sans-serif;
@@ -84,7 +66,8 @@ body {
         padding-bottom: 10px;
         padding-top: 10px;
         font-family: 'Ubuntu', sans-serif;
-        margin-left: 39%;
+        margin-left: auto;
+        margin-right: auto;
         font-size: 16px;
         box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
         font-weight: bold;;

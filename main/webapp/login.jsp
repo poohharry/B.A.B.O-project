@@ -39,9 +39,10 @@
   <div class="main">	
     <p class="sign" align="center">로그인</p>
     <form action="login_ok.jsp" method="post" class="form1" name="loginFrm" >
+    <div style = "height: 150px;">
       <input class="pass" name="login_ID" type="text" align="center" placeholder="ID">
       <input class="pass" name="login_PW" type="password" align="center"placeholder="Password">
-
+    </div>
       <button class="submit" onclick="loginChk()">로그인 </button>
 
       <p class="forgot" align="center"><a href="findall.jsp" class ="forgot_a">아이디 또는 패스워드를 잊었나요?</a></p>

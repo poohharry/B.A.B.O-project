@@ -22,7 +22,7 @@
     <p class="sign" align="center">이메일 확인인증</p>
     <form action="c_index.jsp" method="post" class="form1" name="email_confirm">
     <br><br>
-      <input class="un" name="inputEmail" type="text" align="center" placeholder="Email" id=inEmail>
+      <input class="pass" name="inputEmail" type="text" align="center" placeholder="Email" id=inEmail>
       <a class="submit" onclick="checkEmail()">확인</a>
       </form>      
             
