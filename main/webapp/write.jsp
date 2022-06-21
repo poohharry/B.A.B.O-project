@@ -10,6 +10,15 @@
     	uvo = udao.getUser(id);
     	String nickname = uvo.getNickname() + "(" + uvo.getId() + ")";
     %>
+    <% if (id == null) id = "";  %>
+
+<% if (id == "") { %>
+   		<script>
+   			alert("로그인이 필요합니다.");
+   			location.href="login.jsp";
+   		</script>
+   	<% } %> 
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>

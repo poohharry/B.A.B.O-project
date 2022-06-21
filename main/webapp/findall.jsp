@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="css/allLogin.css">
      <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <title>아이디 찾기 페이지</title>
+    <script>
+    	function backfunc() {
+    		history.back();
+    	}
+    </script>
 </head>
 <body>
 
@@ -25,19 +30,19 @@
           
           <a class="submit" onclick="document.findId.submit()">아이디 검색</a>
  		<br><br>
-          <a id="reset" onclick="history.back()">뒤로가기 </a>
+          <a id="reset" onclick="backfunc()">뒤로가기 </a>
           </form>        
         </div>
         <div id="main2">	
             <p class="sign" align="center">비밀번호 찾기</p>
         
-            <form action="find_proc.jsp?item=email" method="post" class="form1">
+            <form action="find_proc.jsp?item=pw" method="post" class="form1">
               <p class="" align="center">비밀번호를 찾을 계정의 ID와<br> 이메일을 입력해주세요</p><br>
               <input id="pass" name="login_id" type="text" placeholder="ID" />
               <input id="pass" name="login_email" type="text"  placeholder="E-mail" /> 
               <div style="display:flex;">
               <input type="submit" class="submit2" value="비밀번호 찾기" />
-          	  <a id="reset2" onclick="history.back()">뒤로가기 </a>
+        	  <a id="reset2" onclick="backfunc()">뒤로가기 </a>
               </div>
             </form>        
         </div>
