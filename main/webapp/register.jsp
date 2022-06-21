@@ -17,7 +17,6 @@
 </head>
 <body>
 
-  
   <div class="main">	
     <p class="sign" align="center">회원가입</p>
     
@@ -102,9 +101,7 @@
             </span>
             <div style="display: flex;">
             <span class="signup-input1">
-                <input id="signup-email" type="text" 
-                placeholder="이메일을 입력하려면 먼저 중복체크 버튼을 눌러주세요." 
-                name="email" readonly></input>
+                <input id="signup-email" type="text" placeholder="선택입력" name="email" readonly></input>
                 
             </span>
             <button type="button" onclick="eoverlap()" class="overlap-btn">중복체크</button>
@@ -118,17 +115,12 @@
  
             <div style="display: flex;">
                 <span class="signup-input">
-                    <input id="signup-phone" type="text" 
-                    placeholder="전화번호는 '-' 를 빼고 숫자만 입력해주세요." 
-                    name="pNum" maxlength="11"></input>
+                    <input id="signup-phone" type="text" placeholder="전화번호 입력" name="pNum" maxlength="11"></input>
                 </span>
             
             </div>
             <div style="margin-top: 35px;">
                 <h3><label>사업자 여부 <input type="checkbox" name="isBiz"></label></h3>
-            </div>
-         </div>
-                    
                 
         <br><br>
         <div>
@@ -148,8 +140,6 @@
 	        </div>
         </div>
         
-        
-
       </form>      
             
     </div>

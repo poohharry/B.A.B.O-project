@@ -1,0 +1,14 @@
+diff a/main/webapp/css/allLogin.css b/main/webapp/css/allLogin.css	(rejected hunks)
+@@ -51,8 +51,12 @@
+ }
+     
+ form.form1 {
++    /* login */
++    /* findall */
++    /* info_confirm */
+     padding-top: 40px;
+ }
++<<<<<<< HEAD
+ 
+ form.form1_findpw {
+     padding-top: 0px;

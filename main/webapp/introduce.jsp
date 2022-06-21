@@ -108,6 +108,7 @@
       <div class="wrap">
            <div class="box" id="a1">
             <div class="map1-title">감천문화마을</div>
+             <div class="map1-title-real">감천문화마을</div>
         	<div class="map1-first">위치:부산광역시 사하구 감내1로 200</div>
         	<div class="map1-comment">감천문화마을은 1950년대 6.25 피난민의 힘겨운<br>
         	삶의 터전으로 시작되어 현재에 이르기까지<br>
@@ -119,6 +120,7 @@
         	</div>
         </div>
         <div class="box" id="a2">
+        <div style="align-content: center;">
             <div class="map2-title">해운대해수욕장</div>
             <div class="map2-first">위치:부산광역시 해운대구</div>
             <div class="map2-comment">부산광역시 해운대구에 있는 해수욕장.<br>
@@ -129,6 +131,7 @@
 				 이 때문에 7~8월 성수기엔 전국에서 몰려드는<br>
 				 관광객들로 인해 가장 붐비는 해수욕장으로 유명하다.
 				 </div>
+			</div>	 
         </div>
         <div class="box" id="a3">
                   <div class="map3-title">태종대</div>
