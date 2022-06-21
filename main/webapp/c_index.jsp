@@ -5,12 +5,17 @@
 <jsp:useBean id="dao" class="common.PostDAO" />
 
 <%@ page import="common.PostVO" %>
+<%@ page import="common.CommentVO" %>
 <%@ page import="java.util.*" %>
+
 <%
   request.setCharacterEncoding("UTF-8");
   String id = (String)session.getAttribute("lgnId");
   uvo = udao.getUser(id);
-  List<PostVO> noticeList = dao.getPostList("Notice_Board", 0, 10);
+  // 공지사항 필드에 최신순으로 10개만 올라가도록
+  List<PostVO> noticeList = dao.getPostList("Notice_Board", 1, 10);
+  List<PostVO> recentPostList = dao.getAllPostList();
+  List<PostVO> hotList = dao.getHotList();
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,23 +70,56 @@
         </section> <!-- hbody -->
     </header>
     
-	<div class="container ">
-    	<div style="display: flex;">
-     		<fieldset class=" notice">
-         		<legend>공지사항</legend>
-         		<table>
-         			<tr>
-         				
-         			</tr>
-         		</table>
-     		</fieldset>
-     		<fieldset class=" new_board">
-        		<legend>최신 글</legend>
-    		</fieldset>
-		</div> <!-- display:flex -->
-     	<fieldset class=" Free_board">
-         	<legend>실시간 인기글</legend>
-     	</fieldset>
+	<div class="container">
+		<div id="mainContent">
+	    	<div id="main_upperContent">
+	     		<fieldset class=" notice">
+	         		<legend>공지사항</legend>
+	         		<table style="margin:0 auto;">
+	        			<%for(int i = 0; i < noticeList.size(); i++) { %>
+	   	     			<tr>
+	         				<td><a href="read.jsp?pNum=<%=noticeList.get(i).getPNum()%>" id="main_notice_title"><%=noticeList.get(i).getTitle()%></a></td>
+	        				<td id="main_notice_wrDate"><%=noticeList.get(i).getWrDate() %></td>
+	        			</tr>
+	         			<%}%>
+	         		</table>
+	     		</fieldset>
+	     		<fieldset class=" new_board">
+	        		<legend>최신 글</legend>
+	        		<div>
+		        		<table style="margin:0 auto;">
+		        			<%for(int i = 0; i < recentPostList.size(); i++) {
+		        			PostVO recentVO = recentPostList.get(i);%>
+		        			<tr>
+		        				<td id="main_new_category"><%=recentVO.getCategory()%> &nbsp;</td>
+		        				<td><a href="read.jsp?pNum=<%=recentVO.getPNum()%>" id="main_new_title"><%=recentVO.getTitle() %></a></td>
+		        				<td><%=recentVO.getWrDate()%></td>
+		        			</tr>
+		        			
+		        			<%}%>
+		        		</table>
+	        		</div>
+	    		</fieldset>
+			</div> <!-- display:flex -->
+	     	<fieldset class="Free_board">
+	         	<legend>실시간 인기글</legend>
+	         	<div>
+		         	<table style="margin:0 auto;">
+		         		<%for(int i = 0; i < hotList.size() ; i++) {
+		         		PostVO vo = hotList.get(i);
+		         		// 댓글 개수를 표시하기 위해 
+		         		List<CommentVO> comList = dao.getComments(vo.getPNum());%>
+		         		<tr>
+		         			<td id="main_hot_category"><%=vo.getCategory()%> &nbsp;</td>
+		         			<td><a href="read.jsp?pNum=<%=vo.getPNum()%>" id="main_hot_title"><%=vo.getTitle()%> <span style="color:blue;">[<%=comList.size()%>]</span> </a>&nbsp;</td>
+		         			<td id="main_hot_wrDate"><%=vo.getWrDate()%> &nbsp;</td>
+		         			<td id="main_hot_viewCnt" style="width: 150px; text-align: right;"><%=vo.getViewCnt()%> views</td>
+		         		</tr>
+		         		<%}%>
+	         		</table>
+	         	</div>
+	     	</fieldset>
+		</div><!-- mainContent -->
  	</div><!-- container -->
  	
     <footer>

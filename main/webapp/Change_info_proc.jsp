@@ -15,7 +15,6 @@
 	vo.setEmail(email);
 	vo.setpNum(request.getParameter("pNum"));
 	vo.setBirth(birth);
-	vo.setNickname("nickname");
 	vo.setId(id);
 
 /*	

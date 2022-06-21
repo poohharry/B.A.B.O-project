@@ -29,7 +29,8 @@
             <h3>아이디</h3>
             <div style="display:flex;">
             <span class="signup-input1">
-                <input id="signup-id" type="text" name="id" readonly></input>
+                <input id="signup-id" type="text" name="id" readonly 
+                placeholder="아이디를 입력하려면 먼저 중복체크 버튼을 눌러주세요."></input>
             </span>
             <button type="button" onclick="overlap()" class="overlap-btn">중복체크</button>
           </div>
@@ -65,7 +66,9 @@
             <h3>생년월일</h3>
             <span style="display: flex;">
                 <span class="signup-input-birth">
-                    <input id="signup-birth-yy" name="birthyy" type="number" placeholder="년(4자)" maxlength="4" oninput="maxLengthCheck(this)" min="1931" max="2022"></input>
+                    <input id="signup-birth-yy" name="birthyy" type="number" 
+                    placeholder="생년(4자리)을 입력해주세요 " maxlength="4" oninput="maxLengthCheck(this)" 
+                    min="1931" max="2022"></input>
                 </span>
                 <span class="signup-input-birth" style="margin-left: 10px;">
                     <select id="signup-birth-mm" class="selectbox" name="month" >
@@ -85,7 +88,9 @@
                     </select>
                 </span>
                 <span class="signup-input-birth" style="margin-left: 10px;">
-                    <input id="signup-birth-dd" name="birthdd"type="number" placeholder="일" maxlength="2" oninput="maxLengthCheck(this)" min="1" max="31" ></input>
+                    <input id="signup-birth-dd" name="birthdd"type="number" 
+                    placeholder="생일을 입력해주세요" maxlength="2" 
+                    oninput="maxLengthCheck(this)" min="1" max="31" ></input>
                 </span>
             </span>
 

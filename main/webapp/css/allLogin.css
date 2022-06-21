@@ -1,6 +1,7 @@
 /* login findid findpw info_confirm */
 @charset "UTF-8";
 body {
+    /* login */
 	background-color: #B2B2B2;
     font-family: 'Ubuntu', sans-serif;
 	overflow-y: hidden;
@@ -8,6 +9,9 @@ body {
 }
 
 .main {
+    /* login */
+    /* findall */
+    /* info_confirm */
     background-color: #FFFFFF;
     width: 550px;
     height: 550px;
@@ -15,7 +19,30 @@ body {
     box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
 
+#main {
+    background-color: #FFFFFF;
+    width: 550px;
+    height: 550px;
+    border-bottom-left-radius: 1.5em;
+    border-bottom-right-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+#main2 {
+    /* findall */
+    /* display: none; */
+    background-color: #FFFFFF;
+    width: 550px;
+    height: 550px;
+    border-bottom-left-radius: 1.5em;
+    border-bottom-right-radius: 1.5em;
+    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
 .sign {
+    /* login */
+    /* findall */
+    /* info_confirm */
     padding-top: 40px;
     color: #000;
     font-family: 'Ubuntu', sans-serif;
@@ -180,17 +207,17 @@ form.form1_findpw {
 }
     
  .register a {
-    /* findid, findpw */
+    /* login */
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
     color: #000;
     text-decoration: none
 } 
 
 .forgot_a {
+    /* login */
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
     color: #000;
-    text-decoration: none
-    /* -findid -findpw  */
+    text-decoration: none;
 }
     
 
@@ -215,14 +242,16 @@ img{
 }
 
 .txt_center{
+    /* info_confirm */
     text-align:center;
     margin-top:auto;
     padding-bottom:25px;
     font-size: 14px;
-
 }
 
 .reset {
+    /* findall */
+    /* info_confirm */
     cursor: pointer;
     border-radius: 5em;
     color: #fff;
@@ -237,24 +266,10 @@ img{
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
     font-weight: bold;;
 }
-#main {
-        background-color: #FFFFFF;
-        width: 550px;
-        height: 550px;
-        border-bottom-left-radius: 1.5em;
-        border-bottom-right-radius: 1.5em;
-        box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-}
-#main2 {
-    /* display: none; */
-    background-color: #FFFFFF;
-    width: 550px;
-    height: 550px;
-    border-bottom-left-radius: 1.5em;
-    border-bottom-right-radius: 1.5em;
-    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-}
+
+
 #findid{
+    /* findall */
     background-color: #FFFFFF;
     border:none;
     width: 280px;
@@ -268,7 +283,9 @@ img{
     font-size: 20px;
     cursor:pointer;
 }
+
 #findpw{
+    /* findall */
     background-color: #FFFFFF;
     border:none;
     width: 270px;
@@ -282,19 +299,7 @@ img{
     font-size: 20px;
     cursor:pointer;
 }
-.hr-id{
-    width: 275px;
-    position:absolute;
-    top:16px;
-    border-top: 2px solid #b2b2b2;
-}
-.hr-pw{
-    width: 275px;
-    position:absolute;
-    top:16px;
-    left:273px;
-    border-top: 2px solid #b2b2b2;
-    /* display:none; */
+
 }
  #reset{
         position:absolute;

@@ -15,8 +15,7 @@
 
 	  <button type="button" value="아이디찾기" id="findid" >아이디 찾기</button>
     <button type="button" value="비밀번호찾기" id="findpw">패스워드 찾기</button>
-    <hr class="hr-id">
-    <hr class="hr-pw">
+
 	<div id="main">	
         <p class="sign" align="center">아이디 찾기</p>
         <form action="find_proc.jsp?item=id" method="post" class="form1" name="findId">
@@ -43,6 +42,6 @@
 
 </body>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script src="js/find.js">
+<script src="./js/find.js">
 </script>
 </html>

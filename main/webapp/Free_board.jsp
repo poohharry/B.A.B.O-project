@@ -105,7 +105,7 @@
 	    		<tr class="postList">
 	    			<td id="pNum"><%=list.get(i).getPNum() %></td>
 	    			<td id="title">
-	    			<a href="read.jsp?pNum=<%=list.get(i).getPNum()%>">
+	    			<a href="read.jsp?pNum=<%=list.get(i).getPNum()%>&pageNum=<%=pageNum%>">
 	    			<%=list.get(i).getTitle() %>[<%=comList.size() %>]</a></td>
 	    			<td id="writter">
 	    			<a href="profilepage.jsp?id=<%=list.get(i).getWritter() %>">

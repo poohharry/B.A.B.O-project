@@ -22,7 +22,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/write.css">
+    <link rel="stylesheet" href="css/chInfo_write.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <script type="text/javascript" src="./SE2/js/service/HuskyEZCreator.js" charset="utf-8"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

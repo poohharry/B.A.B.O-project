@@ -1,0 +1,12 @@
+diff a/main/webapp/register.jsp b/main/webapp/register.jsp	(rejected hunks)
+@@ -101,7 +101,9 @@
+             </span>
+             <div style="display: flex;">
+             <span class="signup-input1">
+-                <input id="signup-email" type="text" placeholder="선택입력" name="email" readonly></input>
++                <input id="signup-email" type="text" 
++                placeholder="이메일을 입력하려면 먼저 중복체크 버튼을 눌러주세요." 
++                name="email" readonly></input>
+                 
+             </span>
+             <button type="button" onclick="eoverlap()" class="overlap-btn">중복체크</button>

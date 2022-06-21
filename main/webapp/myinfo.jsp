@@ -9,6 +9,20 @@
 <%@ page import = "java.util.*" %>
 <%@ page import = "common.CommentVO" %>
 
+	<% String id = (String)session.getAttribute("lgnId"); %>
+	<% UserVO uid = dao.getUser(id); %>
+	<% List<PostVO> arr = pdao.getUserPostList(id); %>
+   	<% List<CommentVO> cmtarr = pdao.getUserCommentList(id); %>
+   	<% System.out.println(id); %>
+   	<% if (id == null) id = "";  %>
+
+<% if (id == "") { %>
+   		<script>
+   			alert("로그인이 필요합니다.");
+   			location.href="login.jsp";
+   		</script>
+   	<% } %> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,17 +37,15 @@
     		if(confirm("정말 탈퇴하시겠습니까?") == true) {
     			document.getElementById("frm").submit();
     		} else {
-    			return false
+    			return event.preventDefault();
     		}
     	}
     </script>
 </head>
 <body>
-	<% String id = (String)session.getAttribute("id"); %>
-	<% UserVO uid = dao.getUser(id); %>
-	<% List<PostVO> arr = pdao.getUserPostList(id); %>
-   	<% List<CommentVO> cmtarr = pdao.getUserCommentList(id); %>
-   	<% String myid = request.getParameter("id"); %>
+	
+   	
+   	
 	
 	
     <div class="headerdiv">
@@ -116,14 +128,14 @@
                    <td>작성한 댓글의 내용</td>
                    <td>작성한 댓글이 쓰여진 게시물의 제목</td>
                 </tr>
-               <% if (cmtarr.size() > 0 && arr.size() > 0) {%>
+               <% if (cmtarr.size() > 0) {%>
                <!-- cmtarr은 현재 id의 게시물번호와 댓글내용이 담긴 변수 -->
                <!-- cmtarr.size()는 현재 id의 댓글 배열(작성한 게시물번호+댓글내용)의 길이 -->
                <!-- cmtarr.size()가 0이라는것은 작성한 댓글이 하나도 없다는것 -->
                <!-- arr은 현재 id의 게시글 배열(작성한 글의 고유번호, 글 제목, 작성한 게시판 종류)이 담긴 변수 -->
                <!-- arr.size()가 0이라는것은 작성한 글이 하나도 없다는것 -->
                   <% for (int j = 0; j < cmtarr.size(); j++) { %>
-                  <% PostVO commentTitle = pdao.readPost(arr.get(j).getPNum()); %>
+                  <% PostVO commentTitle = pdao.readPost(cmtarr.get(j).getPostNum()); %>
                   <!-- arr.get(j) = arr(에 담긴 list)의 j번째 인덱스
                   (= 현재 아이디로 쓴 j번째 게시물) 
                   (= 이 인덱스에는 게시글 고유번호,글제목,게시판 종류 값이 들어있다)를 가져오는것. -->
@@ -141,7 +153,7 @@
                    그래서 getContents()도 사용 가능 -->                    
                    
                    <td class="secondlink">
-                   <a href="read.jsp?pNum=<%=arr.get(j).getPNum()%>">
+                   <a href="read.jsp?pNum=<%=cmtarr.get(j).getPostNum()%>">
                    <%= commentTitle.getTitle() %></a></td>
                    <!-- commentTitle.getTitle
                    = commentTitle은 PostVO 타입이므로 모든 getter, setter를 가지고있다.

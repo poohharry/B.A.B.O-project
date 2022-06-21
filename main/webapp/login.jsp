@@ -39,13 +39,18 @@
   <div class="main">	
     <p class="sign" align="center">로그인</p>
     <form action="login_ok.jsp" method="post" class="form1" name="loginFrm" >
-      <input class="pass" name="login_ID" type="text" align="center" placeholder="ID"  required>
-      <input class="pass" name="login_PW" type="password" align="center"placeholder="Password"  required>
+
+    <div style = "height: 150px;">
+      <input class="pass" name="login_ID" type="text" align="center" placeholder="ID">
+      <input class="pass" name="login_PW" type="password" align="center"placeholder="Password">
+    </div>
+
 
       <button class="submit" onclick="loginChk()">로그인 </button>
+         <p class="back"><a href="c_index.jsp">메인으로</a></p>
 	  <button class="submit" onclick="location.href='register.jsp'">회원 가입</button>
       <p class="forgot" align="center"><a href="findall.jsp" class ="forgot_a">아이디 또는 패스워드를 잊었나요?</a></p>
-      <p class="back"><a href="c_index.jsp">메인으로</a></p>
+
       </form> <!-- form1 form -->    
     </div> <!-- main -->
 </body>

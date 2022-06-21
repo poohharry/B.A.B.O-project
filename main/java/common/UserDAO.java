@@ -180,24 +180,22 @@ public class UserDAO {
 			con = pool.getConnection();
 			// 유저가 수정페이지에서 비밀번호를 입력하면 그걸로 교체, 입력하지 않으면 유지
 			if(vo.getPw() == null) {
-				sql = "update users set name = ?, email = ?, pNum = ?, birth = ?, nickname = ? where id = ?";
+				sql = "update users set name = ?, email = ?, pNum = ?, birth = ? where id = ?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, vo.getName());
 				pstmt.setString(2, vo.getEmail());
 				pstmt.setString(3, vo.getpNum());
 				pstmt.setString(4, vo.getBirth());
-				pstmt.setString(5, vo.getNickname());
-				pstmt.setString(6, vo.getId());
+				pstmt.setString(5, vo.getId());
 			} else {
-				sql = "update users set pw = ?, name = ?, email = ?, pNum = ?, birth = ?, nickname = ? where id = ?";
+				sql = "update users set pw = ?, name = ?, email = ?, pNum = ?, birth = ? where id = ?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, vo.getPw());
 				pstmt.setString(2, vo.getName());
 				pstmt.setString(3, vo.getEmail());
 				pstmt.setString(4, vo.getpNum());
 				pstmt.setString(5, vo.getBirth());
-				pstmt.setString(6, vo.getNickname());
-				pstmt.setString(7, vo.getId());
+				pstmt.setString(6, vo.getId());
 			}
 			if (pstmt.executeUpdate() == 1) {
 				flag = true;				
